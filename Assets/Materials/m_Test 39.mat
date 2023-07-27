@@ -110,9 +110,9 @@ Material:
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
-    - _LightGradientMidLevel: 0.53
+    - _LightGradientMidLevel: 0
     - _LightGradientMidLevel1: 0
-    - _LightGradientSize: 0.56
+    - _LightGradientSize: 0
     - _LightGradientSize1: 0
     - _NormalRimPush: 0
     - _NormalStr: 1
@@ -123,8 +123,8 @@ Material:
     - _PointLightAttenuationBoost: 2.68
     - _RampSize: 0.52
     - _RampSize1: 0
-    - _RimPower: 2.6
-    - _RimScale: 0.79
+    - _RimPower: 0
+    - _RimScale: 0
     - _ShadowLevel: 0
     - _SpecIntensity: 0.46
     - _SpecSmoothing: 18.19
@@ -157,6 +157,7 @@ Material:
     - _Extrusion: {r: 0.05, g: 0.05, b: 0.05, a: 0}
     - _Highlightcolor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
     - _NormalTexFlow: {r: -0.4, g: 300, b: 0, a: 0}
+    - _NormalTiling: {r: 0, g: 0, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.26598534, g: 0.3301887, b: 0, a: 0}
