@@ -132,11 +132,12 @@ Material:
     - _VertOffset: 0
     - _Wind: 3.2
     - _WindNoiseScale: 0
-    - __dirty: 0
+    - __dirty: 1
     - _fractmult: 1.21
     - _frequency: 8.57
     - _max: 1.5
     - _min: 1.1
+    - _normalspeed: 1
     - _rampsize2: 0
     - _rimoffset: 0.76
     m_Colors:
