@@ -799,88 +799,88 @@ public partial class @WizardActions: IInputActionCollection2, IDisposable
             ""id"": ""d68fc4f9-03cb-4e55-9903-167ceb028a00"",
             ""actions"": [
                 {
-                    ""name"": ""Horizontal"",
-                    ""type"": ""Button"",
+                    ""name"": ""Camera Horizontal"",
+                    ""type"": ""Value"",
                     ""id"": ""ac0bec61-8cb1-4eab-8179-9e68fdf52f23"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Vertical"",
-                    ""type"": ""Button"",
-                    ""id"": ""7709d3f4-f911-4a86-bc12-26d9fc34072f"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""Camera Vertical"",
+                    ""type"": ""Value"",
+                    ""id"": ""68718b3d-b778-423e-b9b2-e0aa481b7f4a"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""1D Axis"",
+                    ""name"": ""2D Vector"",
                     ""id"": ""d8f49cbe-52d4-4901-b302-891e9d608fc5"",
-                    ""path"": ""1DAxis"",
+                    ""path"": ""2DVector(whichSideWins=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Horizontal"",
+                    ""action"": ""Camera Horizontal"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""02ac1a43-18a7-4823-8c74-8baf4b46be1b"",
+                    ""name"": ""Left"",
+                    ""id"": ""30ee256a-b963-4916-b7a6-903eec53e4a9"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Horizontal"",
+                    ""action"": ""Camera Horizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""5cf44ae5-3611-4309-b407-46bb0e669913"",
+                    ""name"": ""Right"",
+                    ""id"": ""da424a58-2afc-466d-9b02-ff0e9f9c291a"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Horizontal"",
+                    ""action"": ""Camera Horizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""da530c75-6072-48ff-bedc-9d8c4f907ed4"",
-                    ""path"": ""1DAxis"",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""c02c6c78-a6b9-47e5-b6c7-b350b99352fc"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Vertical"",
+                    ""action"": ""Camera Vertical"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""dcd3d95b-43ed-47eb-a352-51c6b284b5c3"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Vertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""f13105b6-560f-4d5d-9869-df59f18f7afd"",
+                    ""name"": ""up"",
+                    ""id"": ""21773ed9-87b7-4c85-9cb8-ff855bf25f22"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Vertical"",
+                    ""action"": ""Camera Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""e036cf76-f438-4d7c-8cc2-34ac8bdeb35e"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera Vertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -969,8 +969,8 @@ public partial class @WizardActions: IInputActionCollection2, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
-        m_Camera_Horizontal = m_Camera.FindAction("Horizontal", throwIfNotFound: true);
-        m_Camera_Vertical = m_Camera.FindAction("Vertical", throwIfNotFound: true);
+        m_Camera_CameraHorizontal = m_Camera.FindAction("Camera Horizontal", throwIfNotFound: true);
+        m_Camera_CameraVertical = m_Camera.FindAction("Camera Vertical", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1212,14 +1212,14 @@ public partial class @WizardActions: IInputActionCollection2, IDisposable
     // Camera
     private readonly InputActionMap m_Camera;
     private List<ICameraActions> m_CameraActionsCallbackInterfaces = new List<ICameraActions>();
-    private readonly InputAction m_Camera_Horizontal;
-    private readonly InputAction m_Camera_Vertical;
+    private readonly InputAction m_Camera_CameraHorizontal;
+    private readonly InputAction m_Camera_CameraVertical;
     public struct CameraActions
     {
         private @WizardActions m_Wrapper;
         public CameraActions(@WizardActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Horizontal => m_Wrapper.m_Camera_Horizontal;
-        public InputAction @Vertical => m_Wrapper.m_Camera_Vertical;
+        public InputAction @CameraHorizontal => m_Wrapper.m_Camera_CameraHorizontal;
+        public InputAction @CameraVertical => m_Wrapper.m_Camera_CameraVertical;
         public InputActionMap Get() { return m_Wrapper.m_Camera; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1229,22 +1229,22 @@ public partial class @WizardActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_CameraActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_CameraActionsCallbackInterfaces.Add(instance);
-            @Horizontal.started += instance.OnHorizontal;
-            @Horizontal.performed += instance.OnHorizontal;
-            @Horizontal.canceled += instance.OnHorizontal;
-            @Vertical.started += instance.OnVertical;
-            @Vertical.performed += instance.OnVertical;
-            @Vertical.canceled += instance.OnVertical;
+            @CameraHorizontal.started += instance.OnCameraHorizontal;
+            @CameraHorizontal.performed += instance.OnCameraHorizontal;
+            @CameraHorizontal.canceled += instance.OnCameraHorizontal;
+            @CameraVertical.started += instance.OnCameraVertical;
+            @CameraVertical.performed += instance.OnCameraVertical;
+            @CameraVertical.canceled += instance.OnCameraVertical;
         }
 
         private void UnregisterCallbacks(ICameraActions instance)
         {
-            @Horizontal.started -= instance.OnHorizontal;
-            @Horizontal.performed -= instance.OnHorizontal;
-            @Horizontal.canceled -= instance.OnHorizontal;
-            @Vertical.started -= instance.OnVertical;
-            @Vertical.performed -= instance.OnVertical;
-            @Vertical.canceled -= instance.OnVertical;
+            @CameraHorizontal.started -= instance.OnCameraHorizontal;
+            @CameraHorizontal.performed -= instance.OnCameraHorizontal;
+            @CameraHorizontal.canceled -= instance.OnCameraHorizontal;
+            @CameraVertical.started -= instance.OnCameraVertical;
+            @CameraVertical.performed -= instance.OnCameraVertical;
+            @CameraVertical.canceled -= instance.OnCameraVertical;
         }
 
         public void RemoveCallbacks(ICameraActions instance)
@@ -1328,7 +1328,7 @@ public partial class @WizardActions: IInputActionCollection2, IDisposable
     }
     public interface ICameraActions
     {
-        void OnHorizontal(InputAction.CallbackContext context);
-        void OnVertical(InputAction.CallbackContext context);
+        void OnCameraHorizontal(InputAction.CallbackContext context);
+        void OnCameraVertical(InputAction.CallbackContext context);
     }
 }
