@@ -141,7 +141,7 @@ Material:
     - _rampsize2: 0
     - _rimoffset: 0.76
     m_Colors:
-    - _Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}
+    - _Color: {r: 0.18867922, g: 0.18066925, b: 0.18066925, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _Extrusion: {r: 0, g: 0, b: 0, a: 0}
