@@ -103,15 +103,15 @@ Material:
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
-    - _LightGradientMidLevel: 0
+    - _LightGradientMidLevel: 0.364
     - _LightGradientMidLevel1: 0
-    - _LightGradientSize: 1
+    - _LightGradientSize: 0.571
     - _LightGradientSize1: 0
     - _NormalRimPush: 0
-    - _NormalStr: 1.41
+    - _NormalStr: 1
     - _Outerradius: 0.5
     - _OutlineSize: 0
-    - _PointLightAttenuationBoost: 2.66
+    - _PointLightAttenuationBoost: 1
     - _RampSize: 0.52
     - _RampSize1: 0
     - _RimMult: 0
@@ -128,7 +128,7 @@ Material:
     - _StepWidth: 0.37
     - _Steps: 3
     - _TimeScaleLeaves: 0.48
-    - _Timesteps: 5
+    - _Timesteps: 4.4
     - _VertOffset: 0
     - _Wind: 0
     - _WindNoiseScale: 0
@@ -146,11 +146,11 @@ Material:
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _Extrusion: {r: 0, g: 0, b: 0, a: 0}
     - _Highlightcolor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0}
-    - _NormalTiling: {r: 1, g: 0.1, b: 0, a: 0}
+    - _NormalTiling: {r: 0.6, g: 0.05, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 0}
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
-    - _ShadowColor1: {r: 0.1811655, g: 0, b: 0.2924528, a: 1}
+    - _ShadowColor1: {r: 0.24942869, g: 0.19624422, b: 0.2830189, a: 1}
     - _ShadowTint: {r: 0.039215565, g: 1, b: 0, a: 1}
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
