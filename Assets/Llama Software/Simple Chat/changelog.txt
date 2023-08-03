@@ -1,0 +1,64 @@
+2.3.0
+- Enable easier setting of player name at runtime outside the inspector.
+- Fix: Server Only builds throwing errors related to UI components.
+
+2.2.2 
+- Update to Mirror 78 Compatibility. Specifically around older Scripting Define symbols being removed breaking some functionality.
+
+2.2.1
+- Update to Mirror 53 Compatibility. 
+
+2.1.3
+- Updated Mirror breaking changes support for Mirror 30.2.2: https://mirror-networking.com/docs/Articles/General/ChangeLog.html#version-3022----2020-dec-17
+
+2.1.2
+- Updated Mirror breaking changes support for Mirror 23 & 26 (October 2020 & November 2020 updates, specifically https://github.com/vis2k/Mirror/pull/2317).
+- Improved Code documentation.
+- Moved ChatSystem internal classes into separate Model classes
+
+2.1.1
+- Fixed issue where Auto Hide Chat parameter is not respected
+
+2.1.0
+- Renamed to Simple Chat
+- Add support for Mirror
+- Add support and requirement of TextMeshPro
+- Fixed minor alignment issue on Chat Panel background image
+- Support 2018.4 LTS and 2019+
+
+2.0.1
+ - bugfix for content panel not resizing correctly on adding message to UI.
+ - Add option to make chat panel appear on spawn
+
+new in 2.0: 
+ - No code changes are required to support the basic functionality (excluding Chat Commands, these still must be written by you to do whatever you want the command to do) 
+   - Added ChatPlayer Script that should be placed on your main Player Object and everything will work out of the box. Turn off "UseForInputHandling" if you want to run custom code to open/close the chat
+ - Chat System has a totally new Custom Inspector
+ - Chat System supports dynamic channel joining / leaving
+ - Chat System no longer generates a bunch of garbage - only garbage from Unity/UNET will be generated
+ - Chat System now utilizes a simple Object Pool to minimize runtime stutters from object creation/destruction and garbage
+ - Optimizations around FindObjectsOfType have been applied for all users, no longer do you have to write some custom code to manage it, so overall performance is greatly improved.
+ - Chat System supports callbacks for OnOpen OnClose and OnSendMessage where any custom code can be tied in
+ - If using 2017.1+ the Chat System comes using TextMeshPro for improved text readability and better handling of events
+
+new in 1.2
+ - Chat System now has a fully customizable language filter
+   - In the inspector, add words, or regular expressions of words to the Word Filters. 2 examples are provided. If you need help with regular expressions, a good free online tool to help test them is here: http://www.regexpal.com/
+   - Each filter can be configured to be case sensitive, or not.
+ - Chat System now supports Commands
+   - Each command is accessible by typing /[name of command]. In the demo scene there are 3 commands configured. 
+     - /help to print help
+	 - /all to change chat message target to all chat
+	 - /team to change chat message target to current user's team chat.
+   - In the Inspector you can configure what each command does with the native Unity Editor controls.
+   - Please note that the user must press enter to submit a command. If CallFunctionThenSendMessage = true, the message will still be sent after FunctionToCall.Invoke() is called. This is useful for scenarios such as /team hello team to send the message to team chat if the Chat System was first opened with the intention to send a message to all chat.
+     - For example, typing "/team hello team" should send "hello team" to my current team chat. and "/all hello all" should send "hello all" to the all chat channel if this is set to true.
+new in 1.1
+ - Chat System allows direct adding/editing of Channels in the Editor. Simply set the number of desired channels, name them, and give them a channel (uint), and a Color.
+ - Chat Message prefab no longer uses separate Sender Name and Message text components. Using rich text the channel color is assigned to the name, and message is appended after that.
+   - This also allows long names and messages to display in a more fluid nature
+ - Ensures latest chat message is displayed when scrolling occurs.
+ - Add option to prevent showing chat on message received in case you want user to always have to manually open chat
+ - Input Placeholder informs user which channel they will be typing to. 
+	- Note that an upgrade to 5.4 will be required for best results. There is an undesirable effect of clearing the placeholder text when user selects inputfield, so they cannot read this placeholder
+ - More advanced feature: Give some samples + framework for optional performance improvements (do not always search for players, instead cache them locally)

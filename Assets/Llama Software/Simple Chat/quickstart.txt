@@ -1,0 +1,12 @@
+To instantly get started in your NEW or EXISTING UNET/Mirror game:
+
+Make sure you have the requirements:
+* for Unity 2019+ you must import the Muiltiplayer HLAPI from the Package Manager OR Mirror. Multiplayer HLAPI (UNET) is not included by default in 2019 and higher.
+* (optional) Import Mirror from the Asset Store. If updating Mirror, you may need to remove Simple Chat and re-add it. This will allow your project to compile, Mirror to update the Scripting Define Symbols, then Simple Chat will compile again.
+  * If you do not use Mirror you may receive an error message that the Mirror package could not be found. This does not cause any issues, but to get rid of that error you can remove the first dependency from the LlamaSoftware.UNET.Chat asmdef in Llama Software/Simple Chat/Scripts/ChatSystem
+* Ensure you have TextMeshPro imported from the PACKAGE MANAGER.
+
+1. Drag Chat Panel prefab onto your in-game Canvas, or create a new Canvas and drag the ChatPanel there.
+2. Configure Chat Panel channels as necessary for your game (Readme.pdf has full details on what everything does, and there is a lot of in-context help).
+3. Attach ChatPlayer to your root Player Object (or whichever object has a NetworkIdentity) and configure default channels.
+You're done!
