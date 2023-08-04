@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 76912896914219269, guid: da1fa9f9dd4d4c14baf0e304cbf79634, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 76912896914219269, guid: da1fa9f9dd4d4c14baf0e304cbf79634, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 76912896914219269, guid: da1fa9f9dd4d4c14baf0e304cbf79634, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 76912896914219269, guid: da1fa9f9dd4d4c14baf0e304cbf79634, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -963
+      objectReference: {fileID: 0}
+    - target: {fileID: 76912896914219269, guid: da1fa9f9dd4d4c14baf0e304cbf79634, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 87
+      objectReference: {fileID: 0}
     - target: {fileID: 1084617411624275053, guid: da1fa9f9dd4d4c14baf0e304cbf79634, type: 3}
       propertyPath: m_textAlignment
       value: 65535
@@ -207,6 +227,10 @@ PrefabInstance:
     - target: {fileID: 1084617413294132595, guid: da1fa9f9dd4d4c14baf0e304cbf79634, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002051532562517885, guid: da1fa9f9dd4d4c14baf0e304cbf79634, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1084617412841873713, guid: da1fa9f9dd4d4c14baf0e304cbf79634, type: 3}

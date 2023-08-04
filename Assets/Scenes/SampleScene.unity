@@ -265,6 +265,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chat Panel Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4957325632504566389, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957325632504566389, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957325632504566389, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4957325633099549615, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
