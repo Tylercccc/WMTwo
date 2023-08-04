@@ -255,55 +255,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1183778814878371520, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
       propertyPath: sceneId
-      value: 1979129211
+      value: 1033375795
       objectReference: {fileID: 0}
     - target: {fileID: 4957325631405225629, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4957325631519120016, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -995
-      objectReference: {fileID: 0}
-    - target: {fileID: 4957325632139687635, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4957325632139687639, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
       propertyPath: m_Name
       value: Chat Panel Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 4957325632345764011, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
-      propertyPath: m_textAlignment
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 4957325632345764011, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 4957325632504566389, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4957325632504566389, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4957325632504566389, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4957325633071537038, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
-      propertyPath: m_textAlignment
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 4957325633071537038, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 2164260863
-      objectReference: {fileID: 0}
-    - target: {fileID: 4957325633071537038, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
       objectReference: {fileID: 0}
     - target: {fileID: 4957325633099549615, guid: 8841f6c508af1574ab686960f17f1221, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4061,7 +4021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554c07c7cc2109d438bd8353e4887b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Llama Lover Name
+  Name: Crummy Wizard
   SetNameDelay: 2
 --- !u!114 &1644717280
 MonoBehaviour:
