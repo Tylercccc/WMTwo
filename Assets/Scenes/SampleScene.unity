@@ -5224,9 +5224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitch: 0
-  zoomSpeed: 4
-  minZoom: 5
-  maxZoom: 15
+  zoomSpeed: 0.1
+  minZoom: -1000
+  maxZoom: 1000
   target: {fileID: 1644717276}
   offset: {x: 0, y: 0, z: 1}
   yawSpeed: 100

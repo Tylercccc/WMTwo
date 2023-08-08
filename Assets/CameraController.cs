@@ -20,7 +20,8 @@ public class CameraController : MonoBehaviour
     private float currentPitch = 0f;
 
     private WizardActions controls;
-
+    private InputAction zoomVal;
+    //public InputAction controls;
     public void Awake()
     {
         controls = new WizardActions();
@@ -28,9 +29,12 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        //currentZoom -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
-        //currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
-
+        //currentZoom -= Input.GetAxis("ScrollWheel") * zoomSpeed;
+        //zoomVal = controls.ReadValue<float>();
+        currentZoom -= zoomVal.ReadValue<Vector2>().y* 0.1f * zoomSpeed;
+        currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
+        Debug.Log(currentZoom);
+        Debug.Log("Zoom value: " + zoomVal.ReadValue<Vector2>().y);
         currentYaw -= Input.GetAxis("Horizontal") * yawSpeed * Time.deltaTime;
         currentPitch -= Input.GetAxis("Vertical") * yawSpeed * Time.deltaTime;
         //Vector3 v3 = new Vector3(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"), 0.0f);
@@ -48,11 +52,14 @@ public class CameraController : MonoBehaviour
     }
     public void OnEnable()
     {
-        controls.Enable();
+        zoomVal = controls.Camera.ScrollWheel;
+        zoomVal.Enable();
+        //controls.Enable();
     }
 
     public void OnDisable()
     {
-        controls.Disable();
+        zoomVal.Disable();
+        //controls.Disable();
     }
 }
