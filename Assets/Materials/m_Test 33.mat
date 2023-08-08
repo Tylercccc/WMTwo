@@ -105,7 +105,7 @@ Material:
     - _LightGradientSize: 0.392
     - _LightGradientSize1: 0
     - _NormalRimPush: 0
-    - _NormalStr: 0.387
+    - _NormalStr: 0.524
     - _Outerradius: 0.5
     - _OutlineSize: 0
     - _PointLightAttenuationBoost: 2.66
@@ -123,7 +123,7 @@ Material:
     - _StepShadows: -1.19
     - _StepShadows1: 0
     - _StepWidth: 0.37
-    - _Steps: 3
+    - _Steps: 2
     - _VertOffset: 0
     - __dirty: 0
     - _fractmult: 1.21
