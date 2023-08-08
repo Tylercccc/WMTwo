@@ -71,7 +71,7 @@ public class PlayerMovementController : MonoBehaviour
         //Navigation is likely starting
         else if (_needToRotate)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * _rotateSpeed);
+            transform.rotation = _lookRotation; // Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * _rotateSpeed);
 
             if (Vector3.Dot(_direction, transform.forward) >= .99f)
             {
