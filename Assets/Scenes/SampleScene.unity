@@ -5223,13 +5223,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d852f5b8ff84cf58e39610667f99b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  virtualCam: {fileID: 1898435915}
   pitch: 0
-  zoomSpeed: 0.1
-  minZoom: -1000
-  maxZoom: 1000
   target: {fileID: 1644717276}
   offset: {x: 0, y: 0, z: 1}
   yawSpeed: 100
+  zoomLevel: 0
+  sensitivity: 0.001
+  speed: 30
+  maxZoom: 1000
 --- !u!114 &1898435915
 MonoBehaviour:
   m_ObjectHideFlags: 0
