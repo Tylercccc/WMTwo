@@ -12,7 +12,6 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 		[TCP2HeaderHelp(Base)]
 		_Color ("Color", Color) = (1,1,1,1)
 		[TCP2ColorNoAlpha] _HColor ("Highlight Color", Color) = (0.75,0.75,0.75,1)
-		[TCP2ColorNoAlpha] _SColor ("Shadow Color", Color) = (0.2,0.2,0.2,1)
 		[HideInInspector] __BeginGroup_ShadowHSV ("Shadow HSV", Float) = 0
 		_Shadow_HSV_H ("Hue", Range(-180,180)) = 0
 		_Shadow_HSV_S ("Saturation", Range(-1,1)) = 0
@@ -34,6 +33,7 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 		[HideInInspector] TerrainMeta_maskMapTexture ("Mask Map", 2D) = "white" {}
 		[HideInInspector] TerrainMeta_normalMapTexture ("Normal Map", 2D) = "bump" {}
 		[HideInInspector] TerrainMeta_normalScale ("Normal Scale", Float) = 1
+		[HideInInspector] [HDR] TerrainMeta_specular ("Shadow Color", Color) = (0,0,0,0)
 		[Toggle(_TERRAIN_INSTANCED_PERPIXEL_NORMAL)] _EnableInstancedPerPixelNormal("Enable Instanced per-pixel normal", Float) = 1.0
 		[TCP2Separator]
 		
@@ -41,6 +41,12 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 		[TCP2ColorNoAlpha] _SpecularColor ("Specular Color", Color) = (0.5,0.5,0.5,1)
 		_SpecularSmoothness ("Smoothness", Float) = 0.2
 		_SpecularToonBands ("Specular Bands", Float) = 3
+		[TCP2Separator]
+		
+		[TCP2HeaderHelp(Rim Lighting)]
+		[TCP2ColorNoAlpha] _RimColor ("Rim Color", Color) = (0.8,0.8,0.8,0.5)
+		_RimMin ("Rim Min", Range(0,2)) = 0.5
+		_RimMax ("Rim Max", Range(0,2)) = 1
 		[TCP2Separator]
 		
 		[HideInInspector] [NoScaleOffset] _Normal0 ("Layer 0 Normal Map AddPass", 2D) = "bump" {}
@@ -89,6 +95,15 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 		// Terrain Shader specific
 		
 		//----------------------------------------------------------------
+		// Terrain data to pass to the lighting function
+		struct TerrainData
+		{
+			half4 splatControl;
+			half3 mixedDiffuse;
+			half4 specularColor;
+		};
+		
+		//----------------------------------------------------------------
 		// Per-layer variables
 		
 		CBUFFER_START(_Terrain)
@@ -99,6 +114,7 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 			half _LayerHasMask0, _LayerHasMask1, _LayerHasMask2, _LayerHasMask3;
 			// half4 _Splat0_ST, _Splat1_ST, _Splat2_ST, _Splat3_ST;
 			half _NormalScale0, _NormalScale1, _NormalScale2, _NormalScale3;
+			half4 _Specular0, _Specular1, _Specular2, _Specular3;
 		
 			#ifdef UNITY_INSTANCING_ENABLED
 				float4 _TerrainHeightmapRecipSize;   // float4(1.0f/width, 1.0f/height, 1.0f/(width-1), 1.0f/(height-1))
@@ -117,6 +133,7 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 		
 		#if defined(TERRAIN_BASE_PASS)
 			TCP2_TEX2D_WITH_SAMPLER(_MainTex);
+			TCP2_TEX2D_WITH_SAMPLER(_SpecularTex);
 			TCP2_TEX2D_WITH_SAMPLER(_NormalMap);
 		#endif
 		
@@ -232,11 +249,13 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 		float _Shadow_HSV_H;
 		float _Shadow_HSV_S;
 		float _Shadow_HSV_V;
-		fixed4 _SColor;
 		fixed4 _HColor;
 		float _SpecularSmoothness;
 		float _SpecularToonBands;
 		fixed4 _SpecularColor;
+		float _RimMin;
+		float _RimMax;
+		fixed4 _RimColor;
 
 		//--------------------------------
 		// HSV HELPERS
@@ -312,10 +331,23 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 		{
 			half3 viewDir;
 			half3 tangent;
+			half3 worldNormal; INTERNAL_DATA
 			float2 texcoord0;
 		};
 
 		//================================================================
+
+		// Terrain data to pass to lighting function
+		/*
+		struct TerrainData
+		{
+			half4 splatControl;
+			half4 specularColor;
+			half3 mixedDiffuse;
+			half smoothness;
+			half metallic;
+		};
+		*/
 
 		// Custom SurfaceOutput
 		struct SurfaceOutputCustom
@@ -323,13 +355,17 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 			half atten;
 			half3 Albedo;
 			half3 Normal;
+			half3 worldNormal;
 			half3 Emission;
 			half Specular;
 			half Gloss;
 			half Alpha;
+			half ndv;
+			half ndvRaw;
 
 			Input input;
 
+			TerrainData terrainData;
 			half terrainWeight;
 
 			// Shader Properties
@@ -345,6 +381,10 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 			float __specularSmoothness;
 			float __specularToonBands;
 			float3 __specularColor;
+			float __rimMin;
+			float __rimMax;
+			float3 __rimColor;
+			float __rimStrength;
 		};
 
 		//================================================================
@@ -370,6 +410,9 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 
 		void surf(Input input, inout SurfaceOutputCustom output)
 		{
+
+			input.worldNormal = WorldNormalVector(input, output.Normal);
+
 			// Shader Properties Sampling
 			float4 __layer0Mask = ( TCP2_TEX2D_SAMPLE(_Mask0, _Mask0, input.texcoord0.xy * _Splat0_ST.xy + _Splat0_ST.zw).rgba );
 			float __layer0HeightSource = ( __layer0Mask.b );
@@ -398,12 +441,16 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 			output.__shadowHue = ( _Shadow_HSV_H );
 			output.__shadowSaturation = ( _Shadow_HSV_S );
 			output.__shadowValue = ( _Shadow_HSV_V );
-			output.__shadowColor = ( _SColor.rgb );
+			output.__shadowColor = ( float3(1,1,1) );
 			output.__highlightColor = ( _HColor.rgb );
 			output.__ambientIntensity = ( 1.0 );
 			output.__specularSmoothness = ( _SpecularSmoothness );
 			output.__specularToonBands = ( _SpecularToonBands );
 			output.__specularColor = ( _SpecularColor.rgb );
+			output.__rimMin = ( _RimMin );
+			output.__rimMax = ( _RimMax );
+			output.__rimColor = ( _RimColor.rgb );
+			output.__rimStrength = ( 1.0 );
 
 			output.input = input;
 
@@ -418,6 +465,7 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 			#if defined(TERRAIN_BASE_PASS)
 			
 				half4 terrain_mixedDiffuse = TCP2_TEX2D_SAMPLE(_MainTex, _MainTex, terrainTexcoord0.xy).rgba;
+				half4 terrain_specularColor = TCP2_TEX2D_SAMPLE(_SpecularTex, _SpecularTex, terrainTexcoord0.xy).rgba;
 				half3 normalTS = half3(0.0h, 0.0h, 1.0h);
 			
 			#else
@@ -480,6 +528,14 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 				output.Normal = output.Normal.xzy;
 			#endif
 			
+			half3 worldNormal = WorldNormalVector(input, output.Normal);
+			output.worldNormal = worldNormal;
+
+			half ndv = abs(dot(input.viewDir, normalize(output.Normal.xyz)));
+			half ndvRaw = ndv;
+			output.ndv = ndv;
+			output.ndvRaw = ndvRaw;
+
 			output.Albedo = half3(1,1,1);
 			output.Alpha = 1;
 
@@ -499,8 +555,17 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 					half4 outVariable = dot(terrain_splat_control_0, half4(sourceVariable##0, sourceVariable##1, sourceVariable##2, sourceVariable##3));
 			
 				BLEND_TERRAIN_HALF4(terrain_mixedDiffuse, splat)
+				BLEND_TERRAIN_HALF4(terrain_specularColor, _Specular)
 			
 			#endif // !TERRAIN_BASE_PASS
+			
+				TerrainData terrainData = (TerrainData)0;
+				terrainData.mixedDiffuse = terrain_mixedDiffuse.rgb;
+				terrainData.specularColor = terrain_specularColor;
+			#if !defined(TERRAIN_BASE_PASS)
+				terrainData.splatControl = terrain_splat_control_0;
+			#endif
+				output.terrainData = terrainData;
 			
 			#if !defined(TERRAIN_BASE_PASS)
 				output.terrainWeight = terrain_weight;
@@ -519,6 +584,7 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 		inline half4 LightingToonyColorsCustom(inout SurfaceOutputCustom surface, half3 viewDir, UnityGI gi)
 		{
 
+			half ndv = surface.ndv;
 			half3 lightDir = gi.light.dir;
 			#if defined(UNITY_PASS_FORWARDBASE)
 				half3 lightColor = _LightColor0.rgb;
@@ -548,7 +614,7 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 			surface.Albedo = lerp(albedoShadowHSV, surface.Albedo, ramp);
 
 			// Highlight/Shadow Colors
-			surface.Albedo = lerp(surface.__shadowColor, surface.Albedo, ramp);
+			surface.Albedo = lerp(( surface.__shadowColor * surface.terrainData.specularColor.rgb ), surface.Albedo, ramp);
 			ramp = lerp(half3(1,1,1), surface.__highlightColor, ramp);
 
 			// Output color
@@ -575,6 +641,17 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-AddPass"
 			
 			//Apply specular
 			color.rgb += spec * lightColor.rgb * surface.__specularColor;
+			// Rim Lighting
+			#if !defined(UNITY_PASS_FORWARDADD)
+			half rim = 1 - surface.ndvRaw;
+			rim = ( rim );
+			half rimMin = surface.__rimMin;
+			half rimMax = surface.__rimMax;
+			rim = smoothstep(rimMin, rimMax, rim);
+			half3 rimColor = surface.__rimColor;
+			half rimStrength = surface.__rimStrength;
+			color.rgb += rim * rimColor * rimStrength;
+			#endif
 
 			#if !defined(TERRAIN_BASE_PASS)
 				color.rgb *= surface.terrainWeight;

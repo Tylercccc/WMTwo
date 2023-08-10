@@ -8,7 +8,8 @@
     "OpenedFoldouts": [
         "TERRAIN",
         "LIGHTING",
-        "SURFACE"
+        "SURFACE",
+        "STYLIZATION"
     ],
     "UseCustomFont": true,
     "CustomFont": {

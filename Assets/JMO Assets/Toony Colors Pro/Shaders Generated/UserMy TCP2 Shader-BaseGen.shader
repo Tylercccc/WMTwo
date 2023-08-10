@@ -117,6 +117,40 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-BaseGen"
 			ENDCG
 		}
 
+		Pass
+		{
+			Tags
+			{
+				"Name" = "_SpecularTex"
+				"Format" = "RGBA32"
+				"Size" = "1/4"
+			}
+
+			ZWrite Off
+			ZTest Always
+			Cull Off
+			Blend One [_DstBlend]
+
+			CGPROGRAM
+
+			#pragma vertex vert_simple
+			#pragma fragment frag
+
+			half4 _Specular0, _Specular1, _Specular2, _Specular3;
+
+			float4 frag(Varyings_Simple input) : SV_Target
+			{
+				float4 alpha = tex2D(_Control, input.texcoord0.xy);
+
+				float4 specular = _Specular0 * alpha.x;
+				specular.rgba += _Specular1 * alpha.y;
+				specular.rgba += _Specular2 * alpha.z;
+				specular.rgba += _Specular3 * alpha.w;
+				return specular;
+			}
+
+			ENDCG
+		}
 	}
 	Fallback Off
 
