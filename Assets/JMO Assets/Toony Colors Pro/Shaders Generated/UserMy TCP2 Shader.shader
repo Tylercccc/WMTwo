@@ -33,16 +33,10 @@ Shader "Toony Colors Pro 2/User/My TCP2 Shader"
 		[Toggle(_TERRAIN_INSTANCED_PERPIXEL_NORMAL)] _EnableInstancedPerPixelNormal("Enable Instanced per-pixel normal", Float) = 1.0
 		[TCP2Separator]
 		
-		[TCP2HeaderHelp(Specular)]
-		[TCP2ColorNoAlpha] _SpecularColor ("Specular Color", Color) = (0.5,0.5,0.5,1)
-		_SpecularSmoothness ("Smoothness", Float) = 0.2
-		_SpecularToonBands ("Specular Bands", Float) = 3
-		[TCP2Separator]
-		
 		[TCP2HeaderHelp(Rim Lighting)]
 		[TCP2ColorNoAlpha] _RimColor ("Rim Color", Color) = (0.8,0.8,0.8,0.5)
-		_RimMin ("Rim Min", Range(0,2)) = 0.5
-		_RimMax ("Rim Max", Range(0,2)) = 1
+		_RimMin ("Rim Min", 2D) = "white" {}
+		_RimMax ("Rim Max", Float) = 1
 		[TCP2Separator]
 		
 		[HideInInspector] [NoScaleOffset] _Normal0 ("Layer 0 Normal Map", 2D) = "bump" {}
@@ -222,6 +216,7 @@ Shader "Toony Colors Pro 2/User/My TCP2 Shader"
 		TCP2_TEX2D_NO_SAMPLER(_Splat1);
 		TCP2_TEX2D_NO_SAMPLER(_Splat2);
 		TCP2_TEX2D_NO_SAMPLER(_Splat3);
+		TCP2_TEX2D_WITH_SAMPLER(_RimMin);
 		TCP2_TEX2D_WITH_SAMPLER(_Mask0);
 		TCP2_TEX2D_NO_SAMPLER(_Mask1);
 		TCP2_TEX2D_NO_SAMPLER(_Mask2);
@@ -244,10 +239,7 @@ Shader "Toony Colors Pro 2/User/My TCP2 Shader"
 		float _Shadow_HSV_S;
 		float _Shadow_HSV_V;
 		fixed4 _HColor;
-		float _SpecularSmoothness;
-		float _SpecularToonBands;
-		fixed4 _SpecularColor;
-		float _RimMin;
+		float4 _RimMin_ST;
 		float _RimMax;
 		fixed4 _RimColor;
 
@@ -372,9 +364,6 @@ Shader "Toony Colors Pro 2/User/My TCP2 Shader"
 			float3 __shadowColor;
 			float3 __highlightColor;
 			float __ambientIntensity;
-			float __specularSmoothness;
-			float __specularToonBands;
-			float3 __specularColor;
 			float __rimMin;
 			float __rimMax;
 			float3 __rimColor;
@@ -438,10 +427,7 @@ Shader "Toony Colors Pro 2/User/My TCP2 Shader"
 			output.__shadowColor = ( float3(1,1,1) );
 			output.__highlightColor = ( _HColor.rgb );
 			output.__ambientIntensity = ( 1.0 );
-			output.__specularSmoothness = ( _SpecularSmoothness );
-			output.__specularToonBands = ( _SpecularToonBands );
-			output.__specularColor = ( _SpecularColor.rgb );
-			output.__rimMin = ( _RimMin );
+			output.__rimMin = ( TCP2_TEX2D_SAMPLE(_RimMin, _RimMin, input.texcoord0.xy * _RimMin_ST.xy + _RimMin_ST.zw).r );
 			output.__rimMax = ( _RimMax );
 			output.__rimColor = ( _RimColor.rgb );
 			output.__rimStrength = ( 1.0 );
@@ -625,16 +611,6 @@ Shader "Toony Colors Pro 2/User/My TCP2 Shader"
 				color.rgb += ambient;
 			#endif
 
-			//Blinn-Phong Specular
-			half3 h = normalize(lightDir + viewDir);
-			float ndh = max(0, dot (normal, h));
-			float spec = pow(ndh, 1e-4h + surface.__specularSmoothness * 128.0);
-			spec = floor(spec * surface.__specularToonBands) / surface.__specularToonBands;
-			spec *= ndl;
-			spec *= atten;
-			
-			//Apply specular
-			color.rgb += spec * lightColor.rgb * surface.__specularColor;
 			// Rim Lighting
 			#if !defined(UNITY_PASS_FORWARDADD)
 			half rim = 1 - surface.ndvRaw;
@@ -680,5 +656,5 @@ Shader "Toony Colors Pro 2/User/My TCP2 Shader"
 	CustomEditor "ToonyColorsPro.ShaderGenerator.MaterialInspector_SG2"
 }
 
-/* TCP_DATA u config(ver:"2.9.6";unity:"2022.3.6f1";tmplt:"SG2_Template_Default";features:list["UNITY_5_4","UNITY_5_5","UNITY_5_6","UNITY_2017_1","UNITY_2018_1","UNITY_2018_2","UNITY_2018_3","UNITY_2019_1","UNITY_2019_2","UNITY_2019_3","UNITY_2019_4","UNITY_2020_1","UNITY_2021_1","UNITY_2021_2","UNITY_2022_2","TERRAIN_SHADER","TERRAIN_TRANSITIONS_CRISP","TERRAIN_HEIGHT_BLENDING","RAMP_BANDS_CRISP_NO_AA","SHADOW_COLOR_LERP","SHADOW_HSV","BUMP","SPEC_LEGACY","SPECULAR","SPECULAR_TOON_BAND","RIM"];flags:list[];flags_extra:dict[];keywords:dict[RENDER_TYPE="Opaque",RampTextureDrawer="[TCP2Gradient]",RampTextureLabel="Ramp Texture",SHADER_TARGET="3.0",BASEGEN_ALBEDO_DOWNSCALE="1",BASEGEN_MASKTEX_DOWNSCALE="1/2",BASEGEN_METALLIC_DOWNSCALE="1/4",BASEGEN_SPECULAR_DOWNSCALE="1/4",BASEGEN_DIFFUSEREMAPMIN_DOWNSCALE="1/4",BASEGEN_MASKMAPREMAPMIN_DOWNSCALE="1/4",RIM_LABEL="Rim Lighting"];shaderProperties:list[,,,,,,sp(name:"Shadow Color";imps:list[imp_generic(cc:3;chan:"RGB";source_id:"color_rgba surface.terrainData.specularColor3lighting";needed_features:"USE_TERRAIN_DATA_LIGHTING,USE_TERRAIN_SPECULAR";custom_code_compatible:False;options_v:dict[];guid:"b9d7bf48-85fc-44ad-8cad-2a4d56930b66";op:Multiply;lbl:"Shadow Color";gpu_inst:False;locked:False;impl_index:-1)];layers:list[];unlocked:list[];clones:dict[];isClone:False)];customTextures:list[];codeInjection:codeInjection(injectedFiles:list[];mark:False);matLayers:list[]) */
-/* TCP_HASH 2deb64774c4daa7dd4e53547f170d1a5 */
+/* TCP_DATA u config(ver:"2.9.6";unity:"2022.3.6f1";tmplt:"SG2_Template_Default";features:list["UNITY_5_4","UNITY_5_5","UNITY_5_6","UNITY_2017_1","UNITY_2018_1","UNITY_2018_2","UNITY_2018_3","UNITY_2019_1","UNITY_2019_2","UNITY_2019_3","UNITY_2019_4","UNITY_2020_1","UNITY_2021_1","UNITY_2021_2","UNITY_2022_2","TERRAIN_SHADER","TERRAIN_TRANSITIONS_CRISP","TERRAIN_HEIGHT_BLENDING","RAMP_BANDS_CRISP_NO_AA","SHADOW_COLOR_LERP","SHADOW_HSV","BUMP","RIM"];flags:list[];flags_extra:dict[];keywords:dict[RENDER_TYPE="Opaque",RampTextureDrawer="[TCP2Gradient]",RampTextureLabel="Ramp Texture",SHADER_TARGET="3.0",BASEGEN_ALBEDO_DOWNSCALE="1",BASEGEN_MASKTEX_DOWNSCALE="1/2",BASEGEN_METALLIC_DOWNSCALE="1/4",BASEGEN_SPECULAR_DOWNSCALE="1/4",BASEGEN_DIFFUSEREMAPMIN_DOWNSCALE="1/4",BASEGEN_MASKMAPREMAPMIN_DOWNSCALE="1/4",RIM_LABEL="Rim Lighting"];shaderProperties:list[,,,,,,,,,sp(name:"Shadow Color";imps:list[imp_generic(cc:3;chan:"RGB";source_id:"color_rgba surface.terrainData.specularColor3lighting";needed_features:"USE_TERRAIN_DATA_LIGHTING,USE_TERRAIN_SPECULAR";custom_code_compatible:False;options_v:dict[];guid:"b9d7bf48-85fc-44ad-8cad-2a4d56930b66";op:Multiply;lbl:"Shadow Color";gpu_inst:False;locked:False;impl_index:-1)];layers:list[];unlocked:list[];clones:dict[];isClone:False),,,,,,sp(name:"Rim Min";imps:list[imp_mp_texture(uto:True;tov:"";tov_lbl:"";gto:False;sbt:False;scr:False;scv:"";scv_lbl:"";gsc:False;roff:False;goff:False;sin_anm:False;sin_anmv:"";sin_anmv_lbl:"";gsin:False;notile:False;triplanar_local:False;def:"white";locked_uv:False;uv:0;cc:1;chan:"R";mip:-1;mipprop:False;ssuv_vert:False;ssuv_obj:False;uv_type:Texcoord;uv_chan:"XZ";tpln_scale:1;uv_shaderproperty:__NULL__;uv_cmp:__NULL__;sep_sampler:__NULL__;prop:"_RimMin";md:"";gbv:False;custom:False;refs:"";pnlock:False;guid:"9dc221e5-b920-4c5b-945e-43ec1bf9372e";op:Multiply;lbl:"Rim Min";gpu_inst:False;locked:False;impl_index:-1)];layers:list[];unlocked:list[];clones:dict[];isClone:False),sp(name:"Rim Max";imps:list[imp_mp_float(def:1;prop:"_RimMax";md:"";gbv:False;custom:False;refs:"";pnlock:False;guid:"74174034-2371-4930-bbde-fb121cfb51b2";op:Multiply;lbl:"Rim Max";gpu_inst:False;locked:False;impl_index:-1)];layers:list[];unlocked:list[];clones:dict[];isClone:False)];customTextures:list[];codeInjection:codeInjection(injectedFiles:list[];mark:False);matLayers:list[]) */
+/* TCP_HASH ecc090007bbbc0d1660c7f3ddbe0d544 */

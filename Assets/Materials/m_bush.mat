@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_Test 38
+  m_Name: m_bush
   m_Shader: {fileID: 4800000, guid: 59836f8e2416b4b4185f3f0b3db40372, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -140,7 +140,7 @@ Material:
     - _VertOffset: 0
     - _Wind: 1.4
     - _WindNoiseScale: 20
-    - __dirty: 1
+    - __dirty: 0
     - _fractmult: 1.21
     - _frequency: 8.57
     - _max: 100000

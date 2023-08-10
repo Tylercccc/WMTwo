@@ -9,7 +9,8 @@
         "TERRAIN",
         "LIGHTING",
         "SURFACE",
-        "STYLIZATION"
+        "STYLIZATION",
+        "TRANSPARENCY/BLENDING"
     ],
     "UseCustomFont": true,
     "CustomFont": {

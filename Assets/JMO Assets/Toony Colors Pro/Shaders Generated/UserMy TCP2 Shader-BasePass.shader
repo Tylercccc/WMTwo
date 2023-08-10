@@ -38,16 +38,10 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-BasePass"
 		[Toggle(_TERRAIN_INSTANCED_PERPIXEL_NORMAL)] _EnableInstancedPerPixelNormal("Enable Instanced per-pixel normal", Float) = 1.0
 		[TCP2Separator]
 		
-		[TCP2HeaderHelp(Specular)]
-		[TCP2ColorNoAlpha] _SpecularColor ("Specular Color", Color) = (0.5,0.5,0.5,1)
-		_SpecularSmoothness ("Smoothness", Float) = 0.2
-		_SpecularToonBands ("Specular Bands", Float) = 3
-		[TCP2Separator]
-		
 		[TCP2HeaderHelp(Rim Lighting)]
 		[TCP2ColorNoAlpha] _RimColor ("Rim Color", Color) = (0.8,0.8,0.8,0.5)
-		_RimMin ("Rim Min", Range(0,2)) = 0.5
-		_RimMax ("Rim Max", Range(0,2)) = 1
+		_RimMin ("Rim Min", 2D) = "white" {}
+		_RimMax ("Rim Max", Float) = 1
 		[TCP2Separator]
 		
 		[HideInInspector] [NoScaleOffset] _Normal0 ("Layer 0 Normal Map", 2D) = "bump" {}
@@ -228,6 +222,7 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-BasePass"
 		TCP2_TEX2D_NO_SAMPLER(_Splat1);
 		TCP2_TEX2D_NO_SAMPLER(_Splat2);
 		TCP2_TEX2D_NO_SAMPLER(_Splat3);
+		TCP2_TEX2D_WITH_SAMPLER(_RimMin);
 		TCP2_TEX2D_WITH_SAMPLER(_Mask0);
 		TCP2_TEX2D_NO_SAMPLER(_Mask1);
 		TCP2_TEX2D_NO_SAMPLER(_Mask2);
@@ -250,10 +245,7 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-BasePass"
 		float _Shadow_HSV_S;
 		float _Shadow_HSV_V;
 		fixed4 _HColor;
-		float _SpecularSmoothness;
-		float _SpecularToonBands;
-		fixed4 _SpecularColor;
-		float _RimMin;
+		float4 _RimMin_ST;
 		float _RimMax;
 		fixed4 _RimColor;
 
@@ -378,9 +370,6 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-BasePass"
 			float3 __shadowColor;
 			float3 __highlightColor;
 			float __ambientIntensity;
-			float __specularSmoothness;
-			float __specularToonBands;
-			float3 __specularColor;
 			float __rimMin;
 			float __rimMax;
 			float3 __rimColor;
@@ -444,10 +433,7 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-BasePass"
 			output.__shadowColor = ( float3(1,1,1) );
 			output.__highlightColor = ( _HColor.rgb );
 			output.__ambientIntensity = ( 1.0 );
-			output.__specularSmoothness = ( _SpecularSmoothness );
-			output.__specularToonBands = ( _SpecularToonBands );
-			output.__specularColor = ( _SpecularColor.rgb );
-			output.__rimMin = ( _RimMin );
+			output.__rimMin = ( TCP2_TEX2D_SAMPLE(_RimMin, _RimMin, input.texcoord0.xy * _RimMin_ST.xy + _RimMin_ST.zw).r );
 			output.__rimMax = ( _RimMax );
 			output.__rimColor = ( _RimColor.rgb );
 			output.__rimStrength = ( 1.0 );
@@ -631,16 +617,6 @@ Shader "Hidden/Toony Colors Pro 2/User/My TCP2 Shader-BasePass"
 				color.rgb += ambient;
 			#endif
 
-			//Blinn-Phong Specular
-			half3 h = normalize(lightDir + viewDir);
-			float ndh = max(0, dot (normal, h));
-			float spec = pow(ndh, 1e-4h + surface.__specularSmoothness * 128.0);
-			spec = floor(spec * surface.__specularToonBands) / surface.__specularToonBands;
-			spec *= ndl;
-			spec *= atten;
-			
-			//Apply specular
-			color.rgb += spec * lightColor.rgb * surface.__specularColor;
 			// Rim Lighting
 			#if !defined(UNITY_PASS_FORWARDADD)
 			half rim = 1 - surface.ndvRaw;
