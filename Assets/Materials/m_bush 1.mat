@@ -129,7 +129,7 @@ Material:
     - _LightGradientSize1: 0
     - _NoiseSize: 0.001
     - _NormalRimPush: 0
-    - _NormalStr: 0.15
+    - _NormalStr: 0.39
     - _NormalStr1: 0.23
     - _NormalTexFlow: 1
     - _Outerradius: 0.5
@@ -137,8 +137,8 @@ Material:
     - _PointLightAttenuationBoost: 3.2
     - _RampSize: 0.52
     - _RampSize1: 0
-    - _RimPower: 19.89
-    - _RimScale: 4.2
+    - _RimPower: 21.8
+    - _RimScale: 2.21
     - _ShadowLevel: 0
     - _SpecIntensity: 0.46
     - _SpecSmoothing: 18.19
