@@ -115,7 +115,7 @@ Material:
     - _EdgeSize: 0
     - _FadeMidRange: 1
     - _Float0: 1
-    - _Float1: 0.02
+    - _Float1: 0.098
     - _Float2: 0
     - _Freq: 1
     - _HueShift: 0.807
@@ -137,8 +137,8 @@ Material:
     - _PointLightAttenuationBoost: 3.2
     - _RampSize: 0.52
     - _RampSize1: 0
-    - _RimPower: 7.2
-    - _RimScale: 0.68
+    - _RimPower: 19.89
+    - _RimScale: 4.2
     - _ShadowLevel: 0
     - _SpecIntensity: 0.46
     - _SpecSmoothing: 18.19
@@ -151,6 +151,7 @@ Material:
     - _Steps: 3
     - _Tiling: 1
     - _TimeScaleLeaves: 1
+    - _TimeScaleShine: 7.1
     - _Timesteps: 3.3
     - _VertOffset: 0
     - _Wind: 10

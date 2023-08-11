@@ -135,7 +135,7 @@ Material:
     - _StepShadows1: 0
     - _StepWidth: 0.37
     - _Steps: 3
-    - _TimeScaleLeaves: 0.2
+    - _TimeScaleLeaves: 0.01
     - _Timesteps: 6
     - _VertOffset: 0
     - _Wind: 1.4
