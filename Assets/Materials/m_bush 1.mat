@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: m_bush 1
-  m_Shader: {fileID: 4800000, guid: 59836f8e2416b4b4185f3f0b3db40372, type: 3}
+  m_Shader: {fileID: 4800000, guid: d7b5f599208f444e5b9c68ebdf100fcb, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -29,7 +29,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _NormalTiling
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -55,7 +55,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: bd4806d82731a422ea0b106e0524d364, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OffsetNoise:
         m_Texture: {fileID: 2800000, guid: 3eda0c4754885564f9df920405499055, type: 3}
@@ -96,7 +96,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Band2Mult: 0.005
-    - _BendDist: 0.03
+    - _BendDist: 0
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 6
     - _EdgeLength: 15
@@ -105,26 +105,26 @@ Material:
     - _Float0: 1
     - _Float1: 0.02
     - _Float2: 0
-    - _Freq: 0.1
+    - _Freq: 1
     - _HueShift: 0.807
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
     - _LightGradientMidLevel: 0.641
     - _LightGradientMidLevel1: 0
-    - _LightGradientSize: 0.31
+    - _LightGradientSize: 0.556
     - _LightGradientSize1: 0
     - _NormalRimPush: 0
-    - _NormalStr: 0.74
+    - _NormalStr: 1
     - _NormalStr1: 0.23
     - _NormalTexFlow: 1
     - _Outerradius: 0.5
     - _OutlineSize: 0
-    - _PointLightAttenuationBoost: 2.68
+    - _PointLightAttenuationBoost: 3.2
     - _RampSize: 0.52
     - _RampSize1: 0
-    - _RimPower: 1.93
-    - _RimScale: 0.52
+    - _RimPower: 7.2
+    - _RimScale: 0.19
     - _ShadowLevel: 0
     - _SpecIntensity: 0.46
     - _SpecSmoothing: 18.19
@@ -135,19 +135,20 @@ Material:
     - _StepShadows1: 0
     - _StepWidth: 0.37
     - _Steps: 2
-    - _TimeScaleLeaves: 0.2
-    - _Timesteps: 6
+    - _TimeScaleLeaves: 1
+    - _Timesteps: 3.3
     - _VertOffset: 0
-    - _Wind: 1.4
-    - _WindNoiseScale: 20
+    - _Wind: 10
+    - _WindNoiseScale: 0.01
     - __dirty: 0
     - _fractmult: 1.21
     - _frequency: 8.57
     - _max: 100000
     - _min: 0
     - _noise: 1000
+    - _noisescale: 1.02
     - _normalWindScale: 0.2
-    - _normalspeed: 1
+    - _normalspeed: 0.11
     - _rampsize2: 0
     - _rimoffset: 0.76
     - _test: 1
@@ -161,7 +162,7 @@ Material:
     - _NormalTiling: {r: 200, g: 200, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
-    - _RimColor: {r: 0.26598534, g: 0.3301887, b: 0, a: 0}
+    - _RimColor: {r: 0.27784246, g: 0.2924528, b: 0.03724635, a: 0}
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
     - _ShadowColor1: {r: 0.2970363, g: 0.7075472, b: 0.3076191, a: 1}
     - _ShadowTint: {r: 0.039215565, g: 1, b: 0, a: 1}
@@ -170,8 +171,9 @@ Material:
     - _SpecularColor: {r: 0.20241535, g: 0.31132078, b: 0.0044054748, a: 0}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
+    - _Vector0: {r: 4, g: 0.09, b: 0, a: 0}
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
-    - _windrotation: {r: 0, g: 0, b: 0, a: 0}
+    - _windrotation: {r: 0.002, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
