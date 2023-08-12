@@ -37,6 +37,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _BotTexture0:
+        m_Texture: {fileID: 2800000, guid: 076510498b8484b24b4f2533d229d643, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Control:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -79,6 +83,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Mask3:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MidTexture0:
+        m_Texture: {fileID: 2800000, guid: 31d5a2d79390ab542a81a6699a999758, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTexture:
@@ -146,7 +154,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
-        m_Texture: {fileID: 2800000, guid: bb3e15c651950459c83b12693a1db9c1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8d928a03c9a6d8445a56096a84efd563, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample1:
+        m_Texture: {fileID: 2800000, guid: 71ee2865e455142fb9a3cd6e3ef3fc51, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample2:
@@ -157,8 +169,20 @@ Material:
         m_Texture: {fileID: 2800000, guid: 7fe85df733e76164b912c7ade9e31f71, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TopTexture0:
+        m_Texture: {fileID: 2800000, guid: 076510498b8484b24b4f2533d229d643, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TriPlanarRock:
+        m_Texture: {fileID: 2800000, guid: 31d5a2d79390ab542a81a6699a999758, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _WindNoiseTex:
         m_Texture: {fileID: 2800000, guid: 5259d0042c9854375b96305b6256ecfd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _cliff:
+        m_Texture: {fileID: 2800000, guid: 71ee2865e455142fb9a3cd6e3ef3fc51, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _shine:
@@ -220,7 +244,7 @@ Material:
     - _StepShadows1: 0
     - _StepWidth: 0.37
     - _Steps: 2
-    - _TerrainSteps: 0.44
+    - _TerrainSteps: 0.49
     - _Tiling: 1
     - _TimeScaleLeaves: 1
     - _TimeScaleShine: 7.1
@@ -244,6 +268,7 @@ Material:
     - _rimoffset: 0.76
     - _shinesize: 0.12
     - _test: 1
+    - _triplanarsteps: 0.1
     m_Colors:
     - _Color: {r: 0.5019608, g: 0.8196079, b: 0.30588236, a: 0}
     - _Color0: {r: 0.509434, g: 0.44455323, b: 0.44455323, a: 0}
