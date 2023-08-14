@@ -154,8 +154,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
-        m_Texture: {fileID: 2800000, guid: 8d928a03c9a6d8445a56096a84efd563, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 2e7f49d39e4fb284eb26ddf4da1611ae, type: 3}
+        m_Scale: {x: 200, y: 200}
         m_Offset: {x: 0, y: 0}
     - _TextureSample1:
         m_Texture: {fileID: 2800000, guid: 71ee2865e455142fb9a3cd6e3ef3fc51, type: 3}
@@ -170,7 +170,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TopTexture0:
-        m_Texture: {fileID: 2800000, guid: 076510498b8484b24b4f2533d229d643, type: 3}
+        m_Texture: {fileID: 2800000, guid: 31d5a2d79390ab542a81a6699a999758, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TriPlanarRock:
@@ -212,6 +212,7 @@ Material:
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
     - _JitterNoiseSize: 5.08
+    - _Level: 0.81
     - _LightGradientMidLevel: 0.673
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.332
@@ -235,6 +236,7 @@ Material:
     - _Smoothness1: 1
     - _Smoothness2: 1
     - _Smoothness3: 1
+    - _Softness: 0.01
     - _SpecIntensity: 0.46
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
@@ -270,6 +272,7 @@ Material:
     - _test: 1
     - _triplanarsteps: 0.1
     m_Colors:
+    - _CliffShadow: {r: 0.2735849, g: 0.13051899, b: 0.009033469, a: 0}
     - _Color: {r: 0.5019608, g: 0.8196079, b: 0.30588236, a: 0}
     - _Color0: {r: 0.509434, g: 0.44455323, b: 0.44455323, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
@@ -281,6 +284,7 @@ Material:
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.27784246, g: 0.2924528, b: 0.03724635, a: 0}
+    - _RockShadowColor: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
     - _ShadowColor1: {r: 0.2970363, g: 0.7075472, b: 0.3076191, a: 1}
     - _ShadowTint: {r: 0.039215565, g: 1, b: 0, a: 1}
