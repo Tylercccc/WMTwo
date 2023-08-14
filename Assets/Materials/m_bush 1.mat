@@ -46,7 +46,7 @@ Material:
         m_Scale: {x: 0.1, y: 0.1}
         m_Offset: {x: 0, y: 0}
     - _CliffTex:
-        m_Texture: {fileID: 2800000, guid: 2e7f49d39e4fb284eb26ddf4da1611ae, type: 3}
+        m_Texture: {fileID: 2800000, guid: 31d5a2d79390ab542a81a6699a999758, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Control:
@@ -162,8 +162,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture1:
-        m_Texture: {fileID: 2800000, guid: 8d95929314ce653489a6fa3be328f373, type: 3}
-        m_Scale: {x: 0.1, y: 0.1}
+        m_Texture: {fileID: 2800000, guid: 77d2caeaa8d084f4886293bee579cb56, type: 3}
+        m_Scale: {x: 0.01, y: 0.1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
         m_Texture: {fileID: 2800000, guid: 31943228e69a5b54992b5322327313e7, type: 3}
@@ -214,7 +214,7 @@ Material:
     - _Band2Mult: 0.005
     - _BendDist: 0
     - _CliffBlendSteps: 18.6
-    - _CliffNormalStrength: 1.17
+    - _CliffNormalStrength: 0.88
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 6
     - _EdgeLength: 15
@@ -230,7 +230,7 @@ Material:
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
     - _JitterNoiseSize: 5.08
-    - _Level: 0.78
+    - _Level: 0.878
     - _LightGradientMidLevel: 0.673
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.332
@@ -269,7 +269,7 @@ Material:
     - _TimeScaleLeaves: 1
     - _TimeScaleShine: 7.1
     - _Timesteps: 3.3
-    - _TriPlanarFalloff: 8.4
+    - _TriPlanarFalloff: 3
     - _Triplanarnoisefalloff: 1.46
     - _VertOffset: 0
     - _Wind: 10
@@ -294,8 +294,8 @@ Material:
     - _triplanarsteps: 0.1
     - _yo: 1.81
     m_Colors:
-    - _CliffShadow: {r: 0.1792453, g: 0.095034346, b: 0.039738342, a: 0}
-    - _CliffTiling: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - _CliffShadow: {r: 0.35690838, g: 0.26352793, b: 0.3962264, a: 0}
+    - _CliffTiling: {r: 0.01, g: 0.1, b: 0, a: 0}
     - _Color: {r: 0.5019608, g: 0.8196079, b: 0.30588236, a: 0}
     - _Color0: {r: 0.509434, g: 0.44455323, b: 0.44455323, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
@@ -321,6 +321,7 @@ Material:
     - _Triplanarnoisetiling: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _Vector0: {r: 4, g: 0.09, b: 0, a: 0}
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
+    - _compare: {r: 0.115566045, g: 0.42790434, b: 0.5, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
     - _tiling: {r: 0, g: 1, b: 123, a: 0}
