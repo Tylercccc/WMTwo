@@ -189,6 +189,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 31d5a2d79390ab542a81a6699a999758, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TriplanarNoise:
+        m_Texture: {fileID: 2800000, guid: 3eda0c4754885564f9df920405499055, type: 3}
+        m_Scale: {x: 300, y: 100}
+        m_Offset: {x: 0, y: 0}
     - _WindNoiseTex:
         m_Texture: {fileID: 2800000, guid: 5259d0042c9854375b96305b6256ecfd, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -220,13 +224,13 @@ Material:
     - _Float1: 0.098
     - _Float2: 0
     - _Freq: 1
-    - _GrassWindNormalScale: 0.263
+    - _GrassWindNormalScale: 0.098
     - _HueShift: 0.807
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
     - _JitterNoiseSize: 5.08
-    - _Level: 0.634
+    - _Level: 0.712
     - _LightGradientMidLevel: 0.673
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.332
@@ -285,7 +289,7 @@ Material:
     - _rampsize2: 0
     - _rimoffset: 0.76
     - _shinesize: 0.12
-    - _test: 2.9
+    - _test: 2
     - _triplanarsteps: 0.1
     - _yo: 1.81
     m_Colors:
