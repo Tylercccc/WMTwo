@@ -41,6 +41,14 @@ Material:
         m_Texture: {fileID: 2800000, guid: 076510498b8484b24b4f2533d229d643, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _CliffNormals:
+        m_Texture: {fileID: 2800000, guid: 8d95929314ce653489a6fa3be328f373, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CliffTex:
+        m_Texture: {fileID: 2800000, guid: 2e7f49d39e4fb284eb26ddf4da1611ae, type: 3}
+        m_Scale: {x: 20, y: 20}
+        m_Offset: {x: 0, y: 0}
     - _Control:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -150,12 +158,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture1:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 31943228e69a5b54992b5322327313e7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
-        m_Texture: {fileID: 2800000, guid: 2e7f49d39e4fb284eb26ddf4da1611ae, type: 3}
-        m_Scale: {x: 200, y: 200}
+        m_Texture: {fileID: 2800000, guid: 31943228e69a5b54992b5322327313e7, type: 3}
+        m_Scale: {x: 300, y: 300}
         m_Offset: {x: 0, y: 0}
     - _TextureSample1:
         m_Texture: {fileID: 2800000, guid: 71ee2865e455142fb9a3cd6e3ef3fc51, type: 3}
@@ -197,6 +205,7 @@ Material:
     m_Floats:
     - _Band2Mult: 0.005
     - _BendDist: 0
+    - _CliffNormalStrength: 1
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 6
     - _EdgeLength: 15
@@ -251,6 +260,7 @@ Material:
     - _TimeScaleLeaves: 1
     - _TimeScaleShine: 7.1
     - _Timesteps: 3.3
+    - _TriPlanarFalloff: 3.5
     - _VertOffset: 0
     - _Wind: 10
     - _WindJitter: 0.1
@@ -272,7 +282,8 @@ Material:
     - _test: 1
     - _triplanarsteps: 0.1
     m_Colors:
-    - _CliffShadow: {r: 0.2735849, g: 0.13051899, b: 0.009033469, a: 0}
+    - _CliffShadow: {r: 0.509434, g: 0.509434, b: 0.509434, a: 0}
+    - _CliffTiling: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _Color: {r: 0.5019608, g: 0.8196079, b: 0.30588236, a: 0}
     - _Color0: {r: 0.509434, g: 0.44455323, b: 0.44455323, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
