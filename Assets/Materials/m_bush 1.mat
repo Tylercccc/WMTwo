@@ -214,7 +214,7 @@ Material:
     - _Band2Mult: 0.005
     - _BendDist: 0
     - _CliffBlendSteps: 18.6
-    - _CliffNormalStrength: 0.88
+    - _CliffNormalStrength: 1.46
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 6
     - _EdgeLength: 15
@@ -254,7 +254,7 @@ Material:
     - _Smoothness1: 1
     - _Smoothness2: 1
     - _Smoothness3: 1
-    - _Softness: 20
+    - _Softness: 30.2
     - _SpecIntensity: 0.46
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
@@ -294,8 +294,8 @@ Material:
     - _triplanarsteps: 0.1
     - _yo: 1.81
     m_Colors:
-    - _CliffShadow: {r: 0.35690838, g: 0.26352793, b: 0.3962264, a: 0}
-    - _CliffTiling: {r: 0.01, g: 0.1, b: 0, a: 0}
+    - _CliffShadow: {r: 0.41079357, g: 0.33254716, b: 0.4433962, a: 0}
+    - _CliffTiling: {r: 0.01, g: 0.03, b: 0, a: 0}
     - _Color: {r: 0.5019608, g: 0.8196079, b: 0.30588236, a: 0}
     - _Color0: {r: 0.509434, g: 0.44455323, b: 0.44455323, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
@@ -318,10 +318,11 @@ Material:
     - _SpecularColor: {r: 0.20241535, g: 0.31132078, b: 0.0044054748, a: 0}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
-    - _Triplanarnoisetiling: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - _Triplanarnoisetiling: {r: 1, g: 0.2, b: 0, a: 0}
     - _Vector0: {r: 4, g: 0.09, b: 0, a: 0}
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
     - _compare: {r: 0.115566045, g: 0.42790434, b: 0.5, a: 0}
+    - _dirtTiling: {r: 0.2, g: 0.2, b: 0, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
     - _tiling: {r: 0, g: 1, b: 123, a: 0}
