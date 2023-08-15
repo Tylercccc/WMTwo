@@ -193,6 +193,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 5259d0042c9854375b96305b6256ecfd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TriplanarNoise1:
+        m_Texture: {fileID: 2800000, guid: 5259d0042c9854375b96305b6256ecfd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _WindNoiseTex:
         m_Texture: {fileID: 2800000, guid: 5259d0042c9854375b96305b6256ecfd, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -254,7 +258,7 @@ Material:
     - _Smoothness1: 1
     - _Smoothness2: 1
     - _Smoothness3: 1
-    - _Softness: 30.2
+    - _Softness: 50
     - _SpecIntensity: 0.46
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
@@ -264,13 +268,13 @@ Material:
     - _StepShadows1: 0
     - _StepWidth: 0.37
     - _Steps: 2
-    - _TerrainSteps: 0.49
+    - _TerrainSteps: 0.54
     - _Tiling: 1
     - _TimeScaleLeaves: 1
     - _TimeScaleShine: 7.1
     - _Timesteps: 3.3
     - _TriPlanarFalloff: 3
-    - _Triplanarnoisefalloff: 1.46
+    - _Triplanarnoisefalloff: 0.59
     - _VertOffset: 0
     - _Wind: 10
     - _WindJitter: 0.1
@@ -318,7 +322,7 @@ Material:
     - _SpecularColor: {r: 0.20241535, g: 0.31132078, b: 0.0044054748, a: 0}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
-    - _Triplanarnoisetiling: {r: 1, g: 0.2, b: 0, a: 0}
+    - _Triplanarnoisetiling: {r: 0.02, g: 0.02, b: 0, a: 0}
     - _Vector0: {r: 4, g: 0.09, b: 0, a: 0}
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
     - _compare: {r: 0.115566045, g: 0.42790434, b: 0.5, a: 0}

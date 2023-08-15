@@ -32,7 +32,7 @@ Shader "WIZTOON_Terrain"
 		_TimeScaleShine("TimeScale Shine", Float) = 0
 		_GrassWindNormalScale("GrassWindNormalScale", Range( 0 , 1)) = 0.4
 		_NormalScale0("NormalScale0", Range( 0 , 1)) = 0
-		_Softness("Softness", Range( 0 , 20)) = 0
+		_Softness("Softness", Range( 0 , 50)) = 0
 		_NormalScale1("NormalScale1", Range( 0 , 1)) = 0
 		_Level("Level", Range( 0 , 1)) = 0
 		_TerrainSteps("TerrainSteps", Range( 0 , 5)) = 0.25
@@ -46,6 +46,7 @@ Shader "WIZTOON_Terrain"
 		_Triplanarnoisefalloff("Triplanar noise falloff", Range( 0 , 10)) = 0
 		_Triplanarnoisetiling("Triplanar noise tiling", Vector) = (0,0,0,0)
 		_TriplanarNoise("TriplanarNoise", 2D) = "white" {}
+		_TriplanarNoise1("TriplanarNoise", 2D) = "white" {}
 		_compare("compare", Color) = (0.490566,0.490566,0.490566,0)
 		_dirtTiling("dirtTiling", Vector) = (0,0,0,0)
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
@@ -106,10 +107,8 @@ Shader "WIZTOON_Terrain"
 		UNITY_DECLARE_TEX2D_NOSAMPLER(_Control);
 		uniform float4 _Control_ST;
 		SamplerState sampler_Control;
-		UNITY_DECLARE_TEX2D_NOSAMPLER(_TriplanarNoise);
-		SamplerState sampler_TriplanarNoise;
-		uniform float2 _Triplanarnoisetiling;
-		uniform float _Triplanarnoisefalloff;
+		UNITY_DECLARE_TEX2D_NOSAMPLER(_TriplanarNoise1);
+		SamplerState sampler_TriplanarNoise1;
 		uniform float _TerrainSteps;
 		UNITY_DECLARE_TEX2D_NOSAMPLER(_shine);
 		uniform float _shinesize;
@@ -123,6 +122,10 @@ Shader "WIZTOON_Terrain"
 		uniform float _WindJitter;
 		uniform float _JitterNoiseSize;
 		uniform float _Level;
+		UNITY_DECLARE_TEX2D_NOSAMPLER(_TriplanarNoise);
+		SamplerState sampler_TriplanarNoise;
+		uniform float2 _Triplanarnoisetiling;
+		uniform float _Triplanarnoisefalloff;
 		uniform float _Softness;
 		uniform float _test;
 		UNITY_DECLARE_TEX2D_NOSAMPLER(_Dither);
@@ -167,7 +170,7 @@ Shader "WIZTOON_Terrain"
 		uniform float4 _Specular1;
 
 
-		inline float4 TriplanarSampling803( UNITY_DECLARE_TEX2D_NOSAMPLER(topTexMap), SamplerState samplertopTexMap, float3 worldPos, float3 worldNormal, float falloff, float2 tiling, float3 normalScale, float3 index )
+		inline float4 TriplanarSampling829( UNITY_DECLARE_TEX2D_NOSAMPLER(topTexMap), SamplerState samplertopTexMap, float3 worldPos, float3 worldNormal, float falloff, float2 tiling, float3 normalScale, float3 index )
 		{
 			float3 projNormal = ( pow( abs( worldNormal ), falloff ) );
 			projNormal /= ( projNormal.x + projNormal.y + projNormal.z ) + 0.00001;
@@ -189,6 +192,19 @@ Shader "WIZTOON_Terrain"
 				16,  8, 14,  6 };
 			int r = y * 4 + x;
 			return dither[r] / 16; // same # of instructions as pre-dividing due to compiler magic
+		}
+
+
+		inline float4 TriplanarSampling803( UNITY_DECLARE_TEX2D_NOSAMPLER(topTexMap), SamplerState samplertopTexMap, float3 worldPos, float3 worldNormal, float falloff, float2 tiling, float3 normalScale, float3 index )
+		{
+			float3 projNormal = ( pow( abs( worldNormal ), falloff ) );
+			projNormal /= ( projNormal.x + projNormal.y + projNormal.z ) + 0.00001;
+			float3 nsign = sign( worldNormal );
+			half4 xNorm; half4 yNorm; half4 zNorm;
+			xNorm = SAMPLE_TEXTURE2D( topTexMap, samplertopTexMap, tiling * worldPos.zy * float2(  nsign.x, 1.0 ) );
+			yNorm = SAMPLE_TEXTURE2D( topTexMap, samplertopTexMap, tiling * worldPos.xz * float2(  nsign.y, 1.0 ) );
+			zNorm = SAMPLE_TEXTURE2D( topTexMap, samplertopTexMap, tiling * worldPos.xy * float2( -nsign.z, 1.0 ) );
+			return xNorm * projNormal.x + yNorm * projNormal.y + zNorm * projNormal.z;
 		}
 
 
@@ -262,9 +278,9 @@ Shader "WIZTOON_Terrain"
 			float2 uv_Control = i.uv_texcoord * _Control_ST.xy + _Control_ST.zw;
 			float3 ase_worldPos = i.worldPos;
 			float3 ase_worldNormal = WorldNormalVector( i, float3( 0, 0, 1 ) );
-			float4 triplanar803 = TriplanarSampling803( _TriplanarNoise, sampler_TriplanarNoise, ase_worldPos, ase_worldNormal, _Triplanarnoisefalloff, _Triplanarnoisetiling, 1.0, 0 );
+			float4 triplanar829 = TriplanarSampling829( _TriplanarNoise1, sampler_TriplanarNoise1, ase_worldPos, ase_worldNormal, 1.0, float2( 0.005,0.005 ), 1.0, 0 );
 			float4 temp_cast_12 = (_TerrainSteps).xxxx;
-			float4 Control621 = ( 1.0 - step( ( SAMPLE_TEXTURE2D( _Control, sampler_Control, uv_Control ) / triplanar803 ) , temp_cast_12 ) );
+			float4 Control621 = ( 1.0 - step( ( SAMPLE_TEXTURE2D( _Control, sampler_Control, uv_Control ) / triplanar829 ) , temp_cast_12 ) );
 			float2 appendResult517 = (float2(ase_worldPos.x , ase_worldPos.z));
 			float4 ase_screenPos = i.screenPosition;
 			float4 ase_screenPosNorm = ase_screenPos / ase_screenPos.w;
@@ -279,6 +295,7 @@ Shader "WIZTOON_Terrain"
 			float2 panner526 = ( ( (0.0 + (_WindScroll - 0.0) * (0.1 - 0.0) / (1.0 - 0.0)) * temp_output_576_0 ) * float2( 1,0 ) + temp_output_522_0);
 			float2 panner528 = ( ( temp_output_576_0 * (0.0 + (_WindJitter - 0.0) * (0.1 - 0.0) / (1.0 - 0.0)) ) * float2( 1,1 ) + ( temp_output_522_0 * _JitterNoiseSize ));
 			float4 WindScroll533 = ( float4( pow( UnpackNormal( SAMPLE_TEXTURE2D( _WindNoiseTex, sampler_WindNoiseTex, panner526 ) ) , 1.5 ) , 0.0 ) + SAMPLE_TEXTURE2D( _WindNoiseTex, sampler_WindNoiseTex, panner528 ) );
+			float4 triplanar803 = TriplanarSampling803( _TriplanarNoise, sampler_TriplanarNoise, ase_worldPos, ase_worldNormal, _Triplanarnoisefalloff, _Triplanarnoisetiling, 1.0, 0 );
 			float4 CliffBlendSteps744 = saturate( ( floor( ( ( ( abs( ase_worldNormal.y ) - _Level ) / triplanar803 ) * _Softness ) ) / _test ) );
 			float4 temp_output_557_0 = saturate( ( ( ( dither554 * _Color0 ) - WindScroll533 ) * CliffBlendSteps744 ) );
 			float4 Shine564 = temp_output_557_0;
@@ -346,9 +363,9 @@ Shader "WIZTOON_Terrain"
 			float2 uv_Control = i.uv_texcoord * _Control_ST.xy + _Control_ST.zw;
 			float3 ase_worldPos = i.worldPos;
 			float3 ase_worldNormal = WorldNormalVector( i, float3( 0, 0, 1 ) );
-			float4 triplanar803 = TriplanarSampling803( _TriplanarNoise, sampler_TriplanarNoise, ase_worldPos, ase_worldNormal, _Triplanarnoisefalloff, _Triplanarnoisetiling, 1.0, 0 );
+			float4 triplanar829 = TriplanarSampling829( _TriplanarNoise1, sampler_TriplanarNoise1, ase_worldPos, ase_worldNormal, 1.0, float2( 0.005,0.005 ), 1.0, 0 );
 			float4 temp_cast_1 = (_TerrainSteps).xxxx;
-			float4 Control621 = ( 1.0 - step( ( SAMPLE_TEXTURE2D( _Control, sampler_Control, uv_Control ) / triplanar803 ) , temp_cast_1 ) );
+			float4 Control621 = ( 1.0 - step( ( SAMPLE_TEXTURE2D( _Control, sampler_Control, uv_Control ) / triplanar829 ) , temp_cast_1 ) );
 			float4 ase_screenPos = i.screenPosition;
 			float4 ase_screenPosNorm = ase_screenPos / ase_screenPos.w;
 			ase_screenPosNorm.z = ( UNITY_NEAR_CLIP_VALUE >= 0 ) ? ase_screenPosNorm.z : ase_screenPosNorm.z * 0.5 + 0.5;
@@ -363,6 +380,7 @@ Shader "WIZTOON_Terrain"
 			float2 panner526 = ( ( (0.0 + (_WindScroll - 0.0) * (0.1 - 0.0) / (1.0 - 0.0)) * temp_output_576_0 ) * float2( 1,0 ) + temp_output_522_0);
 			float2 panner528 = ( ( temp_output_576_0 * (0.0 + (_WindJitter - 0.0) * (0.1 - 0.0) / (1.0 - 0.0)) ) * float2( 1,1 ) + ( temp_output_522_0 * _JitterNoiseSize ));
 			float4 WindScroll533 = ( float4( pow( UnpackNormal( SAMPLE_TEXTURE2D( _WindNoiseTex, sampler_WindNoiseTex, panner526 ) ) , 1.5 ) , 0.0 ) + SAMPLE_TEXTURE2D( _WindNoiseTex, sampler_WindNoiseTex, panner528 ) );
+			float4 triplanar803 = TriplanarSampling803( _TriplanarNoise, sampler_TriplanarNoise, ase_worldPos, ase_worldNormal, _Triplanarnoisefalloff, _Triplanarnoisetiling, 1.0, 0 );
 			float4 CliffBlendSteps744 = saturate( ( floor( ( ( ( abs( ase_worldNormal.y ) - _Level ) / triplanar803 ) * _Softness ) ) / _test ) );
 			float4 temp_output_557_0 = saturate( ( ( ( dither554 * _Color0 ) - WindScroll533 ) * CliffBlendSteps744 ) );
 			float4 weightedBlendVar632 = Control621;
@@ -645,7 +663,6 @@ Node;AmplifyShaderEditor.SimpleMultiplyOpNode;779;607.7997,-150.2121;Inherit;Tru
 Node;AmplifyShaderEditor.RangedFloatNode;775;843.9108,-64.65887;Inherit;False;Property;_test;test;38;0;Create;True;0;0;0;False;0;False;0;2;0;100;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;697;-133.6116,-863.2629;Inherit;False;Property;_Level;Level;30;0;Create;True;0;0;0;False;0;False;0;0.878;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.WeightedBlendNode;617;-93.71884,-506.8257;Inherit;False;5;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;4;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.RangedFloatNode;698;-37.89555,-712.6957;Inherit;False;Property;_Softness;Softness;28;0;Create;True;0;0;0;False;0;False;0;30.2;0;20;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleSubtractOpNode;781;267.9612,-515.2946;Inherit;True;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleDivideOpNode;782;664.7712,-481.4174;Inherit;False;2;0;FLOAT;0;False;1;FLOAT4;0,0,0,0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.SamplerNode;545;324.7254,20.32462;Inherit;True;Property;_shine;shine;21;0;Create;True;0;0;0;False;0;False;-1;None;82aaf027903b047d7af1e568e3864879;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
@@ -671,31 +688,34 @@ Node;AmplifyShaderEditor.BlendNormalsNode;614;-5184.914,10.66188;Inherit;False;0
 Node;AmplifyShaderEditor.GetLocalVarNode;727;-5982.494,629.8573;Inherit;False;724;CliffUvs;1;0;OBJECT;;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;724;1690.978,-957.703;Inherit;False;CliffUvs;-1;True;1;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.LerpOp;802;-5044.689,521.4215;Inherit;False;3;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.RangedFloatNode;806;913.5793,-347.4061;Inherit;False;Property;_Triplanarnoisefalloff;Triplanar noise falloff;40;0;Create;True;0;0;0;False;0;False;0;1.46;0;10;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;806;913.5793,-347.4061;Inherit;False;Property;_Triplanarnoisefalloff;Triplanar noise falloff;40;0;Create;True;0;0;0;False;0;False;0;0.59;0;10;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;704;1443.219,-875.8543;Inherit;True;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0,0,0,0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.OneMinusNode;703;1221.565,-869.7943;Inherit;True;1;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.SaturateNode;807;2307.099,-673.6454;Inherit;False;1;0;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;707;1797.439,-815.4975;Inherit;True;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0,0,0,0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.Compare;810;2287.335,-896.7691;Inherit;False;2;4;0;FLOAT4;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;FLOAT4;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.ColorNode;594;-2092.661,574.6932;Inherit;False;Property;_Specular0;Specular0;2;0;Create;True;0;0;0;False;0;False;0,0,0,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;811;1969.586,-979.4575;Inherit;False;Property;_compare;compare;43;0;Create;True;0;0;0;False;0;False;0.490566,0.490566,0.490566,0;0.115566,0.4279043,0.5,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;811;1969.586,-979.4575;Inherit;False;Property;_compare;compare;44;0;Create;True;0;0;0;False;0;False;0.490566,0.490566,0.490566,0;0.115566,0.4279043,0.5,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;706;1827.208,-463.1846;Inherit;True;2;2;0;FLOAT4;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.TriplanarNode;734;1209.408,-1264.15;Inherit;True;Spherical;World;False;Top Texture 0;_TopTexture0;white;0;None;Mid Texture 0;_MidTexture0;white;-1;None;Bot Texture 0;_BotTexture0;white;-1;None;Triplanar Sampler;Tangent;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;10;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.TriplanarNode;812;-5695.094,679.6044;Inherit;True;Spherical;World;True;Top Texture 2;_TopTexture2;white;0;None;Mid Texture 2;_MidTexture2;white;-1;None;Bot Texture 2;_BotTexture2;white;-1;None;Triplanar Sampler;Tangent;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;10;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.Vector2Node;737;819.1193,-1007.748;Inherit;False;Property;_CliffTiling;Cliff Tiling;34;0;Create;True;0;0;0;False;0;False;0,0;0.01,0.03;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
 Node;AmplifyShaderEditor.RegisterLocalVarNode;813;1252.863,-994.5695;Inherit;False;CliffTiling;-1;True;1;0;FLOAT2;0,0;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.GetLocalVarNode;814;-6131.086,1057.486;Inherit;False;813;CliffTiling;1;0;OBJECT;;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.RangedFloatNode;623;-853.3787,-685.3011;Inherit;False;Property;_TerrainSteps;TerrainSteps;31;0;Create;True;0;0;0;False;0;False;0.25;0.39;0;5;0;1;FLOAT;0
-Node;AmplifyShaderEditor.Vector2Node;805;537.405,-895.2843;Inherit;False;Property;_Triplanarnoisetiling;Triplanar noise tiling;41;0;Create;True;0;0;0;False;0;False;0,0;1,0.2;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
+Node;AmplifyShaderEditor.RangedFloatNode;623;-853.3787,-685.3011;Inherit;False;Property;_TerrainSteps;TerrainSteps;31;0;Create;True;0;0;0;False;0;False;0.25;0.54;0;5;0;1;FLOAT;0
+Node;AmplifyShaderEditor.Vector2Node;805;537.405,-895.2843;Inherit;False;Property;_Triplanarnoisetiling;Triplanar noise tiling;41;0;Create;True;0;0;0;False;0;False;0,0;0.02,0.02;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
 Node;AmplifyShaderEditor.Vector2Node;821;-431.459,-1017.075;Inherit;False;Constant;_Vector0;Vector 0;44;0;Create;True;0;0;0;False;0;False;0.001,0.001;0,0;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
-Node;AmplifyShaderEditor.TriplanarNode;803;758.6084,-696.5165;Inherit;True;Spherical;World;False;Top Texture 1;_TopTexture1;white;-1;None;Mid Texture 1;_MidTexture1;white;-1;None;Bot Texture 1;_BotTexture1;white;-1;None;Triplanar Sampler;Tangent;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.TexturePropertyNode;804;366.7227,-717.1495;Inherit;True;Property;_TriplanarNoise;TriplanarNoise;42;0;Create;True;0;0;0;False;0;False;None;5259d0042c9854375b96305b6256ecfd;True;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
-Node;AmplifyShaderEditor.SamplerNode;596;-896.3738,-1041.649;Inherit;True;Property;_Control;Control;0;0;Create;False;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SimpleDivideOpNode;815;-437.6086,-832.7786;Inherit;True;2;0;COLOR;0,0,0,0;False;1;FLOAT4;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.StepOpNode;628;-504.3919,-570.6747;Inherit;False;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.OneMinusNode;630;-421.6434,-435.8488;Inherit;False;1;0;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;827;-5646.088,1224.592;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.Vector2Node;826;-6067.095,1255.855;Inherit;False;Property;_dirtTiling;dirtTiling;44;0;Create;True;0;0;0;False;0;False;0,0;0,0;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
+Node;AmplifyShaderEditor.Vector2Node;826;-6067.095,1255.855;Inherit;False;Property;_dirtTiling;dirtTiling;45;0;Create;True;0;0;0;False;0;False;0,0;0.2,0.2;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
+Node;AmplifyShaderEditor.SimpleDivideOpNode;815;-562.5178,-838.3301;Inherit;True;2;0;COLOR;0,0,0,0;False;1;FLOAT4;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.TexturePropertyNode;804;366.7227,-717.1495;Inherit;True;Property;_TriplanarNoise;TriplanarNoise;42;0;Create;True;0;0;0;False;0;False;None;5259d0042c9854375b96305b6256ecfd;True;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
+Node;AmplifyShaderEditor.TriplanarNode;803;758.6084,-696.5165;Inherit;True;Spherical;World;False;Top Texture 1;_TopTexture1;white;-1;None;Mid Texture 1;_MidTexture1;white;-1;None;Bot Texture 1;_BotTexture1;white;-1;None;Triplanar Sampler;Tangent;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.TexturePropertyNode;828;-1347.231,-1271.531;Inherit;True;Property;_TriplanarNoise1;TriplanarNoise;43;0;Create;True;0;0;0;False;0;False;None;5259d0042c9854375b96305b6256ecfd;True;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
+Node;AmplifyShaderEditor.SamplerNode;596;-896.3738,-1041.649;Inherit;True;Property;_Control;Control;0;0;Create;False;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.TriplanarNode;829;-955.3459,-1250.898;Inherit;True;Spherical;World;False;Top Texture 3;_TopTexture3;white;-1;None;Mid Texture 1;_MidTexture1;white;-1;None;Bot Texture 1;_BotTexture1;white;-1;None;Triplanar Sampler;Tangent;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;0.005,0.005;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.RangedFloatNode;698;-37.89555,-712.6957;Inherit;False;Property;_Softness;Softness;28;0;Create;True;0;0;0;False;0;False;0;5;0;50;0;1;FLOAT;0
 WireConnection;209;0;206;0
 WireConnection;208;0;211;0
 WireConnection;208;1;209;0
@@ -897,15 +917,16 @@ WireConnection;734;4;738;0
 WireConnection;812;0;792;0
 WireConnection;812;3;814;0
 WireConnection;813;0;737;0
-WireConnection;803;0;804;0
-WireConnection;803;3;805;0
-WireConnection;803;4;806;0
-WireConnection;815;0;596;0
-WireConnection;815;1;803;0
 WireConnection;628;0;815;0
 WireConnection;628;1;623;0
 WireConnection;630;0;628;0
 WireConnection;827;0;826;0
 WireConnection;827;1;517;0
+WireConnection;815;0;596;0
+WireConnection;815;1;829;0
+WireConnection;803;0;804;0
+WireConnection;803;3;805;0
+WireConnection;803;4;806;0
+WireConnection;829;0;828;0
 ASEEND*/
-//CHKSM=1230E9D1ADF299099C2FD4A0DBC4DF5FB4EC5C6E
+//CHKSM=6B8A5654A12FBFB2F4B317EECCEE03613F7ADB41
