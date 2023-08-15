@@ -268,7 +268,7 @@ Material:
     - _StepShadows1: 0
     - _StepWidth: 0.37
     - _Steps: 2
-    - _TerrainSteps: 0.54
+    - _TerrainSteps: 0.49
     - _Tiling: 1
     - _TimeScaleLeaves: 1
     - _TimeScaleShine: 7.1
