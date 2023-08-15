@@ -110,7 +110,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal1:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 5259d0042c9854375b96305b6256ecfd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -268,7 +268,7 @@ Material:
     - _StepShadows1: 0
     - _StepWidth: 0.37
     - _Steps: 2
-    - _TerrainSteps: 0.49
+    - _TerrainSteps: 0.499
     - _Tiling: 1
     - _TimeScaleLeaves: 1
     - _TimeScaleShine: 7.1
@@ -315,12 +315,14 @@ Material:
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
     - _ShadowColor1: {r: 0.2970363, g: 0.7075472, b: 0.3076191, a: 1}
     - _ShadowTint: {r: 0.039215565, g: 1, b: 0, a: 1}
+    - _Size1: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 1, g: 0.10849059, b: 0.10849059, a: 0}
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
     - _Specular0: {r: 0, g: 0, b: 0, a: 0}
     - _Specular1: {r: 1, g: 0, b: 0, a: 0}
     - _SpecularColor: {r: 0.20241535, g: 0.31132078, b: 0.0044054748, a: 0}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
+    - _Tiling1: {r: 0, g: 0, b: 0, a: 0}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
     - _Triplanarnoisetiling: {r: 0.02, g: 0.02, b: 0, a: 0}
     - _Vector0: {r: 4, g: 0.09, b: 0, a: 0}
