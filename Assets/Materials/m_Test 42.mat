@@ -93,6 +93,8 @@ Material:
     m_Floats:
     - _Band2Mult: 0.005
     - _DirectionalLightAttenuationBoost: 1
+    - _DistFadeStep: 1
+    - _DistanceFadeSteps: 3
     - _DistanceToCam: 1
     - _EdgeSize: 0
     - _FadeMidRange: 1
@@ -107,7 +109,7 @@ Material:
     - _LightGradientSize: 0.273
     - _LightGradientSize1: 0
     - _MaxDisFade: 2
-    - _MinDistFade: -40
+    - _MinDistFade: -1
     - _NormalRimPush: 0
     - _NormalStr: 0
     - _Outerradius: 0.5
@@ -116,8 +118,8 @@ Material:
     - _RampSize: 0.52
     - _RampSize1: 0
     - _RimMult: 0
-    - _RimPower: 1
-    - _RimScale: 0.32
+    - _RimPower: 0
+    - _RimScale: 0
     - _ShadowLevel: 0.148
     - _SpecIntensity: 0
     - _SpecSmoothing: 0.21

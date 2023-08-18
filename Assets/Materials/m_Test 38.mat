@@ -93,6 +93,7 @@ Material:
     m_Floats:
     - _Band2Mult: 0.005
     - _DirectionalLightAttenuationBoost: 1
+    - _DistFadeStep: 0
     - _EdgeSize: 0
     - _FadeMidRange: 1
     - _FadeSteps: 0
