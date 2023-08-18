@@ -94,7 +94,7 @@ Material:
     - _Band2Mult: 0.005
     - _DirectionalLightAttenuationBoost: 1
     - _DistFadeStep: 1
-    - _DistanceFadeSteps: 50
+    - _DistanceFadeSteps: 20
     - _DistanceToCam: 1
     - _EdgeSize: 0
     - _FadeMidRange: 1
@@ -108,8 +108,8 @@ Material:
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.273
     - _LightGradientSize1: 0
-    - _MaxDisFade: 2
-    - _MinDistFade: -2
+    - _MaxDisFade: 5
+    - _MinDistFade: -5
     - _NormalRimPush: 0
     - _NormalStr: 0
     - _Outerradius: 0.5
