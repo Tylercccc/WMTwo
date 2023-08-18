@@ -93,8 +93,10 @@ Material:
     m_Floats:
     - _Band2Mult: 0.005
     - _DirectionalLightAttenuationBoost: 1
+    - _DistanceToCam: 1
     - _EdgeSize: 0
     - _FadeMidRange: 1
+    - _FadeSteps: 20
     - _Float0: -0.36
     - _HueShift: 0.807
     - _HueShiftPower: 123
@@ -125,7 +127,7 @@ Material:
     - _StepWidth: 0.37
     - _Steps: 2
     - _VertOffset: 0
-    - __dirty: 1
+    - __dirty: 0
     - _fractmult: 1.21
     - _frequency: 8.57
     - _max: 1.5
