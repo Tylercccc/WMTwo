@@ -94,7 +94,7 @@ Material:
     - _Band2Mult: 0.005
     - _DirectionalLightAttenuationBoost: 1
     - _DistFadeStep: 1
-    - _DistanceFadeSteps: 3
+    - _DistanceFadeSteps: 50
     - _DistanceToCam: 1
     - _EdgeSize: 0
     - _FadeMidRange: 1
@@ -109,7 +109,7 @@ Material:
     - _LightGradientSize: 0.273
     - _LightGradientSize1: 0
     - _MaxDisFade: 2
-    - _MinDistFade: -1
+    - _MinDistFade: -2
     - _NormalRimPush: 0
     - _NormalStr: 0
     - _Outerradius: 0.5
@@ -139,6 +139,7 @@ Material:
     - _normaldistance: 1
     - _rampsize2: 0
     - _rimoffset: 0.76
+    - _worldspacesteppng: 1.02
     m_Colors:
     - _Color: {r: 0.5410733, g: 0.5509375, b: 0.5943396, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
