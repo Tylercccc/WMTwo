@@ -95,6 +95,7 @@ Material:
     - _DirectionalLightAttenuationBoost: 1
     - _EdgeSize: 0
     - _FadeMidRange: 1
+    - _FadeSteps: 0
     - _Float0: -0.36
     - _HueShift: 0.807
     - _HueShiftPower: 123
@@ -104,6 +105,8 @@ Material:
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.273
     - _LightGradientSize1: 0
+    - _MaxDisFade: 2
+    - _MinDistFade: -40
     - _NormalRimPush: 0
     - _NormalStr: 1
     - _Outerradius: 0.5
@@ -145,6 +148,8 @@ Material:
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
+    - _Vector0: {r: 0, g: 0, b: 0, a: 0}
+    - _Vector1: {r: 0, g: 0, b: 0, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
