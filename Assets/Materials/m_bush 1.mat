@@ -260,15 +260,19 @@ Material:
     - _Smoothness3: 1
     - _Softness: 50
     - _SpecIntensity: 0.46
+    - _SpecMax: 0
+    - _SpecMin: 0
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
+    - _SpedSmoothstep: 0
     - _StepAmount: 6
     - _StepShadows: -1.19
     - _StepShadows1: 0
     - _StepWidth: 0.37
     - _Steps: 2
-    - _TerrainSteps: 0.499
+    - _TerrainSteps: 0.35
+    - _Tex2NormalUVscale: 0
     - _Tiling: 1
     - _TimeScaleLeaves: 1
     - _TimeScaleShine: 7.1
