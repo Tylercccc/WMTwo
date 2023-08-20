@@ -251,8 +251,8 @@ Material:
     - _PointLightAttenuationBoost: 3.2
     - _RampSize: 0.52
     - _RampSize1: 0
-    - _RimPower: 21.8
-    - _RimScale: 2.21
+    - _RimPower: 100
+    - _RimScale: 0.05
     - _ShadowLevel: 0
     - _Smoothness0: 1
     - _Smoothness1: 1

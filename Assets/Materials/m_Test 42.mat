@@ -24,7 +24,7 @@ Material:
   - TCP2_UV_NORMALS_FULL
   - _FADEMIDRANGE_ON
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -38,7 +38,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Dither:
-        m_Texture: {fileID: 2800000, guid: 073ff050942f0429caa7fe8744145704, type: 3}
+        m_Texture: {fileID: 2800000, guid: e28178c6429454b37bdae86f76095814, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -95,7 +95,10 @@ Material:
     - _DirectionalLightAttenuationBoost: 1
     - _EdgeSize: 0
     - _FadeMidRange: 1
-    - _Float0: -0.36
+    - _Float0: 0.89
+    - _Float1: 0.07
+    - _Float2: 0
+    - _Float3: -0.51
     - _HueShift: 0.807
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
@@ -105,7 +108,7 @@ Material:
     - _LightGradientSize: 0.273
     - _LightGradientSize1: 0
     - _NormalRimPush: 0
-    - _NormalStr: 0.409
+    - _NormalStr: 0.137
     - _Outerradius: 0.5
     - _OutlineSize: 0
     - _PointLightAttenuationBoost: 2.66
@@ -125,7 +128,7 @@ Material:
     - _StepWidth: 0.37
     - _Steps: 2
     - _VertOffset: 0
-    - __dirty: 1
+    - __dirty: 0
     - _fractmult: 1.21
     - _frequency: 8.57
     - _max: 1.5
