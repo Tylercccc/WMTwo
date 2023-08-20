@@ -35,6 +35,7 @@ Shader "WIZTOON_Terrain"
 		_Softness("Softness", Range( 0 , 50)) = 0
 		_NormalScale1("NormalScale1", Range( 0 , 1)) = 0
 		_Level("Level", Range( 0 , 1)) = 0
+		_TerrainSteps("TerrainSteps", Range( 0 , 5)) = 0.25
 		_Splat0("Splat0", 2D) = "white" {}
 		_CliffShadow("Cliff Shadow", Color) = (0,0,0,0)
 		_CliffTiling("Cliff Tiling", Vector) = (0,0,0,0)
@@ -104,6 +105,7 @@ Shader "WIZTOON_Terrain"
 		UNITY_DECLARE_TEX2D_NOSAMPLER(_Control);
 		uniform float4 _Control_ST;
 		SamplerState sampler_Control;
+		uniform float _TerrainSteps;
 		UNITY_DECLARE_TEX2D_NOSAMPLER(_shine);
 		uniform float _shinesize;
 		SamplerState sampler_shine;
@@ -257,7 +259,8 @@ Shader "WIZTOON_Terrain"
 			float temp_output_209_0 = ( _LightGradientSize * 0.5 );
 			float2 uv_Control = i.uv_texcoord * _Control_ST.xy + _Control_ST.zw;
 			float4 tex2DNode596 = SAMPLE_TEXTURE2D( _Control, sampler_Control, uv_Control );
-			float4 Control621 = tex2DNode596;
+			float4 temp_cast_10 = (_TerrainSteps).xxxx;
+			float4 Control621 = ( 1.0 - step( tex2DNode596 , temp_cast_10 ) );
 			float3 ase_worldPos = i.worldPos;
 			float2 appendResult517 = (float2(ase_worldPos.x , ase_worldPos.z));
 			float4 ase_screenPos = i.screenPosition;
@@ -318,14 +321,14 @@ Shader "WIZTOON_Terrain"
 			float4 weightedAvg617 = ( ( weightedBlendVar617.x*saturate( ( temp_output_706_0 > _compare ? tex2DNode693 : ( temp_output_704_0 + temp_output_706_0 ) ) ) + weightedBlendVar617.y*SAMPLE_TEXTURE2D( _Splat1, sampler_Splat1, uv_Splat1 ) + weightedBlendVar617.z*float4( 0,0,0,0 ) + weightedBlendVar617.w*float4( 0,0,0,0 ) )/( weightedBlendVar617.x + weightedBlendVar617.y + weightedBlendVar617.z + weightedBlendVar617.w ) );
 			float2 uv_Albedo = i.uv_texcoord * _Albedo_ST.xy + _Albedo_ST.zw;
 			float4 tex2DNode285 = SAMPLE_TEXTURE2D( _Albedo, sampler_Albedo, uv_Albedo );
-			float4 temp_cast_19 = (temp_output_224_0).xxxx;
+			float4 temp_cast_21 = (temp_output_224_0).xxxx;
 			float4 weightedBlendVar604 = Control621;
 			float4 weightedAvg604 = ( ( weightedBlendVar604.x*( ( _Specular0 * CliffBlendSteps744 ) + ( _CliffShadow * temp_output_703_0 ) ) + weightedBlendVar604.y*_Specular1 + weightedBlendVar604.z*float4( 0,0,0,0 ) + weightedBlendVar604.w*float4( 0,0,0,0 ) )/( weightedBlendVar604.x + weightedBlendVar604.y + weightedBlendVar604.z + weightedBlendVar604.w ) );
 			float dither292 = DitherNoiseTex(ase_screenPosNorm, _Dither, sampler_Dither, _Dither_TexelSize);
 			float cameraDepthFade293 = (( i.eyeDepth -_ProjectionParams.y - 0.0 ) / 5.0);
 			float clampResult294 = clamp( cameraDepthFade293 , 1.0 , 20.0 );
 			dither292 = step( dither292, ( clampResult294 * tex2DNode285 ).r );
-			c.rgb = ( ( ( ( 1.0 - temp_output_224_0 ) * ase_lightColor ) * ( weightedAvg617 * tex2DNode285 ) ) + ( ( min( temp_cast_19 , weightedAvg604 ) * ( 1.0 - IsPointLight76 ) ) * dither292 ) ).rgb;
+			c.rgb = ( ( ( ( 1.0 - temp_output_224_0 ) * ase_lightColor ) * ( weightedAvg617 * tex2DNode285 ) ) + ( ( min( temp_cast_21 , weightedAvg604 ) * ( 1.0 - IsPointLight76 ) ) * dither292 ) ).rgb;
 			c.a = 1;
 			return c;
 		}
@@ -341,7 +344,8 @@ Shader "WIZTOON_Terrain"
 			o.Normal = float3(0,0,1);
 			float2 uv_Control = i.uv_texcoord * _Control_ST.xy + _Control_ST.zw;
 			float4 tex2DNode596 = SAMPLE_TEXTURE2D( _Control, sampler_Control, uv_Control );
-			float4 Control621 = tex2DNode596;
+			float4 temp_cast_0 = (_TerrainSteps).xxxx;
+			float4 Control621 = ( 1.0 - step( tex2DNode596 , temp_cast_0 ) );
 			float4 ase_screenPos = i.screenPosition;
 			float4 ase_screenPosNorm = ase_screenPos / ase_screenPos.w;
 			ase_screenPosNorm.z = ( UNITY_NEAR_CLIP_VALUE >= 0 ) ? ase_screenPosNorm.z : ase_screenPosNorm.z * 0.5 + 0.5;
@@ -823,7 +827,7 @@ WireConnection;517;0;534;1
 WireConnection;517;1;534;3
 WireConnection;564;0;557;0
 WireConnection;531;0;529;0
-WireConnection;621;0;596;0
+WireConnection;621;0;630;0
 WireConnection;720;0;719;0
 WireConnection;720;1;703;0
 WireConnection;721;0;718;0
@@ -912,4 +916,4 @@ WireConnection;815;1;829;0
 WireConnection;290;0;233;0
 WireConnection;290;1;292;0
 ASEEND*/
-//CHKSM=0E85F1EBEF8DE74E792656B410D06A8B9F720E39
+//CHKSM=AFA73640986442DB061E66134416004596600FBA

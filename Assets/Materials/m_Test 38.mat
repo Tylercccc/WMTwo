@@ -109,7 +109,7 @@ Material:
     - _MaxDisFade: 2
     - _MinDistFade: -40
     - _NormalRimPush: 0
-    - _NormalStr: 1
+    - _NormalStr: 0.407
     - _Outerradius: 0.5
     - _OutlineSize: 0
     - _PointLightAttenuationBoost: 2.66
