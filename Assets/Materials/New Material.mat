@@ -84,11 +84,12 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _Depthsteps: 1
+    - _Depthsteps: 0.39
     - _DetailNormalMapScale: 1
-    - _Distortion: 0.11
+    - _Distortion: 0.06
     - _DstBlend: 10
     - _FadeMidRange: 0
+    - _Float0: 2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -96,7 +97,7 @@ Material:
     - _LightGradientSize: 0.452
     - _Metallic: 0
     - _Mode: 2
-    - _NormalScale: 0.14
+    - _NormalScale: 0.44
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PointLightAttenuationBoost: 1
@@ -108,10 +109,11 @@ Material:
     - _SrcBlend: 5
     - _Steps: 4
     - _UVSec: 0
-    - _WaterDepth: 1.57
+    - _WaterDepth: 1.93
     - _WaterFalloff: -0.88
     - _ZWrite: 0
     - __dirty: 0
+    - _refreactsteps: 2
     m_Colors:
     - _Color: {r: 0.37254903, g: 0.5472497, b: 0.972549, a: 0.9137255}
     - _DeepColor: {r: 0.5707547, g: 0.7851669, b: 1, a: 0}
