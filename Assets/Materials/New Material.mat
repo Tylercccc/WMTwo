@@ -60,6 +60,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: 71ee2865e455142fb9a3cd6e3ef3fc51, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Normal2:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -86,10 +90,10 @@ Material:
     - _Cutoff: 0.5
     - _Depthsteps: 0.39
     - _DetailNormalMapScale: 1
-    - _Distortion: 0.06
+    - _Distortion: -0.56
     - _DstBlend: 10
     - _FadeMidRange: 0
-    - _Float0: 2
+    - _Float0: 3
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -109,16 +113,17 @@ Material:
     - _SrcBlend: 5
     - _Steps: 4
     - _UVSec: 0
-    - _WaterDepth: 1.93
-    - _WaterFalloff: -0.88
+    - _WaterDepth: 2.58
+    - _WaterFalloff: -0.56
     - _ZWrite: 0
     - __dirty: 0
     - _refreactsteps: 2
+    - _wDepth: 1
     m_Colors:
     - _Color: {r: 0.37254903, g: 0.5472497, b: 0.972549, a: 0.9137255}
-    - _DeepColor: {r: 0.5707547, g: 0.7851669, b: 1, a: 0}
+    - _DeepColor: {r: 0.03301889, g: 0.5120738, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ShadowColor1: {r: 1, g: 1, b: 1, a: 0}
-    - _ShalowColor: {r: 0.7877358, g: 0.9064891, b: 1, a: 0}
-    - _Watertint: {r: 1, g: 1, b: 1, a: 0}
+    - _ShalowColor: {r: 1, g: 1, b: 1, a: 0}
+    - _Watertint: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
