@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_Test 33
+  m_Name: m_Test 44
   m_Shader: {fileID: 4800000, guid: 7b50cf9b6442041aea2465b4079c3498, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,7 +24,7 @@ Material:
   - TCP2_UV_NORMALS_FULL
   - _FADEMIDRANGE_ON
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -35,10 +35,10 @@ Material:
     m_TexEnvs:
     - _Albedo:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 10, y: 10}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Dither:
-        m_Texture: {fileID: 2800000, guid: 073ff050942f0429caa7fe8744145704, type: 3}
+        m_Texture: {fileID: 2800000, guid: e28178c6429454b37bdae86f76095814, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -54,7 +54,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 8a0c3ba8788c44b57bf61a441dfd4412, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6b0fc5653bca344f685c1ba12db53027, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Ramp:
@@ -95,18 +95,20 @@ Material:
     - _DirectionalLightAttenuationBoost: 1
     - _EdgeSize: 0
     - _FadeMidRange: 1
-    - _FadeSteps: 1.7
-    - _Float0: -0.36
+    - _Float0: 0.89
+    - _Float1: 0.07
+    - _Float2: 0
+    - _Float3: -0.51
     - _HueShift: 0.807
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
-    - _LightGradientMidLevel: 0.595
+    - _LightGradientMidLevel: 0.73
     - _LightGradientMidLevel1: 0
-    - _LightGradientSize: 0.273
+    - _LightGradientSize: 0.204
     - _LightGradientSize1: 0
     - _NormalRimPush: 0
-    - _NormalStr: 0.524
+    - _NormalStr: 0.137
     - _Outerradius: 0.5
     - _OutlineSize: 0
     - _PointLightAttenuationBoost: 2.66
@@ -115,7 +117,7 @@ Material:
     - _RimMult: 0
     - _RimPower: 1
     - _RimScale: 0.32
-    - _ShadowLevel: 0.148
+    - _ShadowLevel: 0
     - _SpecIntensity: 0
     - _SpecSmoothing: 0.21
     - _SpecularFalloff: 2
@@ -131,6 +133,7 @@ Material:
     - _frequency: 8.57
     - _max: 1.5
     - _min: 1.1
+    - _normaldistance: 1
     - _rampsize2: 0
     - _rimoffset: 0.76
     m_Colors:
@@ -140,7 +143,7 @@ Material:
     - _Highlightcolor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
-    - _ShadowColor1: {r: 0.4431373, g: 0.36862746, b: 0.4901961, a: 1}
+    - _ShadowColor1: {r: 0.44389713, g: 0.3679245, b: 0.49056602, a: 1}
     - _ShadowTint: {r: 0.039215565, g: 1, b: 0, a: 1}
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
