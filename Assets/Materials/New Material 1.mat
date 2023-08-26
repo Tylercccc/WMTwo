@@ -95,7 +95,7 @@ Material:
     - _Depthsteps: 1.04
     - _DetailNormalMapScale: 1
     - _Displacement: 0.1
-    - _Distortion: 0.36
+    - _Distortion: 0.96
     - _DitherDepth: 0
     - _DstBlend: 10
     - _FadeMidRange: 0
