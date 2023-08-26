@@ -95,11 +95,11 @@ Material:
     - _Depthsteps: 1.04
     - _DetailNormalMapScale: 1
     - _Displacement: 0.1
-    - _Distortion: 0.96
+    - _Distortion: 0.42
     - _DitherDepth: 0
     - _DstBlend: 10
     - _FadeMidRange: 0
-    - _Float0: 3.71
+    - _Float0: 6
     - _FoamDepth: 3.42
     - _FoamFalloff: 0.85
     - _Gloss: 2.04
@@ -134,10 +134,10 @@ Material:
     - _foamsteps2: 0
     - _lerrppp: 1.25
     - _refractionmult: 1
-    - _refreactsteps: 15
+    - _refreactsteps: 6
     - _s: 4.9
     - _specsteps: 90.5
-    - _test: 3.47
+    - _test: 7.79
     - _wDepth: 1
     m_Colors:
     - _Color: {r: 0.37254903, g: 0.5472497, b: 0.972549, a: 0.9137255}
