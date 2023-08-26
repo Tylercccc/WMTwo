@@ -134,7 +134,7 @@ Material:
     - _foamsteps2: 0
     - _lerrppp: 1.25
     - _refractionmult: 1
-    - _refreactsteps: 3
+    - _refreactsteps: 15
     - _s: 4.9
     - _specsteps: 90.5
     - _test: 3.47
