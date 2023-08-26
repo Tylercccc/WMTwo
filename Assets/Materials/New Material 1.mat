@@ -115,7 +115,7 @@ Material:
     - _NormalScale: 0.31
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _PointLightAttenuationBoost: 1
+    - _PointLightAttenuationBoost: 2.66
     - _RimPower: 5
     - _RimScale: 1
     - _ShadowLevel: 0.5
@@ -123,7 +123,7 @@ Material:
     - _SpecIntensity: 1.9
     - _SpecularHighlights: 1
     - _SrcBlend: 5
-    - _Steps: 4
+    - _Steps: 1
     - _UVSec: 0
     - _WaterDepth: 1.67
     - _WaterFalloff: -1.48
