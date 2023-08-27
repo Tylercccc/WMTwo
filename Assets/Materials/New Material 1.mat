@@ -142,7 +142,7 @@ Material:
     - _refractionmult: 1
     - _refreactsteps: 6
     - _rippleTestt: 0
-    - _ripple_step: 0.52
+    - _ripple_step: 0.617
     - _s: 10.29
     - _specsteps: 90.5
     - _test: 4.79
