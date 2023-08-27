@@ -103,7 +103,7 @@ Material:
     - _DitherDepth: 0
     - _DstBlend: 10
     - _FadeMidRange: 0
-    - _Float0: 6
+    - _Float0: 4
     - _FoamDepth: 3.42
     - _FoamFalloff: 0.85
     - _Gloss: 2.04
@@ -120,7 +120,7 @@ Material:
     - _OcclusionStrength: 1
     - _OrthographicCamSize: 0
     - _Parallax: 0.02
-    - _PointLightAttenuationBoost: 2.66
+    - _PointLightAttenuationBoost: 3.78
     - _RimPower: 5
     - _RimScale: 1
     - _ShadowLevel: 0.5
@@ -128,7 +128,7 @@ Material:
     - _SpecIntensity: 1.9
     - _SpecularHighlights: 1
     - _SrcBlend: 5
-    - _Steps: 1
+    - _Steps: 2
     - _UVSec: 0
     - _WaterDepth: 1.67
     - _WaterFalloff: -1.48
@@ -140,9 +140,9 @@ Material:
     - _foamsteps2: 0
     - _lerrppp: 1.25
     - _refractionmult: 1
-    - _refreactsteps: 6
+    - _refreactsteps: 2
     - _rippleTestt: 0
-    - _ripple_step: 0.617
+    - _ripple_step: 0.392
     - _s: 10.29
     - _specsteps: 90.5
     - _test: 4.79
