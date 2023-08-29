@@ -98,7 +98,7 @@ Material:
     - _Band2Mult: 0.005
     - _BendDist: 0.01
     - _DirectionalLightAttenuationBoost: 1
-    - _DisplacementSize: 3.07
+    - _DisplacementSize: 2.53
     - _EdgeLength: 15
     - _EdgeSize: 0
     - _FadeMidRange: 1
@@ -138,7 +138,7 @@ Material:
     - _TimeScaleLeaves: 5
     - _Timesteps: 10.5
     - _VertOffset: 0
-    - _Wind: 1.4
+    - _Wind: 0.1
     - _WindMulty: 3.39
     - _WindNoiseScale: 4
     - __dirty: 0
