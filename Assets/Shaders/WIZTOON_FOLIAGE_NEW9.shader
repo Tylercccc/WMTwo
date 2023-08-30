@@ -175,7 +175,8 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 			UNITY_INITIALIZE_OUTPUT( Input, o );
 			float3 ase_vertexNormal = v.normal.xyz;
 			float3 worldToObj512 = mul( unity_WorldToObject, float4( _BushPosition, 1 ) ).xyz;
-			float3 temp_output_492_0 = ( ( ase_vertexNormal - ( worldToObj512 * _bendoffset ) ) / _SphereRadius );
+			float3 temp_output_491_0 = ( ase_vertexNormal - ( worldToObj512 * _bendoffset ) );
+			float3 temp_output_492_0 = ( temp_output_491_0 / _SphereRadius );
 			float dotResult493 = dot( temp_output_492_0 , temp_output_492_0 );
 			float sphereMask496 = pow( saturate( dotResult493 ) , _SphereHardness );
 			float temp_output_459_0 = ( floor( ( _Time.y * _TimeScaleLeaves ) ) / _TimeScaleLeaves );
@@ -576,7 +577,7 @@ Node;AmplifyShaderEditor.PannerNode;473;641.2123,1859.256;Inherit;True;3;0;FLOAT
 Node;AmplifyShaderEditor.RangedFloatNode;356;-284.8817,2031.764;Inherit;False;Property;_Wind;Wind;14;0;Create;True;0;0;0;False;0;False;0;1.4;0;10;0;1;FLOAT;0
 Node;AmplifyShaderEditor.NoiseGeneratorNode;476;942.6793,1881.425;Inherit;True;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;477;980.0214,1724.775;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.Vector3Node;511;-2849.506,2343.92;Inherit;False;Global;_BushPosition;_BushPosition;31;0;Create;True;0;0;0;False;0;False;0,0,0;-186.98,40.04164,-228.89;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
+Node;AmplifyShaderEditor.Vector3Node;511;-2849.506,2343.92;Inherit;False;Global;_BushPosition;_BushPosition;31;0;Create;True;0;0;0;False;0;False;0,0,0;-185.06,40.04164,-225.11;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.NormalVertexDataNode;505;-3266.024,1659.444;Inherit;True;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.AbsOpNode;515;-2972.507,1825.008;Inherit;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.AbsOpNode;516;-1570.669,2221.924;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
@@ -587,6 +588,9 @@ Node;AmplifyShaderEditor.Vector3Node;504;-2879.56,1983.936;Inherit;False;Propert
 Node;AmplifyShaderEditor.NegateNode;513;-2847.691,1499.164;Inherit;True;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;514;-2564.779,1675.525;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SamplerNode;261;-4519.871,616.6649;Inherit;True;Property;_NormalMap;Normal Map;3;0;Create;True;0;0;0;False;0;False;-1;None;bd4806d82731a422ea0b106e0524d364;True;0;False;white;Auto;True;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;519;-1892.868,1723.295;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;520;-1958.665,1589.703;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0.3;False;1;FLOAT;0
+Node;AmplifyShaderEditor.NoiseGeneratorNode;518;-2292.174,1513.036;Inherit;True;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;3;False;1;FLOAT;0
 WireConnection;6;0;262;0
 WireConnection;5;0;6;0
 WireConnection;5;1;7;0
@@ -768,5 +772,9 @@ WireConnection;514;0;513;0
 WireConnection;514;1;505;0
 WireConnection;261;1;465;0
 WireConnection;261;5;287;0
+WireConnection;519;0;520;0
+WireConnection;519;1;493;0
+WireConnection;520;0;518;0
+WireConnection;518;0;491;0
 ASEEND*/
-//CHKSM=42CAD09C128844AE20D6665DB9D66FE1DC3DA0A9
+//CHKSM=BA4D79604E76ED32F654BBA0CBB4312F081F9F1B
