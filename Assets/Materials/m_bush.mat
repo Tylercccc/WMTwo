@@ -130,6 +130,8 @@ Material:
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
+    - _SphereHardness: 0.05
+    - _SphereRadius: 0.65
     - _StepAmount: 6
     - _StepShadows: -1.19
     - _StepShadows1: 0
@@ -151,6 +153,7 @@ Material:
     - _normalspeed: 0.219
     - _rampsize2: 0
     - _rimoffset: 0.76
+    - _tempscale: 1
     - _test: 1
     m_Colors:
     - _Color: {r: 0.5019608, g: 0.8196079, b: 0.30588236, a: 0}
@@ -169,10 +172,12 @@ Material:
     - _SpecColor: {r: 1, g: 0.10849059, b: 0.10849059, a: 0}
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 0.20241535, g: 0.31132078, b: 0.0044054748, a: 0}
+    - _SphereCenter: {r: 0.98, g: 0.5, b: 0, a: 0}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
+    - _tempoffset: {r: -0.99, g: -0.99, b: -0.99, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
     - _windrotation: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
