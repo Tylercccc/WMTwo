@@ -176,7 +176,7 @@ Material:
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
-    - _bendoffset: {r: 3, g: 3, b: 3, a: 0}
+    - _bendoffset: {r: 4, g: 4, b: 4, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
     - _tempoffset: {r: -0.99, g: -0.99, b: -0.99, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
