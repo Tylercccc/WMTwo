@@ -23,6 +23,7 @@ Material:
   - TCP2_UV4_AS_NORMALS
   - TCP2_UV_NORMALS_FULL
   - _FADEMIDRANGE_ON
+  - _USEUVCOORDS_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -93,8 +94,9 @@ Material:
     m_Floats:
     - _Band2Mult: 0.005
     - _BendDist: 1.8
+    - _Depthfadedist: 0
     - _DirectionalLightAttenuationBoost: 1
-    - _DisplacementSize: 0
+    - _DisplacementSize: 1.09
     - _EdgeSize: 0
     - _FadeMidRange: 1
     - _Float0: -0.36
@@ -103,11 +105,13 @@ Material:
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
+    - _Intersectionshadowmult: 0
     - _LightGradientMidLevel: 0.45
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.612
     - _LightGradientSize1: 0
     - _NormalRimPush: 0
+    - _NormalScale: 1
     - _NormalStr: 2
     - _Outerradius: 0.5
     - _OutlineSize: 0
@@ -122,6 +126,8 @@ Material:
     - _SpecSmoothing: 0.21
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
+    - _SphereHardness: 0
+    - _SphereRadius: 0
     - _StepAmount: 6
     - _StepShadows: -1.19
     - _StepShadows1: 0
@@ -130,16 +136,20 @@ Material:
     - _TimeScaleLeaves: 0.48
     - _Timesteps: 5
     - _VertOffset: 0
-    - _Wind: 0
+    - _Wind: 1.14
+    - _WindMulty: 0
     - _WindNoiseScale: 0
     - __dirty: 0
     - _fractmult: 1.21
     - _frequency: 8.57
     - _max: 1.5
     - _min: 1.1
+    - _normalmovingtest: 0
     - _normalspeed: 0
     - _rampsize2: 0
     - _rimoffset: 0.76
+    - _tempscale: 0
+    - _useUVcoords: 1
     m_Colors:
     - _Color: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
@@ -155,7 +165,10 @@ Material:
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
+    - _bendoffset: {r: 1, g: 1, b: 1, a: 1}
+    - _freq: {r: 0, g: 0, b: 0, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
+    - _tempoffset: {r: 0, g: 0, b: 0, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
     - _windrotation: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
