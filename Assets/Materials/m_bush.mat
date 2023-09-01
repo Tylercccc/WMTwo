@@ -96,7 +96,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _Band2Mult: 0.005
+    - _BendAmt: 0.85
     - _BendDist: 0.03
+    - _BottomGradientSize: 2.41
     - _Depthfadedist: 47.3
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 3.07
@@ -104,10 +106,11 @@ Material:
     - _EdgeLength: 15
     - _EdgeSize: 0
     - _FadeMidRange: 1
-    - _Float0: 1
+    - _Float0: 1.184299
     - _Float1: 0.02
     - _Float2: 0
     - _Freq: 0.2
+    - _GradientHeight: 1.5
     - _HueShift: 0.807
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
@@ -129,6 +132,7 @@ Material:
     - _RampSize1: 0
     - _RimPower: 1.93
     - _RimScale: 0.52
+    - _SecondaryFrequency: 2.19
     - _ShadowLevel: 0
     - _SpecIntensity: 0.46
     - _SpecSmoothing: 18.19
@@ -145,10 +149,10 @@ Material:
     - _Timesteps: 10.5
     - _VertOffset: 0
     - _Wind: 1.4
-    - _WindDirection: 206
+    - _WindDirection: 1.41
     - _WindMulty: 3.39
     - _WindNoiseScale: 4
-    - _WorldFrequency: 0.3
+    - _WorldFrequency: 0.458
     - __dirty: 0
     - _fractmult: 1.21
     - _frequency: 8.57
@@ -185,6 +189,7 @@ Material:
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
     - _bendoffset: {r: 4, g: 4, b: 4, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
+    - _secondaryspeed: {r: 0.3, g: 0.3, b: 0, a: 0}
     - _tempoffset: {r: -0.99, g: -0.99, b: -0.99, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
     - _windrotation: {r: 0, g: 0, b: 0, a: 0}
