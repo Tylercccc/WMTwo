@@ -147,6 +147,7 @@ Material:
     - _Steps: 3
     - _TimeScaleLeaves: 5
     - _Timesteps: 10.5
+    - _Tonedown: 0.3
     - _VertOffset: 0
     - _Wind: 1.4
     - _WindDirection: 1.41
