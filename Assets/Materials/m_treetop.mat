@@ -97,8 +97,11 @@ Material:
     m_Floats:
     - _Band2Mult: 0.005
     - _BendDist: 0.02
+    - _BranchPhase: 0
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 3.66
+    - _DoesSomething: -1.06
+    - _EdgeFlutter: 1
     - _EdgeLength: 15
     - _EdgeSize: 0
     - _FadeMidRange: 1
@@ -115,16 +118,19 @@ Material:
     - _LightGradientSize: 0.618
     - _LightGradientSize1: 0
     - _NormalRimPush: 0
+    - _NormalScale: 0
     - _NormalStr: 0.22
     - _NormalStr1: 0.23
     - _NormalTexFlow: 1
     - _Outerradius: 0.5
     - _OutlineSize: 0
     - _PointLightAttenuationBoost: 2.68
+    - _PrimaryFactor: 0
     - _RampSize: 0.52
     - _RampSize1: 0
     - _RimPower: 8.64
     - _RimScale: 0.63
+    - _SecondaryFactor: 0
     - _ShadowLevel: 0
     - _SpecIntensity: 0.46
     - _SpecSmoothing: 18.19
@@ -141,8 +147,11 @@ Material:
     - _Timesteps: 5
     - _VertOffset: 0
     - _Wind: 0.1
+    - _WindDirection: 205.8
     - _WindMulty: 3.39
     - _WindNoiseScale: 4
+    - _Windyness: 0
+    - _WorldFrequency: 6.62
     - __dirty: 0
     - _fractmult: 1.21
     - _frequency: 8.57
@@ -153,7 +162,9 @@ Material:
     - _normalspeed: 1
     - _rampsize2: 0
     - _rimoffset: 0.76
+    - _tempscale: 0
     - _test: 1
+    - _useUVcoords: 0
     m_Colors:
     - _Color: {r: 0.5019608, g: 0.8196079, b: 0.30588236, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
@@ -174,8 +185,12 @@ Material:
     - _SphereCenter: {r: 0, g: 0, b: 0, a: 0}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
+    - _TreeInstanceScale: {r: 0, g: 0, b: 0, a: 0}
+    - _TreeOffset: {r: 0, g: 5, b: 0, a: 0}
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
+    - _bendoffset: {r: 0, g: 0, b: 0, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
+    - _tempoffset: {r: 0, g: 0, b: 0, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
     - _windrotation: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

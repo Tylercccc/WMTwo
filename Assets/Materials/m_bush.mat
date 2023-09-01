@@ -100,6 +100,7 @@ Material:
     - _Depthfadedist: 47.3
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 3.07
+    - _DoesSomething: 0.3
     - _EdgeLength: 15
     - _EdgeSize: 0
     - _FadeMidRange: 1
@@ -144,8 +145,10 @@ Material:
     - _Timesteps: 10.5
     - _VertOffset: 0
     - _Wind: 1.4
+    - _WindDirection: 206
     - _WindMulty: 3.39
     - _WindNoiseScale: 4
+    - _WorldFrequency: 0.3
     - __dirty: 0
     - _fractmult: 1.21
     - _frequency: 8.57
