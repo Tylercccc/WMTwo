@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_bush
+  m_Name: m_bush 3
   m_Shader: {fileID: 4800000, guid: 59836f8e2416b4b4185f3f0b3db40372, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -98,7 +98,7 @@ Material:
     - _Band2Mult: 0.005
     - _BendAmt: 0.85
     - _BendDist: 0.03
-    - _BottomGradientSize: 2.41
+    - _BottomGradientSize: 0
     - _Depthfadedist: 47.3
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 3.07
