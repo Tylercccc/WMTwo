@@ -138,8 +138,8 @@ Material:
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
-    - _SphereHardness: 0.05
-    - _SphereRadius: 3.81
+    - _SphereHardness: 0.35
+    - _SphereRadius: 4.5
     - _StepAmount: 6
     - _StepShadows: -1.19
     - _StepShadows1: 0
@@ -150,7 +150,7 @@ Material:
     - _VertOffset: 0
     - _Wind: 1.4
     - _WindDirection: 1.41
-    - _WindMulty: 3.39
+    - _WindMulty: 4.83
     - _WindNoiseScale: 4
     - _WorldFrequency: 0.458
     - __dirty: 0
@@ -160,7 +160,7 @@ Material:
     - _min: 0
     - _noise: 1000
     - _normalWindScale: 0.2
-    - _normalspeed: 0.219
+    - _normalspeed: 1
     - _rampsize2: 0
     - _rimoffset: 0.76
     - _tempscale: 1
@@ -173,7 +173,7 @@ Material:
     - _Extrusion: {r: 0.02, g: 0.02, b: 0.02, a: 0}
     - _Highlightcolor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
     - _NormalTexFlow: {r: -0.4, g: 300, b: 0, a: 0}
-    - _NormalTiling: {r: 0.2, g: 0.2, b: 0, a: 0}
+    - _NormalTiling: {r: 0.1, g: 0.1, b: 0.1, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.26598534, g: 0.3301887, b: 0, a: 0}
@@ -192,5 +192,5 @@ Material:
     - _secondaryspeed: {r: 0.3, g: 0.3, b: 0, a: 0}
     - _tempoffset: {r: -0.99, g: -0.99, b: -0.99, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
-    - _windrotation: {r: 0, g: 0, b: 0, a: 0}
+    - _windrotation: {r: 3.62, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
