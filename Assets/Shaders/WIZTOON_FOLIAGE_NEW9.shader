@@ -35,6 +35,7 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 		_NormalScale("Normal Scale", Range( 0 , 1)) = 0
 		_Tonedown("Tone down", Float) = 1
 		_Texture0("Texture 0", 2D) = "bump" {}
+		_Intersectradius("Intersectradius", Float) = 0
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
@@ -122,6 +123,7 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 		uniform float _LightGradientSize;
 		uniform float _Steps;
 		uniform float _ShadowLevel;
+		uniform float _Intersectradius;
 		uniform float4 _Color;
 		UNITY_DECLARE_TEX2D_NOSAMPLER(_Albedo);
 		uniform float4 _Albedo_ST;
@@ -277,10 +279,11 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 			float NdotL131 = dotResult5;
 			float smoothstepResult205 = smoothstep( ( _LightGradientMidLevel - temp_output_209_0 ) , ( _LightGradientMidLevel + temp_output_209_0 ) , (NdotL131*0.5 + 0.5));
 			float temp_output_192_0 = ( 0.0 + smoothstepResult205 );
+			float temp_output_687_0 = ( sphereMask496 / _Intersectradius );
 			float4 appendResult686 = (float4(ase_worldPos.x , ase_worldPos.z , 0.0 , 0.0));
-			float simplePerlin2D681 = snoise( appendResult686.xy*5.0 );
+			float simplePerlin2D681 = snoise( appendResult686.xy*3.0 );
 			simplePerlin2D681 = simplePerlin2D681*0.5 + 0.5;
-			float temp_output_181_0 = ( ( ( ase_lightAtten * ( 1.0 - IsPointLight76 ) ) * step( _ShadowLevel , ase_lightAtten ) ) * ( floor( ( temp_output_192_0 * _Steps * ( 1.0 - IsPointLight76 ) * saturate( ( sphereMask496 + simplePerlin2D681 ) ) ) ) / _Steps ) );
+			float temp_output_181_0 = ( ( ( ase_lightAtten * ( 1.0 - IsPointLight76 ) ) * step( _ShadowLevel , ase_lightAtten ) ) * ( floor( ( temp_output_192_0 * _Steps * ( 1.0 - IsPointLight76 ) * saturate( ( temp_output_687_0 + simplePerlin2D681 ) ) ) ) / _Steps ) );
 			float4 ase_screenPos = i.screenPosition;
 			float4 ase_screenPosNorm = ase_screenPos / ase_screenPos.w;
 			ase_screenPosNorm.z = ( UNITY_NEAR_CLIP_VALUE >= 0 ) ? ase_screenPosNorm.z : ase_screenPosNorm.z * 0.5 + 0.5;
@@ -608,7 +611,7 @@ Node;AmplifyShaderEditor.ObjectScaleNode;564;-2438.885,2204.3;Inherit;False;True
 Node;AmplifyShaderEditor.RangedFloatNode;489;-2479.976,2027.443;Inherit;False;Property;_SphereRadius;SphereRadius;14;0;Create;True;0;0;0;False;0;False;0;4.5;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;517;-2265.027,2364.993;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;257;855.7325,700.2125;Inherit;True;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.Vector3Node;511;-2849.506,2343.92;Inherit;False;Global;_BushPosition;_BushPosition;31;0;Create;True;0;0;0;False;0;False;0,0,0;-187.07,41.22042,-225.8815;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
+Node;AmplifyShaderEditor.Vector3Node;511;-2849.506,2343.92;Inherit;False;Global;_BushPosition;_BushPosition;31;0;Create;True;0;0;0;False;0;False;0,0,0;-186.2837,41.22372,-226.3536;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.GetLocalVarNode;657;1275.171,838.7219;Inherit;False;-1;;1;0;OBJECT;;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.GetLocalVarNode;590;1293.145,717.5705;Inherit;False;589;NewWind;1;0;OBJECT;;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.NormalVertexDataNode;664;4868.971,1467.572;Inherit;False;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
@@ -629,13 +632,16 @@ Node;AmplifyShaderEditor.SimpleMultiplyOpNode;671;4932.26,777.4774;Inherit;False
 Node;AmplifyShaderEditor.GetLocalVarNode;672;4478.343,854.4024;Inherit;False;496;sphereMask;1;0;OBJECT;;False;1;FLOAT;0
 Node;AmplifyShaderEditor.TexturePropertyNode;679;-5213.146,687.7877;Inherit;True;Property;_Texture0;Texture 0;30;0;Create;True;0;0;0;False;0;False;None;bd4806d82731a422ea0b106e0524d364;False;bump;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
 Node;AmplifyShaderEditor.SamplerNode;261;-4519.871,616.6649;Inherit;True;Property;_NormalMap;Normal Map;3;0;Create;True;0;0;0;False;0;False;-1;None;bd4806d82731a422ea0b106e0524d364;True;0;False;white;Auto;True;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.GetLocalVarNode;680;-2839.14,-269.0371;Inherit;False;496;sphereMask;1;0;OBJECT;;False;1;FLOAT;0
-Node;AmplifyShaderEditor.NoiseGeneratorNode;681;-2882.81,-72.28551;Inherit;False;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;5;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;685;-2643.337,-167.3562;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SaturateNode;684;-2506.464,-238.154;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.WorldPosInputsNode;682;-3224.094,-133.6436;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.DynamicAppendNode;686;-2987.887,85.94226;Inherit;False;FLOAT4;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;465;-4593.635,424.2814;Inherit;False;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT4;0
+Node;AmplifyShaderEditor.GetLocalVarNode;680;-3060.14,-288.0371;Inherit;False;496;sphereMask;1;0;OBJECT;;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleDivideOpNode;687;-2828.467,-285.5064;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;688;-3035.467,-172.5064;Inherit;False;Property;_Intersectradius;Intersectradius;31;0;Create;True;0;0;0;False;0;False;0;0.6;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.NoiseGeneratorNode;681;-2882.81,-72.28551;Inherit;False;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;3;False;1;FLOAT;0
+Node;AmplifyShaderEditor.AbsOpNode;689;-2778.467,-155.5063;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 WireConnection;6;0;262;0
 WireConnection;5;0;6;0
 WireConnection;5;1;7;0
@@ -811,13 +817,16 @@ WireConnection;671;1;676;0
 WireConnection;261;0;679;0
 WireConnection;261;1;465;0
 WireConnection;261;5;670;0
-WireConnection;681;0;686;0
-WireConnection;685;0;680;0
+WireConnection;685;0;687;0
 WireConnection;685;1;681;0
 WireConnection;684;0;685;0
 WireConnection;686;0;682;1
 WireConnection;686;1;682;3
 WireConnection;465;0;481;0
 WireConnection;465;1;462;0
+WireConnection;687;0;680;0
+WireConnection;687;1;688;0
+WireConnection;681;0;686;0
+WireConnection;689;0;687;0
 ASEEND*/
-//CHKSM=EF41675C34DFC19DD958A32DE4C51DD0F14B08FD
+//CHKSM=D01057B8AAAD92221A7D8E7D8D057D038A679BB3

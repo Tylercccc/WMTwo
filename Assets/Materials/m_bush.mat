@@ -116,6 +116,7 @@ Material:
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
     - _Intersectionshadowmult: 1
+    - _Intersectradius: 0.6
     - _LightGradientMidLevel: 0.641
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.31
