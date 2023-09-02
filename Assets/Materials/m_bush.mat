@@ -176,7 +176,7 @@ Material:
     - _Extrusion: {r: 0.02, g: 0.02, b: 0.02, a: 0}
     - _Highlightcolor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
     - _NormalTexFlow: {r: -0.4, g: 300, b: 0, a: 0}
-    - _NormalTiling: {r: 0.1, g: 0.1, b: 0.1, a: 0}
+    - _NormalTiling: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.26598534, g: 0.3301887, b: 0, a: 0}
