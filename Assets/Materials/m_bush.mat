@@ -89,6 +89,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 7fe85df733e76164b912c7ade9e31f71, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _intersectionnoise:
+        m_Texture: {fileID: 2800000, guid: 3eda0c4754885564f9df920405499055, type: 3}
+        m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -116,7 +120,7 @@ Material:
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
     - _Intersectionshadowmult: 1
-    - _Intersectradius: 0.6
+    - _Intersectradius: 0.8
     - _LightGradientMidLevel: 0.641
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.31
@@ -159,6 +163,7 @@ Material:
     - _bushtimesteps: 9.2
     - _fractmult: 1.21
     - _frequency: 8.57
+    - _intersectnoisescale: 0.3
     - _max: 100000
     - _min: 0
     - _noise: 1000
