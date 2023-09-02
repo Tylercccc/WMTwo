@@ -7,7 +7,6 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 		_Color("Color", Color) = (1,1,1,0)
 		[IntRange]_Steps("Steps", Range( 1 , 10)) = 5
 		_ShadowColor1("Shadow Color", Color) = (0,0,0,0)
-		_NormalMap("Normal Map", 2D) = "white" {}
 		_PointLightAttenuationBoost("PointLight Attenuation Boost", Range( 1 , 10)) = 1
 		_RimPower("Rim Power", Float) = 5
 		_RimScale("Rim Scale", Float) = 1
@@ -35,6 +34,7 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 		_Squash("Squash", Vector) = (0,0,0,0)
 		_NormalScale("Normal Scale", Range( 0 , 1)) = 0
 		_Tonedown("Tone down", Float) = 1
+		_Texture0("Texture 0", 2D) = "bump" {}
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
@@ -108,11 +108,11 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 		UNITY_DECLARE_TEX2D_NOSAMPLER(_Dither);
 		float4 _Dither_TexelSize;
 		SamplerState sampler_Dither;
-		UNITY_DECLARE_TEX2D_NOSAMPLER(_NormalMap);
+		UNITY_DECLARE_TEX2D_NOSAMPLER(_Texture0);
 		uniform float2 _NormalTiling;
 		uniform float _useUVcoords;
 		uniform float _normalspeed;
-		SamplerState sampler_NormalMap;
+		SamplerState sampler_Texture0;
 		uniform float _NormalScale;
 		uniform float _RimScale;
 		uniform float _RimPower;
@@ -267,7 +267,7 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 			float3 temp_cast_13 = (sphereMask496).xxx;
 			float3 rotatedValue587 = RotateAroundAxis( float3( 0,0,0 ), ( ( appendResult585 + float4( ( temp_cast_13 - float3(1,1,1) ) , 0.0 ) ) + float4( (ase_vertexNormal*_Squash + 0.0) , 0.0 ) ).xyz, float3( 0,0,0 ), _WindDirection );
 			float3 NewWind589 = rotatedValue587;
-			float3 normal259 = UnpackScaleNormal( SAMPLE_TEXTURE2D( _NormalMap, sampler_NormalMap, ( ( float4( _NormalTiling, 0.0 , 0.0 ) * lerpResult567 ) + float4( ( NewWind589 * _normalspeed ) , 0.0 ) ).xy ), _NormalScale );
+			float3 normal259 = UnpackScaleNormal( SAMPLE_TEXTURE2D( _Texture0, sampler_Texture0, ( ( float4( _NormalTiling, 0.0 , 0.0 ) * lerpResult567 ) + float4( ( NewWind589 * _normalspeed ) , 0.0 ) ).xy ), _NormalScale );
 			#if defined(LIGHTMAP_ON) && UNITY_VERSION < 560 //aseld
 			float3 ase_worldlightDir = 0;
 			#else //aseld
@@ -340,7 +340,7 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 			float3 temp_cast_3 = (sphereMask496).xxx;
 			float3 rotatedValue587 = RotateAroundAxis( float3( 0,0,0 ), ( ( appendResult585 + float4( ( temp_cast_3 - float3(1,1,1) ) , 0.0 ) ) + float4( (ase_vertexNormal*_Squash + 0.0) , 0.0 ) ).xyz, float3( 0,0,0 ), _WindDirection );
 			float3 NewWind589 = rotatedValue587;
-			float3 normal259 = UnpackScaleNormal( SAMPLE_TEXTURE2D( _NormalMap, sampler_NormalMap, ( ( float4( _NormalTiling, 0.0 , 0.0 ) * lerpResult567 ) + float4( ( NewWind589 * _normalspeed ) , 0.0 ) ).xy ), _NormalScale );
+			float3 normal259 = UnpackScaleNormal( SAMPLE_TEXTURE2D( _Texture0, sampler_Texture0, ( ( float4( _NormalTiling, 0.0 , 0.0 ) * lerpResult567 ) + float4( ( NewWind589 * _normalspeed ) , 0.0 ) ).xy ), _NormalScale );
 			float3 ase_worldTangent = WorldNormalVector( i, float3( 1, 0, 0 ) );
 			float3 ase_worldBitangent = WorldNormalVector( i, float3( 0, 1, 0 ) );
 			float3x3 ase_tangentToWorldFast = float3x3(ase_worldTangent.x,ase_worldBitangent.x,ase_worldNormal.x,ase_worldTangent.y,ase_worldBitangent.y,ase_worldNormal.y,ase_worldTangent.z,ase_worldBitangent.z,ase_worldNormal.z);
@@ -606,7 +606,7 @@ Node;AmplifyShaderEditor.ObjectScaleNode;564;-2438.885,2204.3;Inherit;False;True
 Node;AmplifyShaderEditor.RangedFloatNode;489;-2479.976,2027.443;Inherit;False;Property;_SphereRadius;SphereRadius;15;0;Create;True;0;0;0;False;0;False;0;4.5;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;517;-2265.027,2364.993;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;257;855.7325,700.2125;Inherit;True;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.Vector3Node;511;-2849.506,2343.92;Inherit;False;Global;_BushPosition;_BushPosition;31;0;Create;True;0;0;0;False;0;False;0,0,0;-185.0215,41.2371,-229.7944;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
+Node;AmplifyShaderEditor.Vector3Node;511;-2849.506,2343.92;Inherit;False;Global;_BushPosition;_BushPosition;31;0;Create;True;0;0;0;False;0;False;0,0,0;-184.47,41.2198,-225.5035;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.GetLocalVarNode;657;1275.171,838.7219;Inherit;False;-1;;1;0;OBJECT;;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.GetLocalVarNode;590;1293.145,717.5705;Inherit;False;589;NewWind;1;0;OBJECT;;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.NormalVertexDataNode;664;4868.971,1467.572;Inherit;False;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
@@ -620,12 +620,13 @@ Node;AmplifyShaderEditor.RangedFloatNode;670;-4831.604,795.7223;Inherit;False;Pr
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;628;5243,756.3207;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.DynamicAppendNode;580;5385.563,381.4518;Inherit;False;FLOAT4;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;603;4705.482,494.9896;Inherit;True;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;677;4509.67,753.0435;Inherit;False;Property;_Tonedown;Tone down;30;0;Create;True;0;0;0;False;0;False;1;200;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;677;4509.67,753.0435;Inherit;False;Property;_Tonedown;Tone down;30;0;Create;True;0;0;0;False;0;False;1;0.3;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleSubtractOpNode;676;4757.348,846.6436;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SaturateNode;678;4659.429,1029.524;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SamplerNode;261;-4519.871,616.6649;Inherit;True;Property;_NormalMap;Normal Map;3;0;Create;True;0;0;0;False;0;False;-1;None;bd4806d82731a422ea0b106e0524d364;True;0;False;white;Auto;True;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;671;4932.26,777.4774;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.GetLocalVarNode;672;4478.343,854.4024;Inherit;False;496;sphereMask;1;0;OBJECT;;False;1;FLOAT;0
+Node;AmplifyShaderEditor.TexturePropertyNode;679;-5213.146,687.7877;Inherit;True;Property;_Texture0;Texture 0;31;0;Create;True;0;0;0;False;0;False;None;None;False;bump;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
+Node;AmplifyShaderEditor.SamplerNode;261;-4519.871,616.6649;Inherit;True;Property;_NormalMap;Normal Map;3;0;Create;True;0;0;0;False;0;False;-1;None;bd4806d82731a422ea0b106e0524d364;True;0;False;white;Auto;True;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 WireConnection;6;0;262;0
 WireConnection;5;0;6;0
 WireConnection;5;1;7;0
@@ -797,9 +798,10 @@ WireConnection;603;1;576;0
 WireConnection;676;0;677;0
 WireConnection;676;1;678;0
 WireConnection;678;0;672;0
-WireConnection;261;1;465;0
-WireConnection;261;5;670;0
 WireConnection;671;0;603;0
 WireConnection;671;1;676;0
+WireConnection;261;0;679;0
+WireConnection;261;1;465;0
+WireConnection;261;5;670;0
 ASEEND*/
-//CHKSM=212ABCE4815C79ACED90E170DF6166BC3FC66534
+//CHKSM=1582FCC8D43E0A3C544D85280FFB7403DB8A45B1
