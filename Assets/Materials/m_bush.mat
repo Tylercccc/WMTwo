@@ -90,7 +90,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _intersectionnoise:
-        m_Texture: {fileID: 2800000, guid: 3eda0c4754885564f9df920405499055, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5de19c12d50ae489cbef19008a4335d4, type: 3}
         m_Scale: {x: 0.1, y: 0.1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -163,7 +163,7 @@ Material:
     - _bushtimesteps: 9.2
     - _fractmult: 1.21
     - _frequency: 8.57
-    - _intersectnoisescale: 2
+    - _intersectnoisescale: 0.1
     - _max: 100000
     - _min: 0
     - _noise: 1000

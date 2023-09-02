@@ -14,8 +14,10 @@ public class bushCollider : MonoBehaviour
     {
         if(other.tag == "Bush")
         {
+            LeanTween.cancel(other.gameObject);
             Material bushMat = other.GetComponent<MeshRenderer>().material;
-            LeanTween.value(other.gameObject, new Vector3(0, 0, 0), new Vector3(0, -1, 0), 1f).setOnUpdate((Vector3 val) =>
+            Vector3 currentSquash = bushMat.GetVector("_Squash");
+            LeanTween.value(other.gameObject, currentSquash, new Vector3(0.25f, -0.5f, 0.25f), 0.75f).setEase(LeanTweenType.easeOutBack).setOnUpdate((Vector3 val) =>
                  {
                      bushMat.SetVector("_Squash", val);
                  });
@@ -25,8 +27,10 @@ public class bushCollider : MonoBehaviour
     {
         if (other.tag == "Bush")
         {
+            LeanTween.cancel(other.gameObject);
             Material bushMat = other.GetComponent<MeshRenderer>().material;
-            LeanTween.value(other.gameObject, new Vector3(0, -1, 0), new Vector3(0, 0, 0), 2f).setEase(LeanTweenType.easeOutElastic).setOnUpdate((Vector3 val) =>
+            Vector3 currentSquash = bushMat.GetVector("_Squash");
+            LeanTween.value(other.gameObject, currentSquash, new Vector3(0, 0, 0), 2f).setEase(LeanTweenType.easeOutElastic).setOnUpdate((Vector3 val) =>
             {
                 bushMat.SetVector("_Squash", val);
             });
