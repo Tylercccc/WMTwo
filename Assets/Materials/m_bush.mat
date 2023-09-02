@@ -120,7 +120,7 @@ Material:
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
     - _Intersectionshadowmult: 1
-    - _Intersectradius: 0.8
+    - _Intersectradius: 1
     - _LightGradientMidLevel: 0.641
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.31
@@ -143,7 +143,7 @@ Material:
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
-    - _SphereHardness: 0.35
+    - _SphereHardness: 0.2
     - _SphereRadius: 4.5
     - _StepAmount: 6
     - _StepShadows: -1.19
@@ -163,7 +163,7 @@ Material:
     - _bushtimesteps: 9.2
     - _fractmult: 1.21
     - _frequency: 8.57
-    - _intersectnoisescale: 0.3
+    - _intersectnoisescale: 2
     - _max: 100000
     - _min: 0
     - _noise: 1000
