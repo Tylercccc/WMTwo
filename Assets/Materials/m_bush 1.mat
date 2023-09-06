@@ -285,7 +285,7 @@ Material:
     - _WindJitter: 0.1
     - _WindNoiseScale: 0.2
     - _WindScroll: 0.02
-    - __dirty: 0
+    - __dirty: 1
     - _blenddd: 0
     - _fractmult: 1.21
     - _frequency: 8.57
