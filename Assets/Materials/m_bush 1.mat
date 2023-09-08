@@ -229,6 +229,7 @@ Material:
     - _Float1: 0.098
     - _Float2: 0
     - _Freq: 1
+    - _GrassTiling: 0
     - _GrassWindNormalScale: 0.098
     - _HueShift: 0.807
     - _HueShiftPower: 123
@@ -286,6 +287,7 @@ Material:
     - _WindNoiseScale: 0.2
     - _WindScroll: 0.02
     - __dirty: 1
+    - _blendStr: 0
     - _blenddd: 0
     - _fractmult: 1.21
     - _frequency: 8.57
