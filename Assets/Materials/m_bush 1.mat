@@ -29,7 +29,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: _NormalTiling
+  m_LockedProperties: _NormalTiling _Texture1
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -110,7 +110,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal1:
-        m_Texture: {fileID: 2800000, guid: 5259d0042c9854375b96305b6256ecfd, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -217,7 +217,7 @@ Material:
     m_Floats:
     - _Band2Mult: 0.005
     - _BendDist: 0
-    - _Blendstr: 27.7
+    - _Blendstr: 8.34
     - _CliffBlendSteps: 18.6
     - _CliffNormalStrength: 1.46
     - _Cutoff: 0.5
@@ -230,6 +230,7 @@ Material:
     - _Float1: 0.098
     - _Float2: 0
     - _Freq: 1
+    - _GrassNormalSize: 0.06
     - _GrassTiling: 0
     - _GrassWindNormalScale: 0.098
     - _HueShift: 0.807
@@ -243,6 +244,7 @@ Material:
     - _LightGradientSize: 0.332
     - _LightGradientSize1: 0
     - _NoiseSize: 0.001
+    - _NormalPwr: 20000000
     - _NormalRimPush: 0
     - _NormalScale0: 0
     - _NormalScale1: 0
@@ -254,7 +256,7 @@ Material:
     - _PointLightAttenuationBoost: 3.2
     - _RampSize: 0.52
     - _RampSize1: 0
-    - _RimPower: 100
+    - _RimPower: 20
     - _RimScale: 0.05
     - _ShadowLevel: 0
     - _Smoothness0: 1
@@ -322,7 +324,7 @@ Material:
     - _NormalTiling: {r: 100, g: 100, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
-    - _RimColor: {r: 0.27784246, g: 0.2924528, b: 0.03724635, a: 0}
+    - _RimColor: {r: 0.10709081, g: 0.11320752, b: 0.012281951, a: 0}
     - _RockShadowColor: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
     - _ShadowColor1: {r: 0.2970363, g: 0.7075472, b: 0.3076191, a: 1}
