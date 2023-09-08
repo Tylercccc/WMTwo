@@ -217,6 +217,7 @@ Material:
     m_Floats:
     - _Band2Mult: 0.005
     - _BendDist: 0
+    - _Blendstr: 27.7
     - _CliffBlendSteps: 18.6
     - _CliffNormalStrength: 1.46
     - _Cutoff: 0.5
@@ -236,7 +237,7 @@ Material:
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
     - _JitterNoiseSize: 5.08
-    - _Level: 0.878
+    - _Level: 0.886
     - _LightGradientMidLevel: 0.673
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.332
@@ -273,7 +274,7 @@ Material:
     - _StepShadows1: 0
     - _StepWidth: 0.37
     - _Steps: 2
-    - _TerrainSteps: 0.35
+    - _TerrainSteps: 2.05
     - _Tex2NormalUVscale: 0
     - _Tiling: 1
     - _TimeScaleLeaves: 1
@@ -286,9 +287,10 @@ Material:
     - _WindJitter: 0.1
     - _WindNoiseScale: 0.2
     - _WindScroll: 0.02
-    - __dirty: 1
+    - __dirty: 0
     - _blendStr: 0
     - _blenddd: 0
+    - _cuttingval: 6.58
     - _fractmult: 1.21
     - _frequency: 8.57
     - _max: 100000
@@ -298,10 +300,13 @@ Material:
     - _normalWindScale: 0.2
     - _normal_tint: 1.49
     - _normalspeed: 3.3
+    - _pathSteps: 1
     - _rampsize2: 0
     - _rimoffset: 0.76
     - _shinesize: 0.12
+    - _steptest: 3.86
     - _test: 2
+    - _testest: 4
     - _triplanarsteps: 0.1
     - _yo: 1.81
     m_Colors:
