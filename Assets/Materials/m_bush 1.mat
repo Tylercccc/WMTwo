@@ -217,7 +217,7 @@ Material:
     m_Floats:
     - _Band2Mult: 0.005
     - _BendDist: 0
-    - _Blendstr: 8.34
+    - _Blendstr: 0.96
     - _CliffBlendSteps: 18.6
     - _CliffNormalStrength: 1.46
     - _Cutoff: 0.5
@@ -230,7 +230,7 @@ Material:
     - _Float1: 0.098
     - _Float2: 0
     - _Freq: 1
-    - _GrassNormalSize: 0.06
+    - _GrassNormalSize: 0.14
     - _GrassTiling: 0
     - _GrassWindNormalScale: 0.098
     - _HueShift: 0.807
@@ -253,11 +253,12 @@ Material:
     - _NormalTexFlow: 1
     - _Outerradius: 0.5
     - _OutlineSize: 0
+    - _Pathnoisescale: 0
     - _PointLightAttenuationBoost: 3.2
     - _RampSize: 0.52
     - _RampSize1: 0
-    - _RimPower: 20
-    - _RimScale: 0.05
+    - _RimPower: 6.84
+    - _RimScale: 0.005
     - _ShadowLevel: 0
     - _Smoothness0: 1
     - _Smoothness1: 1
@@ -308,7 +309,7 @@ Material:
     - _shinesize: 0.12
     - _steptest: 3.86
     - _test: 2
-    - _testest: 4
+    - _testest: 2.89
     - _triplanarsteps: 0.1
     - _yo: 1.81
     m_Colors:
