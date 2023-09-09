@@ -120,7 +120,7 @@ Material:
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
     - _Intersectionshadowmult: 1
-    - _Intersectradius: 1
+    - _Intersectradius: 0.7
     - _LightGradientMidLevel: 0.641
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.31
@@ -163,7 +163,7 @@ Material:
     - _bushtimesteps: 9.2
     - _fractmult: 1.21
     - _frequency: 8.57
-    - _intersectnoisescale: 0.1
+    - _intersectnoisescale: 0.02
     - _max: 100000
     - _min: 0
     - _noise: 1000
