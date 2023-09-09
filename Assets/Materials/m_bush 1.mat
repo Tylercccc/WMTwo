@@ -232,7 +232,7 @@ Material:
     - _Float1: 0.098
     - _Float2: 0
     - _Freq: 1
-    - _GrassNormalSize: 2.13
+    - _GrassNormalSize: 0.66
     - _GrassTiling: 0
     - _GrassWindNormalScale: 0.098
     - _HueShift: 0.807
