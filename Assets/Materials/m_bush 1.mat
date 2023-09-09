@@ -255,7 +255,7 @@ Material:
     - _NormalTexFlow: 1
     - _Outerradius: 0.5
     - _OutlineSize: 0
-    - _Pathnoisescale: 0.02
+    - _Pathnoisescale: 0.1
     - _PointLightAttenuationBoost: 3.2
     - _RampSize: 0.52
     - _RampSize1: 0
@@ -312,7 +312,7 @@ Material:
     - _shinesize: 0.12
     - _steptest: 3.86
     - _test: 2
-    - _testest: 3.87
+    - _testest: 3.01
     - _triplanarsteps: 0.1
     - _yo: 1.81
     m_Colors:
