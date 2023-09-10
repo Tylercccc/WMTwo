@@ -440,7 +440,8 @@ Shader "WIZTOON_Terrain"
 			float cameraDepthFade293 = (( i.eyeDepth -_ProjectionParams.y - 0.0 ) / 5.0);
 			float clampResult294 = clamp( cameraDepthFade293 , 1.0 , 20.0 );
 			dither292 = step( dither292, ( clampResult294 * tex2DNode285 ).r );
-			c.rgb = ( ( ( ( 1.0 - temp_output_224_0 ) * ase_lightColor ) * ( weightedAvg617 * tex2DNode285 ) ) + ( ( min( temp_cast_14 , weightedAvg604 ) * ( 1.0 - IsPointLight76 ) ) * dither292 ) ).rgb;
+			float4 temp_output_257_0 = ( ( ( ( 1.0 - temp_output_224_0 ) * ase_lightColor ) * ( weightedAvg617 * tex2DNode285 ) ) + ( ( min( temp_cast_14 , weightedAvg604 ) * ( 1.0 - IsPointLight76 ) ) * dither292 ) );
+			c.rgb = temp_output_257_0.rgb;
 			c.a = 1;
 			clip( SAMPLE_TEXTURE2D( _TerrainHolesTexture, sampler_TerrainHolesTexture, uv_TerrainHolesTexture ).r - _Cutoff );
 			return c;
@@ -842,7 +843,7 @@ Node;AmplifyShaderEditor.FunctionNode;911;-5737.122,-538.0125;Inherit;False;Norm
 Node;AmplifyShaderEditor.FunctionNode;893;-6037.174,-719.2634;Inherit;False;Normal From Height;-1;;3;1942fe2c5f1a1f94881a33d532e4afeb;0;2;20;FLOAT;0;False;110;FLOAT;10;False;2;FLOAT3;40;FLOAT3;0
 Node;AmplifyShaderEditor.RangedFloatNode;913;-6159.113,328.2705;Inherit;False;Property;_Clifffalloff;Cliff falloff;75;0;Create;True;0;0;0;False;0;False;0;1;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.Vector3Node;914;-6135.844,458.3277;Inherit;False;Property;_CliffWorldPos;Cliff World Pos;76;0;Create;True;0;0;0;False;0;False;0,0,0;0.1,0.1,0.1;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
-Node;AmplifyShaderEditor.Vector2Node;737;2137.119,-2747.451;Inherit;False;Property;_CliffTiling;Cliff Tiling;58;0;Create;True;0;0;0;False;0;False;0,0;0.04,0.04;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
+Node;AmplifyShaderEditor.Vector2Node;737;2137.119,-2747.451;Inherit;False;Property;_CliffTiling;Cliff Tiling;58;0;Create;True;0;0;0;False;0;False;0,0;0,0.05;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
 Node;AmplifyShaderEditor.GetLocalVarNode;727;-5183.723,259.2365;Inherit;False;844;CliffBoundaries;1;0;OBJECT;;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;873;-631.3823,-960.4532;Inherit;False;Property;_Blendstr;Blendstr;70;0;Create;True;0;0;0;False;0;False;0;4.4;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SamplerNode;616;-188.1616,-167.2345;Inherit;True;Property;_Splat1;Splat1;29;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
@@ -861,7 +862,7 @@ Node;AmplifyShaderEditor.RangedFloatNode;697;2223.352,-1450.457;Inherit;False;Pr
 Node;AmplifyShaderEditor.HeightMapBlendNode;915;3496.924,-2034.839;Inherit;False;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;10;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SaturateNode;807;4670.176,-1891.681;Inherit;False;1;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;844;4287.356,-1274.485;Inherit;False;CliffBoundaries;-1;True;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;912;-6090.88,242.7704;Inherit;False;Property;_CliffScale;Cliff Scale;74;0;Create;True;0;0;0;False;0;False;0;1;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;912;-6090.88,242.7704;Inherit;False;Property;_CliffScale;Cliff Scale;74;0;Create;True;0;0;0;False;0;False;0;0.3;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.GetLocalVarNode;922;-5901.983,85.7011;Inherit;False;744;CliffBlendSteps;1;0;OBJECT;;False;1;FLOAT;0
 Node;AmplifyShaderEditor.TriplanarNode;812;-5637.112,103.9093;Inherit;True;Spherical;World;True;Top Texture 2;_TopTexture2;white;0;None;Mid Texture 2;_MidTexture2;white;-1;None;Bot Texture 2;_BotTexture2;white;-1;None;Triplanar Sampler;Tangent;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;10;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.GetLocalVarNode;814;-5939.505,169.8163;Inherit;False;813;CliffTiling;1;0;OBJECT;;False;1;FLOAT2;0
@@ -876,8 +877,12 @@ Node;AmplifyShaderEditor.SimpleMultiplyOpNode;706;4063.292,-1683.159;Inherit;Tru
 Node;AmplifyShaderEditor.RegisterLocalVarNode;744;3830.363,-1467.816;Inherit;False;CliffBlendSteps;-1;True;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;933;3893.938,-1327.261;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0.5;False;1;FLOAT;0
 Node;AmplifyShaderEditor.PowerNode;934;3706.627,-1598.598;Inherit;False;False;2;0;FLOAT;0;False;1;FLOAT;0.3;False;1;FLOAT;0
-Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;1643.523,869.9178;Float;False;True;-1;2;ASEMaterialInspector;0;0;CustomLighting;WIZTOON_Terrain;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;Back;0;False;;0;False;;False;0;False;;0;False;;False;0;Custom;0.5;True;True;-100;True;Opaque;;AlphaTest;All;12;all;True;True;True;True;0;False;;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;2;15;10;25;False;0.5;True;0;0;False;;0;False;;0;0;False;;0;False;;0;False;;0;False;;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;True;Relative;0;;24;-1;-1;-1;1;SplatCount=4;False;1;BaseMapShader=ASESampleShaders/SimpleTerrainBase;0;False;;-1;0;False;;0;0;0;True;0.1;False;;0;False;;True;15;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;4;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
 Node;AmplifyShaderEditor.FunctionNode;935;1166.186,867.0062;Inherit;False;Four Splats First Pass Terrain;0;;4;37452fdfb732e1443b7e39720d05b708;2,102,1,85,0;7;59;FLOAT4;0,0,0,0;False;60;FLOAT4;0,0,0,0;False;61;FLOAT3;0,0,0;False;57;FLOAT;0;False;58;FLOAT;0;False;201;FLOAT;0;False;62;FLOAT;0;False;7;FLOAT4;0;FLOAT3;14;FLOAT;56;FLOAT;45;FLOAT;200;FLOAT;19;FLOAT;17
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;938;1213.449,1187.702;Inherit;False;2;2;0;FLOAT;0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.FogAndAmbientColorsNode;940;652.2782,1053.395;Inherit;False;unity_FogColor;0;1;COLOR;0
+Node;AmplifyShaderEditor.FogParamsNode;939;636.2108,862.5936;Inherit;False;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;941;963.5865,961.0071;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;1643.523,869.9178;Float;False;True;-1;2;ASEMaterialInspector;0;0;CustomLighting;WIZTOON_Terrain;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;Back;0;False;;0;False;;False;0;False;;0;False;;False;0;Custom;0.5;True;True;-100;True;Opaque;;AlphaTest;All;12;all;True;True;True;True;0;False;;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;2;15;10;25;False;0.5;True;0;0;False;;0;False;;0;0;False;;0;False;;0;False;;0;False;;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;True;Relative;0;;24;-1;-1;-1;1;SplatCount=4;False;1;BaseMapShader=ASESampleShaders/SimpleTerrainBase;0;False;;-1;0;False;;0;0;0;True;0.1;False;;0;False;;True;15;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;4;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
 WireConnection;209;0;206;0
 WireConnection;208;0;211;0
 WireConnection;208;1;209;0
@@ -1127,9 +1132,11 @@ WireConnection;706;1;693;0
 WireConnection;744;0;934;0
 WireConnection;933;0;747;0
 WireConnection;934;0;747;0
+WireConnection;938;0;939;1
+WireConnection;938;1;257;0
 WireConnection;0;2;552;0
 WireConnection;0;10;842;0
 WireConnection;0;13;257;0
 WireConnection;0;11;935;17
 ASEEND*/
-//CHKSM=ED6C78F5181D91E33BDEC0A2B41EBE3E971D1DC8
+//CHKSM=B58221EA0D243CE2E2E8D886A947B14F5482BE96
