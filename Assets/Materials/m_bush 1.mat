@@ -220,7 +220,7 @@ Material:
     - _Blendstr: 4.4
     - _CliffBlendSteps: 18.6
     - _CliffNormalStrength: 1.46
-    - _CliffScale: 1
+    - _CliffScale: 0.3
     - _Clifffalloff: 1
     - _Cutoff: 0.5
     - _DirectionalLightAttenuationBoost: 1
@@ -317,7 +317,7 @@ Material:
     - _yo: 1.81
     m_Colors:
     - _CliffShadow: {r: 0.41079357, g: 0.33254716, b: 0.4433962, a: 0}
-    - _CliffTiling: {r: 0.04, g: 0.04, b: 0, a: 0}
+    - _CliffTiling: {r: 0, g: 0.05, b: 0, a: 0}
     - _CliffWorldPos: {r: 0.1, g: 0.1, b: 0.1, a: 0.1}
     - _Color: {r: 0.5019608, g: 0.8196079, b: 0.30588236, a: 0}
     - _Color0: {r: 0.509434, g: 0.44455323, b: 0.44455323, a: 0}
