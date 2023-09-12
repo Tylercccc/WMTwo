@@ -241,9 +241,9 @@ Material:
     - _Innerradius: 4.19
     - _JitterNoiseSize: 5.08
     - _Level: 0.917
-    - _LightGradientMidLevel: 0.673
+    - _LightGradientMidLevel: 0.69908524
     - _LightGradientMidLevel1: 0
-    - _LightGradientSize: 0.332
+    - _LightGradientSize: 0.46164778
     - _LightGradientSize1: 0
     - _NoiseSize: 0.001
     - _NormalPwr: 20000000
