@@ -237,8 +237,10 @@ Material:
     - _EdgeSize: 0
     - _FadeMidRange: 1
     - _Float0: 5
-    - _Float1: 0.098
-    - _Float2: 0
+    - _Float1: 2
+    - _Float2: 3.94
+    - _Float3: 4.48
+    - _Float4: 1
     - _Freq: 1
     - _GrassNormalSize: 4.52
     - _GrassTiling: 0
@@ -258,6 +260,8 @@ Material:
     - _NormalRimPush: 0
     - _NormalScale0: 0
     - _NormalScale1: 0
+    - _NormalScale2: 0
+    - _NormalScale3: 0
     - _NormalStr: 0.39
     - _NormalStr1: 0.23
     - _NormalTexFlow: 1
@@ -286,7 +290,7 @@ Material:
     - _StepShadows: -1.19
     - _StepShadows1: 0
     - _StepWidth: 0.37
-    - _Steps: 3
+    - _Steps: 2
     - _TerrainSteps: 2.05
     - _Tex2NormalUVscale: 0
     - _Tiling: 1
@@ -317,6 +321,7 @@ Material:
     - _pathSteps: 1
     - _rampsize2: 0
     - _rimoffset: 0.76
+    - _sdasdasd: -0.38
     - _shinesize: 0.12
     - _steptest: 3.86
     - _test: 2

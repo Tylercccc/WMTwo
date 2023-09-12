@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4442026, g: 0.49364054, b: 0.573039, a: 1}
+  m_IndirectSpecularColor: {r: 0.44159392, g: 0.49046975, b: 0.57047296, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3934,8 +3934,8 @@ Transform:
   m_Children:
   - {fileID: 484679633}
   - {fileID: 537135875}
-  - {fileID: 1220555011}
   - {fileID: 718054271}
+  - {fileID: 1220555011}
   - {fileID: 460396310}
   - {fileID: 532573685}
   - {fileID: 575030068}
@@ -7160,7 +7160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &640569159
 Transform:
   m_ObjectHideFlags: 0
@@ -7514,13 +7514,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18721697, y: -0.73367465, z: 0.44789317, w: 0.47546083}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.5771585, y: -0.546831, z: 0.2303125, w: 0.5610884}
+  m_LocalPosition: {x: 0, y: 20.7, z: -354.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 56.641, y: -105.469, z: 15.96}
+  m_LocalEulerAnglesHint: {x: 64.1, y: -127.23, z: -58.583}
 --- !u!1 &707558438
 GameObject:
   m_ObjectHideFlags: 0
@@ -7780,18 +7780,18 @@ MonoBehaviour:
     weight3NoiseOp: 0
     version: 2
     heightFilter:
-      enabled: 1
+      enabled: 0
       filterType: 0
       weight: 1
       range: {x: 20.1, y: 500}
       smoothness: {x: 2.7, y: 1}
       noise:
-        noiseType: 0
+        noiseType: 2
         noiseSpace: 0
-        frequency: 12
-        amplitude: 200
-        offset: 0
-        balance: 0.35
+        frequency: 123
+        amplitude: 1232
+        offset: 2
+        balance: 0.12
         texture: {fileID: 0}
         textureST: {x: 0, y: 0, z: 1, w: 1}
         channel: 0
@@ -15947,14 +15947,14 @@ MonoBehaviour:
       paintMask:
         bytes: 
         size: 256
-    weight: 0.953
+    weight: 1
     weightNoise:
-      noiseType: 0
+      noiseType: 1
       noiseSpace: 0
-      frequency: 10
-      amplitude: 1
-      offset: 0
-      balance: 0
+      frequency: 1000
+      amplitude: 4.58
+      offset: -2.77
+      balance: -0.85
       texture: {fileID: 0}
       textureST: {x: 0, y: 0, z: 1, w: 1}
       channel: 0
@@ -15983,17 +15983,17 @@ MonoBehaviour:
     version: 2
     heightFilter:
       enabled: 0
-      filterType: 0
-      weight: 1
-      range: {x: 0, y: 500}
-      smoothness: {x: 20, y: 20}
+      filterType: 1
+      weight: 0
+      range: {x: 0, y: 1}
+      smoothness: {x: 0, y: 0}
       noise:
         noiseType: 0
         noiseSpace: 0
-        frequency: 10
-        amplitude: 1
+        frequency: 123
+        amplitude: 123
         offset: 0
-        balance: 0
+        balance: -0.48
         texture: {fileID: 0}
         textureST: {x: 0, y: 0, z: 1, w: 1}
         channel: 0
@@ -16011,7 +16011,7 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.25
+          time: 0.14583588
           value: 1
           inSlope: 0
           outSlope: 0
@@ -16042,11 +16042,11 @@ MonoBehaviour:
         m_RotationOrder: 4
       _curveTexture: {fileID: 0}
     slopeFilter:
-      enabled: 0
+      enabled: 1
       filterType: 0
       weight: 1
-      range: {x: 0, y: 28.421053}
-      smoothness: {x: 6.3157897, y: 6.3157897}
+      range: {x: 0, y: 41.530605}
+      smoothness: {x: 1, y: 15.76}
       noise:
         noiseType: 0
         noiseSpace: 0
@@ -16104,8 +16104,8 @@ MonoBehaviour:
     angleFilter:
       enabled: 0
       filterType: 0
-      weight: 1
-      range: {x: 0, y: 90}
+      weight: 0.89
+      range: {x: -156.08392, y: 84.96503}
       smoothness: {x: 12, y: 12}
       noise:
         noiseType: 0
@@ -16164,7 +16164,7 @@ MonoBehaviour:
     curvatureFilter:
       enabled: 0
       filterType: 0
-      weight: 1
+      weight: 0
       range: {x: 0.6, y: 1}
       smoothness: {x: 0.1, y: 0.1}
       noise:
@@ -17553,7 +17553,7 @@ Transform:
   m_GameObject: {fileID: 1490008623}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 45.3, z: -451.9}
+  m_LocalPosition: {x: 9.5, y: 45.3, z: -455.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
