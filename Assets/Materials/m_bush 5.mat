@@ -251,9 +251,9 @@ Material:
     - _Innerradius: 4.19
     - _JitterNoiseSize: 5.08
     - _Level: 0.917
-    - _LightGradientMidLevel: 0.5
+    - _LightGradientMidLevel: 0.69
     - _LightGradientMidLevel1: 0
-    - _LightGradientSize: 0.5
+    - _LightGradientSize: 0.844
     - _LightGradientSize1: 0
     - _NoiseSize: 0.001
     - _NormalPwr: 20000000
@@ -290,7 +290,7 @@ Material:
     - _StepShadows: -1.19
     - _StepShadows1: 0
     - _StepWidth: 0.37
-    - _Steps: 2
+    - _Steps: 3
     - _TerrainSteps: 2.05
     - _Tex2NormalUVscale: 0
     - _Tiling: 1
