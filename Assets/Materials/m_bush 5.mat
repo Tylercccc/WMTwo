@@ -238,8 +238,8 @@ Material:
     - _EdgeSize: 0
     - _FadeMidRange: 1
     - _Float0: 5
-    - _Float1: 6.48
-    - _Float2: 8
+    - _Float1: 1.56
+    - _Float2: 2.23
     - _Float3: 4.48
     - _Float4: 1
     - _Freq: 1
@@ -252,7 +252,7 @@ Material:
     - _Innerradius: 4.19
     - _JitterNoiseSize: 5.08
     - _Level: 0.917
-    - _LightGradientMidLevel: 0.69
+    - _LightGradientMidLevel: 0.879
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.844
     - _LightGradientSize1: 0
