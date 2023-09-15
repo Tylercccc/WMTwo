@@ -233,7 +233,7 @@ Material:
     - _Cutoff: 0.5
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 6
-    - _DivisionScale: 1.33
+    - _DivisionScale: -0.4
     - _EdgeLength: 15
     - _EdgeSize: 0
     - _FadeMidRange: 1
@@ -271,7 +271,7 @@ Material:
     - _OutlineSize: 0
     - _Pathnoisescale: 0.1
     - _PointLightAttenuationBoost: 4.79
-    - _Powerrr: 100
+    - _Powerrr: 86.5
     - _RampSize: 0.52
     - _RampSize1: 0
     - _RimPower: 7.24
