@@ -41,6 +41,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 076510498b8484b24b4f2533d229d643, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _CliffHeight:
+        m_Texture: {fileID: 2800000, guid: 37e6f91f3efb0954cbdce254638862ea, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _CliffNormals:
         m_Texture: {fileID: 2800000, guid: 8d95929314ce653489a6fa3be328f373, type: 3}
         m_Scale: {x: 0.1, y: 0.1}
@@ -67,6 +71,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Diffuse1:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DirtHeight:
+        m_Texture: {fileID: 2800000, guid: 31d5a2d79390ab542a81a6699a999758, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Dither:
@@ -227,13 +235,18 @@ Material:
     - _BendDist: 0
     - _Blendstr: 4.4
     - _CliffBlendSteps: 18.6
+    - _CliffHeightRaise: 0.83
     - _CliffNormalStrength: 1.46
     - _CliffScale: 0.3
     - _Clifffalloff: 1
     - _Cutoff: 0.5
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 6
-    - _DivisionScale: 0.37
+    - _DivisionScale: 100
+    - _DivisionScale1: 0.23
+    - _DivisionScale2: 15
+    - _DivisionScaleDirt: 90
+    - _Divscale3: 0.62
     - _EdgeLength: 15
     - _EdgeSize: 0
     - _FadeMidRange: 1
