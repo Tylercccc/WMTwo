@@ -235,7 +235,7 @@ Material:
     - _BendDist: 0
     - _Blendstr: 4.4
     - _CliffBlendSteps: 18.6
-    - _CliffHeightRaise: -0.78
+    - _CliffHeightRaise: 0.7
     - _CliffNormalStrength: 1.46
     - _CliffScale: 0.3
     - _Clifffalloff: 1
@@ -243,7 +243,7 @@ Material:
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 6
     - _DivisionScale: 1
-    - _DivisionScale1: 136
+    - _DivisionScale1: 138.4
     - _DivisionScale2: 15
     - _DivisionScaleDirt: 90
     - _Divscale3: 0.62
@@ -309,7 +309,7 @@ Material:
     - _StepShadows: -1.19
     - _StepShadows1: 0
     - _StepWidth: 0.37
-    - _Steps: 3
+    - _Steps: 4
     - _TerrainSteps: 2.05
     - _Tex2NormalUVscale: 0
     - _Tiling: 1
@@ -324,6 +324,7 @@ Material:
     - _WindNoiseScale: 0.2
     - _WindScroll: 0.02
     - __dirty: 0
+    - _adsasdasdasd: 0.42
     - _blendStr: 0
     - _blenddd: 0
     - _cliffblendstr: 1.02
