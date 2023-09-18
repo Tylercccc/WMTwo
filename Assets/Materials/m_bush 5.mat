@@ -243,7 +243,7 @@ Material:
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 6
     - _DivisionScale: 1
-    - _DivisionScale1: 138.4
+    - _DivisionScale1: 1.71
     - _DivisionScale2: 15
     - _DivisionScaleDirt: 90
     - _Divscale3: 0.62
