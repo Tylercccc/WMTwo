@@ -16795,7 +16795,7 @@ MonoBehaviour:
       frequency: 1000
       amplitude: 4.58
       offset: -2.77
-      balance: -0.23
+      balance: -0.8
       texture: {fileID: 0}
       textureST: {x: 0, y: 0, z: 1, w: 1}
       channel: 0
