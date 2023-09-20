@@ -253,9 +253,9 @@ Material:
     - _Float0: 0.46
     - _Float1: 0.26
     - _Float11: 0
-    - _Float2: 0.61
-    - _Float3: 0.76
-    - _Float4: 0.26
+    - _Float2: 1
+    - _Float3: 1.25
+    - _Float4: 3.81
     - _Float6: -2.53
     - _Float7: -6.3
     - _Freq: 1
@@ -267,7 +267,7 @@ Material:
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
-    - _JitterNoiseSize: 4.65
+    - _JitterNoiseSize: 4.74
     - _Level: 0.917
     - _LightGradientMidLevel: 0.494
     - _LightGradientMidLevel1: 0
@@ -310,12 +310,12 @@ Material:
     - _StepShadows: -1.19
     - _StepShadows1: 0
     - _StepWidth: 0.37
-    - _Steps: 3
+    - _Steps: 4
     - _TerrainSteps: 2.05
     - _Tex2NormalUVscale: 0
     - _Tiling: 1
     - _TimeScaleLeaves: 1
-    - _TimeScaleShine: 70
+    - _TimeScaleShine: 150
     - _Timesteps: 3.3
     - _TriPlanarFalloff: 3
     - _Triplanarnoisefalloff: 0.59
@@ -323,7 +323,7 @@ Material:
     - _Wind: 10
     - _WindJitter: 0.682
     - _WindNoiseScale: 0.2
-    - _WindScroll: 0.365
+    - _WindScroll: 1
     - __dirty: 0
     - _adsasdasdasd: 0.42
     - _blendStr: 0
@@ -332,6 +332,7 @@ Material:
     - _cuttingval: 6.58
     - _fractmult: 1.21
     - _frequency: 8.57
+    - _grassNormalMove: -1.85
     - _max: 100000
     - _min: 0
     - _noise: 1000
