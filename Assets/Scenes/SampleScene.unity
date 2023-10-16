@@ -8732,8 +8732,8 @@ MonoBehaviour:
     slopeFilter:
       enabled: 0
       filterType: 0
-      weight: 1
-      range: {x: 59.79021, y: 90}
+      weight: 0.551
+      range: {x: 39.489456, y: 90}
       smoothness: {x: 6.3157897, y: 6.3157897}
       noise:
         noiseType: 4
@@ -8792,8 +8792,8 @@ MonoBehaviour:
     angleFilter:
       enabled: 0
       filterType: 0
-      weight: 1
-      range: {x: 83.7063, y: 360}
+      weight: 0.517
+      range: {x: -360, y: 216}
       smoothness: {x: 12, y: 12}
       noise:
         noiseType: 0
@@ -18870,7 +18870,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9811321, g: 0.42779937, b: 0, a: 1}
   m_Intensity: 1
   m_Range: 29.53
   m_SpotAngle: 30
@@ -18930,7 +18930,7 @@ Transform:
   m_GameObject: {fileID: 1490008623}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.5, y: 45.3, z: -455.3}
+  m_LocalPosition: {x: 16.8, y: 45.3, z: -439.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -83,7 +83,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _GrassDivNoise:
         m_Texture: {fileID: 2800000, guid: 737606a54d1820743b1a2b4b990b7465, type: 3}
-        m_Scale: {x: 50, y: 100}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
@@ -255,8 +255,8 @@ Material:
     - _EdgeLength: 15
     - _EdgeSize: 0
     - _FadeMidRange: 1
-    - _Float0: 0.65
-    - _Float1: 0.85
+    - _Float0: 0.51
+    - _Float1: -0.35
     - _Float11: 0
     - _Float2: 1
     - _Float3: 1.25
