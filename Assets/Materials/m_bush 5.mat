@@ -255,8 +255,8 @@ Material:
     - _EdgeLength: 15
     - _EdgeSize: 0
     - _FadeMidRange: 1
-    - _Float0: 1.06
-    - _Float1: 1.3
+    - _Float0: 0.65
+    - _Float1: 0.85
     - _Float11: 0
     - _Float2: 1
     - _Float3: 1.25
@@ -330,7 +330,7 @@ Material:
     - _WindJitter: 0.682
     - _WindNoiseScale: 0.2
     - _WindScroll: 1
-    - __dirty: 1
+    - __dirty: 0
     - _adsasdasdasd: 0.42
     - _blendStr: 0
     - _blenddd: 0
