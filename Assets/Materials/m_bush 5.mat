@@ -243,15 +243,15 @@ Material:
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 6
     - _DivisionScale: 1
-    - _DivisionScale1: 0.96
+    - _DivisionScale1: 500
     - _DivisionScale2: 15
     - _DivisionScaleDirt: 90
     - _Divscale3: -0.09
     - _EdgeLength: 15
     - _EdgeSize: 0
     - _FadeMidRange: 1
-    - _Float0: 0.73
-    - _Float1: 0.26
+    - _Float0: 1.06
+    - _Float1: 1.3
     - _Float11: 0
     - _Float2: 1
     - _Float3: 1.25
@@ -287,7 +287,7 @@ Material:
     - _OutlineSize: 0
     - _Pathnoisescale: 0.1
     - _PointLightAttenuationBoost: 4.79
-    - _Powerrr: 83.25
+    - _Powerrr: 151.8
     - _RampSize: 0.52
     - _RampSize1: 0
     - _RimPower: 60.6
@@ -310,7 +310,7 @@ Material:
     - _StepShadows: -1.19
     - _StepShadows1: 0
     - _StepWidth: 0.37
-    - _Steps: 4
+    - _Steps: 3
     - _TerrainSteps: 2.05
     - _Tex2NormalUVscale: 0
     - _Tiling: 1
@@ -324,7 +324,7 @@ Material:
     - _WindJitter: 0.682
     - _WindNoiseScale: 0.2
     - _WindScroll: 1
-    - __dirty: 1
+    - __dirty: 0
     - _adsasdasdasd: 0.42
     - _blendStr: 0
     - _blenddd: 0
