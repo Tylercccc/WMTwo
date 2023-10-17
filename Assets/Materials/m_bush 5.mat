@@ -41,6 +41,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 076510498b8484b24b4f2533d229d643, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _CliffDivNoise:
+        m_Texture: {fileID: 2800000, guid: 3eda0c4754885564f9df920405499055, type: 3}
+        m_Scale: {x: 1230, y: 1230}
+        m_Offset: {x: 0, y: 0}
     - _CliffHeight:
         m_Texture: {fileID: 2800000, guid: 37e6f91f3efb0954cbdce254638862ea, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -244,6 +248,8 @@ Material:
     - _Blendstr: 4.4
     - _CliffBlendSteps: 18.6
     - _CliffHeightRaise: 0.7
+    - _CliffNoise: -0.001
+    - _CliffNoisePow: 0.25
     - _CliffNormalStrength: 1.46
     - _CliffScale: 0.3
     - _Clifffalloff: 1
@@ -259,13 +265,13 @@ Material:
     - _EdgeLength: 15
     - _EdgeSize: 0
     - _FadeMidRange: 1
-    - _Float0: 0.75
-    - _Float1: 2.32
+    - _Float0: 0.25
+    - _Float1: -0.25
     - _Float11: 0
     - _Float2: 1
-    - _Float3: 1.25
+    - _Float3: 1.02
     - _Float4: 0.1
-    - _Float5: -0.25
+    - _Float5: -0.17
     - _Float6: -2.53
     - _Float7: -6.3
     - _Freq: 1

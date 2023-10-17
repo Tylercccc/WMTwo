@@ -17182,14 +17182,14 @@ MonoBehaviour:
       paintMask:
         bytes: 
         size: 256
-    weight: 1
+    weight: 0.118
     weightNoise:
       noiseType: 1
       noiseSpace: 0
       frequency: 1000
       amplitude: 4.58
       offset: -2.77
-      balance: -0.8
+      balance: -1
       texture: {fileID: 0}
       textureST: {x: 0, y: 0, z: 1, w: 1}
       channel: 0
