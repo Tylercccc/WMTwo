@@ -370,7 +370,7 @@ Material:
     - _layer0Div: 2
     - _layer0Div2: 2
     - _layer1Div: 2
-    - _layer2Div: 1.74
+    - _layer2Div: 2
     - _layer3Div: 1.43
     - _max: 100000
     - _min: 0
@@ -405,8 +405,8 @@ Material:
     - _Layer1NoiseDivSize: {r: 100, g: 100, b: 0, a: 0}
     - _Layer1NoiseDivSize1: {r: 300, g: 300, b: 0, a: 0}
     - _Layer1NoiseDivSize2: {r: 300, g: 300, b: 0, a: 0}
-    - _Layer2NoiseDivSize: {r: 300, g: 300, b: 0, a: 0}
-    - _Layer3NoiseDivSize: {r: 300, g: 300, b: 300, a: 300}
+    - _Layer2NoiseDivSize: {r: 123, g: 50, b: 0, a: 0}
+    - _Layer3NoiseDivSize: {r: 300, g: 300, b: 0, a: 0}
     - _NormalTexFlow: {r: -0.4, g: 300, b: 0, a: 0}
     - _NormalTiling: {r: 100, g: 100, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
