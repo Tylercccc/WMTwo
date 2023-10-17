@@ -23,7 +23,7 @@ Material:
   - TCP2_UV4_AS_NORMALS
   - TCP2_UV_NORMALS_FULL
   - _FADEMIDRANGE_ON
-  m_LightmapFlags: 0
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
@@ -91,6 +91,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Dither:
         m_Texture: {fileID: 2800000, guid: 073ff050942f0429caa7fe8744145704, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Grass2DivNoise:
+        m_Texture: {fileID: 2800000, guid: 3eda0c4754885564f9df920405499055, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GrassDivNoise:
@@ -260,6 +264,7 @@ Material:
     - _Compare: -0.08
     - _Cutoff: 0.5
     - _DirectionalLightAttenuationBoost: 1
+    - _DirtNormalDiv: 1.2
     - _DisplacementSize: 6
     - _DivisionScale: 1
     - _DivisionScale1: 500
@@ -270,14 +275,15 @@ Material:
     - _EdgeSize: 0
     - _FadeMidRange: 1
     - _Float0: 0.25
-    - _Float1: -0.25
+    - _Float1: 1.28
     - _Float11: 0
     - _Float2: 1
     - _Float3: 0.1
-    - _Float4: 0.25
-    - _Float5: -0.25
+    - _Float4: 1
+    - _Float5: 1
     - _Float6: -2.53
     - _Float7: -6.3
+    - _Float8: 1
     - _Freq: 1
     - _GrassNormalSize: 4.52
     - _GrassTiling: 0
@@ -347,6 +353,7 @@ Material:
     - _WindScroll: 1
     - __dirty: 0
     - _adsasdasdasd: 0.42
+    - _asdasdsad: 1.57
     - _blendStr: 0
     - _blenddd: 0
     - _cliffblendstr: 1.02
@@ -356,6 +363,10 @@ Material:
     - _fractmult: 1.21
     - _frequency: 8.57
     - _grassNormalMove: -1.85
+    - _layer0Div: 4
+    - _layer1Div: 1
+    - _layer2Div: 1
+    - _layer3Div: 1
     - _max: 100000
     - _min: 0
     - _noise: 1000
@@ -385,6 +396,7 @@ Material:
     - _Emission: {r: 1, g: 1, b: 1, a: 1}
     - _Extrusion: {r: 0.05, g: 0.05, b: 0.05, a: 0}
     - _Highlightcolor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
+    - _Layer0NoiseDivSize: {r: 1, g: 1, b: 0, a: 0}
     - _NormalTexFlow: {r: -0.4, g: 300, b: 0, a: 0}
     - _NormalTiling: {r: 100, g: 100, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
