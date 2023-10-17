@@ -274,8 +274,8 @@ Material:
     - _Float11: 0
     - _Float2: 1
     - _Float3: 0.1
-    - _Float4: 0.1
-    - _Float5: -0.17
+    - _Float4: 0.25
+    - _Float5: -0.25
     - _Float6: -2.53
     - _Float7: -6.3
     - _Freq: 1
@@ -351,6 +351,8 @@ Material:
     - _blenddd: 0
     - _cliffblendstr: 1.02
     - _cuttingval: 6.58
+    - _float20: 0.33
+    - _float21: -0.64
     - _fractmult: 1.21
     - _frequency: 8.57
     - _grassNormalMove: -1.85
