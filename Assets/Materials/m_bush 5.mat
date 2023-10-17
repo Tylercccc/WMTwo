@@ -157,6 +157,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 3eda0c4754885564f9df920405499055, type: 3}
         m_Scale: {x: 100, y: 100}
         m_Offset: {x: 0, y: 0}
+    - _PackedNoise:
+        m_Texture: {fileID: 2800000, guid: ad7e6bb66354348279709016d99adb7b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Ramp:
         m_Texture: {fileID: 2800000, guid: 948e1b7327c293a4081ba3c18eaab19f, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -364,8 +368,8 @@ Material:
     - _frequency: 8.57
     - _grassNormalMove: -1.85
     - _layer0Div: 2
-    - _layer1Div: 0.9
-    - _layer2Div: 1
+    - _layer1Div: 2
+    - _layer2Div: 1.74
     - _layer3Div: 1
     - _max: 100000
     - _min: 0
@@ -397,7 +401,11 @@ Material:
     - _Extrusion: {r: 0.05, g: 0.05, b: 0.05, a: 0}
     - _Highlightcolor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
     - _Layer0NoiseDivSize: {r: 20, g: 20, b: 0, a: 0}
-    - _Layer1NoiseDivSize: {r: 300, g: 300, b: 0, a: 0}
+    - _Layer1NoiseDivSize: {r: 50, g: 50, b: 0, a: 0}
+    - _Layer1NoiseDivSize1: {r: 300, g: 300, b: 0, a: 0}
+    - _Layer1NoiseDivSize2: {r: 300, g: 300, b: 0, a: 0}
+    - _Layer2NoiseDivSize: {r: 300, g: 300, b: 0, a: 0}
+    - _Layer3NoiseDivSize: {r: 300, g: 300, b: 0, a: 0}
     - _NormalTexFlow: {r: -0.4, g: 300, b: 0, a: 0}
     - _NormalTiling: {r: 100, g: 100, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
