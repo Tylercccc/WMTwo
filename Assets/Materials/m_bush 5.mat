@@ -273,7 +273,7 @@ Material:
     - _Float1: -0.25
     - _Float11: 0
     - _Float2: 1
-    - _Float3: 1.02
+    - _Float3: 0.1
     - _Float4: 0.1
     - _Float5: -0.17
     - _Float6: -2.53
