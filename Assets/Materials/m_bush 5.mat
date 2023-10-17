@@ -364,7 +364,7 @@ Material:
     - _frequency: 8.57
     - _grassNormalMove: -1.85
     - _layer0Div: 2
-    - _layer1Div: 1
+    - _layer1Div: 0.9
     - _layer2Div: 1
     - _layer3Div: 1
     - _max: 100000
@@ -397,6 +397,7 @@ Material:
     - _Extrusion: {r: 0.05, g: 0.05, b: 0.05, a: 0}
     - _Highlightcolor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
     - _Layer0NoiseDivSize: {r: 20, g: 20, b: 0, a: 0}
+    - _Layer1NoiseDivSize: {r: 300, g: 300, b: 0, a: 0}
     - _NormalTexFlow: {r: -0.4, g: 300, b: 0, a: 0}
     - _NormalTiling: {r: 100, g: 100, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
