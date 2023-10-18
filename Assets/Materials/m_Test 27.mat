@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: m_Test 27
   m_Shader: {fileID: 4800000, guid: 7b50cf9b6442041aea2465b4079c3498, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
   - TCP2_AMBIENT
@@ -27,6 +29,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -97,9 +100,9 @@ Material:
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
-    - _LightGradientMidLevel: 0.584
+    - _LightGradientMidLevel: 0.529
     - _LightGradientMidLevel1: 0
-    - _LightGradientSize: 0.315
+    - _LightGradientSize: 0.25
     - _LightGradientSize1: 0
     - _NormalRimPush: 0
     - _NormalStr: 0

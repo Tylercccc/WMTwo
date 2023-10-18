@@ -11062,8 +11062,8 @@ Transform:
   m_GameObject: {fileID: 849893380}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0018, y: 0.931, z: -0.0042}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0019, y: 0.931, z: -0.0069}
+  m_LocalScale: {x: 0.25019246, y: 0.25019246, z: 0.25019246}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1172954170}
@@ -11094,16 +11094,16 @@ MonoBehaviour:
       easing:
         blend: 0
       noise:
-        noiseType: 6
+        noiseType: 0
         noiseSpace: 0
-        frequency: 10
-        amplitude: 0.54
+        frequency: 1000
+        amplitude: 0.4
         offset: 0
-        balance: -0.03
+        balance: -0.78
         texture: {fileID: 2800000, guid: ac0860a6a77e29d4091ba790a17daa0f, type: 3}
         textureST: {x: 0, y: 0, z: 1, w: 1}
         channel: 0
-      falloffRange: {x: 0.030222893, y: 0.61934257}
+      falloffRange: {x: 0.26932532, y: 0.61934257}
       paintMask:
         bytes: 
         size: 256
@@ -13909,7 +13909,7 @@ Transform:
   m_GameObject: {fileID: 1072191852}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -203.9, y: 90.58, z: -487.5}
+  m_LocalPosition: {x: -203.9, y: 91.34, z: -487.5}
   m_LocalScale: {x: 2.4107082, y: 2.4107082, z: 2.4107082}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19983,7 +19983,7 @@ MonoBehaviour:
       texture: {fileID: 0}
       textureST: {x: 0, y: 0, z: 1, w: 1}
       channel: 0
-    falloffRange: {x: 0.23687196, y: 0.44087648}
+    falloffRange: {x: 0.2330941, y: 0.42576504}
     paintMask:
       bytes: 
       size: 256
@@ -30825,8 +30825,8 @@ Transform:
   m_GameObject: {fileID: 2139590932}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0026, y: 0.9846, z: -0.0068}
-  m_LocalScale: {x: 0.130287, y: -0.10568786, z: 0.130287}
+  m_LocalPosition: {x: 0.0026, y: 0.9846, z: -0.0066}
+  m_LocalScale: {x: 0.1460804, y: -0.11849934, z: 0.1460804}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1172954170}
@@ -30866,7 +30866,7 @@ MonoBehaviour:
       texture: {fileID: 0}
       textureST: {x: 0, y: 0, z: 1, w: 1}
       channel: 0
-    falloffRange: {x: 0.355119, y: 0.7857952}
+    falloffRange: {x: 0, y: 0.5391009}
     paintMask:
       bytes: 
       size: 256
