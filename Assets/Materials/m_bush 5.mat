@@ -369,8 +369,8 @@ Material:
     - _grassNormalMove: -1.85
     - _layer0Div: 2
     - _layer0Div2: 2
-    - _layer1Div: 1.11
-    - _layer2Div: 1.59
+    - _layer1Div: 2
+    - _layer2Div: 2
     - _layer3Div: 1.43
     - _max: 100000
     - _min: 0
@@ -402,8 +402,8 @@ Material:
     - _Emission: {r: 1, g: 1, b: 1, a: 1}
     - _Extrusion: {r: 0.05, g: 0.05, b: 0.05, a: 0}
     - _Highlightcolor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
-    - _Layer0NoiseDivSize: {r: 20, g: 20, b: 0, a: 0}
-    - _Layer1NoiseDivSize: {r: 100, g: 100, b: 0, a: 0}
+    - _Layer0NoiseDivSize: {r: 1, g: 1, b: 0, a: 0}
+    - _Layer1NoiseDivSize: {r: 1, g: 1, b: 0, a: 0}
     - _Layer1NoiseDivSize1: {r: 300, g: 300, b: 0, a: 0}
     - _Layer1NoiseDivSize2: {r: 300, g: 300, b: 0, a: 0}
     - _Layer2NoiseDivSize: {r: 1, g: 1, b: 0, a: 0}
