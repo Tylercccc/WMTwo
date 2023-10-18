@@ -367,9 +367,9 @@ Material:
     - _fractmult: 1.21
     - _frequency: 8.57
     - _grassNormalMove: -1.85
-    - _layer0Div: 1.85
+    - _layer0Div: 2
     - _layer0Div2: 2
-    - _layer1Div: 2
+    - _layer1Div: 0.97
     - _layer2Div: 2
     - _layer3Div: 1.43
     - _max: 100000
@@ -403,22 +403,22 @@ Material:
     - _Extrusion: {r: 0.05, g: 0.05, b: 0.05, a: 0}
     - _Highlightcolor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
     - _Layer0NoiseDivSize: {r: 1, g: 1, b: 0, a: 0}
-    - _Layer1NoiseDivSize: {r: 1, g: 1, b: 0, a: 0}
+    - _Layer1NoiseDivSize: {r: 2, g: 2, b: 0, a: 0}
     - _Layer1NoiseDivSize1: {r: 300, g: 300, b: 0, a: 0}
     - _Layer1NoiseDivSize2: {r: 300, g: 300, b: 0, a: 0}
-    - _Layer2NoiseDivSize: {r: 1, g: 1, b: 0, a: 0}
-    - _Layer3NoiseDivSize: {r: 1, g: 1, b: 0, a: 0}
+    - _Layer2NoiseDivSize: {r: 2, g: 2, b: 0, a: 0}
+    - _Layer3NoiseDivSize: {r: 2, g: 2, b: 0, a: 0}
     - _NormalTexFlow: {r: -0.4, g: 300, b: 0, a: 0}
     - _NormalTiling: {r: 100, g: 100, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
     - _Rim: {r: 0.036682226, g: 0.03773582, b: 0.003381983, a: 0}
-    - _Rim0: {r: 0, g: 0, b: 0, a: 0}
+    - _Rim0: {r: 0.28, g: 1.92, b: 0, a: 0}
     - _Rim1: {r: 8.78, g: 11.09, b: 0, a: 0}
     - _Rim2: {r: 0, g: 0, b: 0, a: 0}
     - _Rim3: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 0}
-    - _RimColor0: {r: 0, g: 0, b: 0, a: 0}
+    - _RimColor0: {r: 0.254717, g: 0.254717, b: 0.254717, a: 0}
     - _RimColor1: {r: 0.28109956, g: 1, b: 0, a: 0}
     - _RimColor2: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor3: {r: 0, g: 0, b: 0, a: 0}
