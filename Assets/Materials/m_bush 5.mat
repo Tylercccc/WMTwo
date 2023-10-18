@@ -369,8 +369,8 @@ Material:
     - _grassNormalMove: -1.85
     - _layer0Div: 2
     - _layer0Div2: 2
-    - _layer1Div: 2
-    - _layer2Div: 2
+    - _layer1Div: 1.11
+    - _layer2Div: 1.59
     - _layer3Div: 1.43
     - _max: 100000
     - _min: 0
@@ -380,6 +380,7 @@ Material:
     - _normal_tint: 1.49
     - _normalspeed: 3.3
     - _pathSteps: 1
+    - _pullback: 0.83
     - _rampsize2: 0
     - _rimoffset: 0.76
     - _sdasdasd: -0.38
@@ -401,12 +402,12 @@ Material:
     - _Emission: {r: 1, g: 1, b: 1, a: 1}
     - _Extrusion: {r: 0.05, g: 0.05, b: 0.05, a: 0}
     - _Highlightcolor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
-    - _Layer0NoiseDivSize: {r: 200, g: 200, b: 0, a: 0}
+    - _Layer0NoiseDivSize: {r: 20, g: 20, b: 0, a: 0}
     - _Layer1NoiseDivSize: {r: 100, g: 100, b: 0, a: 0}
     - _Layer1NoiseDivSize1: {r: 300, g: 300, b: 0, a: 0}
     - _Layer1NoiseDivSize2: {r: 300, g: 300, b: 0, a: 0}
-    - _Layer2NoiseDivSize: {r: 123, g: 50, b: 0, a: 0}
-    - _Layer3NoiseDivSize: {r: 300, g: 300, b: 0, a: 0}
+    - _Layer2NoiseDivSize: {r: 1, g: 1, b: 0, a: 0}
+    - _Layer3NoiseDivSize: {r: 1, g: 1, b: 0, a: 0}
     - _NormalTexFlow: {r: -0.4, g: 300, b: 0, a: 0}
     - _NormalTiling: {r: 100, g: 100, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
