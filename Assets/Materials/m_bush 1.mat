@@ -292,7 +292,7 @@ Material:
     - _WindJitter: 0.1
     - _WindNoiseScale: 0.2
     - _WindScroll: 0.02
-    - __dirty: 0
+    - __dirty: 1
     - _blendStr: 0
     - _blenddd: 0
     - _cliffblendstr: 1.02
