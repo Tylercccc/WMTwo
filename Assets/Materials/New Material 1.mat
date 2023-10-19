@@ -131,7 +131,7 @@ Material:
     - _Steps: 2
     - _UVSec: 0
     - _WaterDepth: 1.67
-    - _WaterFalloff: -1.48
+    - _WaterFalloff: -0.68
     - _ZWrite: 0
     - __dirty: 0
     - _divtest: 0
@@ -149,7 +149,7 @@ Material:
     - _wDepth: 1
     m_Colors:
     - _Color: {r: 0.37254903, g: 0.5472497, b: 0.972549, a: 0.9137255}
-    - _DeepColor: {r: 0.2794144, g: 0.5545092, b: 0.8584906, a: 0}
+    - _DeepColor: {r: 0.1514774, g: 0.4906237, b: 0.8679245, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 0.13269848, g: 0.24109498, b: 0.3962264, a: 0}
     - _Foamtiling: {r: 1, g: 1, b: 0, a: 0}
