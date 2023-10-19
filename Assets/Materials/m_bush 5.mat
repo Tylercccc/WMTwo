@@ -369,8 +369,8 @@ Material:
     - _grassNormalMove: -1.85
     - _layer0Div: 2
     - _layer0Div2: 2
-    - _layer1Div: 0.97
-    - _layer2Div: 2
+    - _layer1Div: 1.02
+    - _layer2Div: 1.86
     - _layer3Div: 1.43
     - _max: 100000
     - _min: 0
@@ -380,7 +380,7 @@ Material:
     - _normal_tint: 1.49
     - _normalspeed: 3.3
     - _pathSteps: 1
-    - _pullback: 0.83
+    - _pullback: 0.43
     - _rampsize2: 0
     - _rimoffset: 0.76
     - _sdasdasd: -0.38
