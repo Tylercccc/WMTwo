@@ -132,10 +132,10 @@ Material:
     - _NormalTexFlow: 1
     - _Outerradius: 0.5
     - _OutlineSize: 0
-    - _PointLightAttenuationBoost: 2.68
+    - _PointLightAttenuationBoost: 10
     - _RampSize: 0.52
     - _RampSize1: 0
-    - _RimPower: 1.93
+    - _RimPower: 1.4
     - _RimScale: 0.52
     - _SecondaryFrequency: 9.47
     - _ShadowLevel: 0
@@ -176,7 +176,7 @@ Material:
     - _timespeed: 8
     - _useUVcoords: 0
     m_Colors:
-    - _Color: {r: 0.5019608, g: 0.8196079, b: 0.30588236, a: 0}
+    - _Color: {r: 0.45882353, g: 0.7176471, b: 0.5176471, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _Extrusion: {r: 0.02, g: 0.02, b: 0.02, a: 0}
@@ -185,10 +185,10 @@ Material:
     - _NormalTiling: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
-    - _RimColor: {r: 0.26598534, g: 0.3301887, b: 0, a: 0}
+    - _RimColor: {r: 0.078948095, g: 0.2264151, b: 0, a: 0}
     - _Scale: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
-    - _ShadowColor1: {r: 0.2970363, g: 0.7075472, b: 0.3076191, a: 1}
+    - _ShadowColor1: {r: 0.4509804, g: 0.60784316, b: 0.49019608, a: 1}
     - _ShadowTint: {r: 0.039215565, g: 1, b: 0, a: 1}
     - _SpecColor: {r: 1, g: 0.10849059, b: 0.10849059, a: 0}
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
