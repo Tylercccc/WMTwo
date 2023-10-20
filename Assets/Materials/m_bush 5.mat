@@ -41,6 +41,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 076510498b8484b24b4f2533d229d643, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ClifDivNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _CliffDivNoise:
         m_Texture: {fileID: 2800000, guid: 3eda0c4754885564f9df920405499055, type: 3}
         m_Scale: {x: 1230, y: 1230}
@@ -362,16 +366,19 @@ Material:
     - _blenddd: 0
     - _cliffblendstr: 1.02
     - _cuttingval: 6.58
+    - _divTest: 2
+    - _divTest1: 6.12
     - _float20: 0.25
     - _float21: -0.25
     - _fractmult: 1.21
     - _frequency: 8.57
     - _grassNormalMove: -1.85
-    - _layer0Div: 2
+    - _heightMult: 4.47
+    - _layer0Div: 0.12
     - _layer0Div2: 2
-    - _layer1Div: 1.02
-    - _layer2Div: 1.86
-    - _layer3Div: 1.43
+    - _layer1Div: 1.17
+    - _layer2Div: 2
+    - _layer3Div: 1.85
     - _max: 100000
     - _min: 0
     - _noise: 1000
@@ -389,7 +396,10 @@ Material:
     - _steptest: 3.86
     - _test: 2
     - _testest: 3.01
+    - _testttttt: 1.9
     - _triplanarsteps: 0.1
+    - _uhhh: 2
+    - _uhhh1: 2
     - _yo: 1.81
     m_Colors:
     - _CliffShadow: {r: 0.41079357, g: 0.33254716, b: 0.4433962, a: 0}
@@ -402,7 +412,7 @@ Material:
     - _Emission: {r: 1, g: 1, b: 1, a: 1}
     - _Extrusion: {r: 0.05, g: 0.05, b: 0.05, a: 0}
     - _Highlightcolor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
-    - _Layer0NoiseDivSize: {r: 1, g: 1, b: 0, a: 0}
+    - _Layer0NoiseDivSize: {r: 100.21, g: 100, b: 0, a: 0}
     - _Layer1NoiseDivSize: {r: 1, g: 1, b: 0, a: 0}
     - _Layer1NoiseDivSize1: {r: 300, g: 300, b: 0, a: 0}
     - _Layer1NoiseDivSize2: {r: 300, g: 300, b: 0, a: 0}

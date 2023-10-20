@@ -11593,8 +11593,8 @@ MonoBehaviour:
     slopeFilter:
       enabled: 1
       filterType: 0
-      weight: 0.68
-      range: {x: 61.953995, y: 90}
+      weight: 0.72
+      range: {x: 38.81114, y: 90}
       smoothness: {x: 100, y: 100}
       noise:
         noiseType: 0
@@ -23548,7 +23548,7 @@ MonoBehaviour:
       enabled: 1
       filterType: 0
       weight: 1
-      range: {x: 0, y: 11.832939}
+      range: {x: 0, y: 19.547226}
       smoothness: {x: 20, y: 30}
       noise:
         noiseType: 0
