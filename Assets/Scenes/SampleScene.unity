@@ -1234,7 +1234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab31dd89bdd5443ac9ec3f72a46da6cf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 96.45
+      value: 94.57
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab31dd89bdd5443ac9ec3f72a46da6cf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3198,6 +3198,415 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3eedc644c8beb481c90b0179380d0854, type: 3}
+--- !u!1 &285356676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 285356677}
+  - component: {fileID: 285356678}
+  m_Layer: 0
+  m_Name: Texture Stamp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &285356677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285356676}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.926, z: 0}
+  m_LocalScale: {x: 0.5778022, y: 0.5778022, z: 0.5778022}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1907405129}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &285356678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285356676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0831c3e870e54ea3bdaa25211b0c9218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: {fileID: 8574412962073106934, guid: 5b41bb9ddd7e1410e99d86186550db30, type: 2}
+  filterSet:
+    falloffFilter:
+      filterType: 2
+      texture: {fileID: 0}
+      textureChannel: 0
+      textureParams: {x: 1, y: 0}
+      textureRotationScale: {x: 0, y: 1, z: 0, w: 0}
+      splineArea: {fileID: 0}
+      splineAreaFalloff: 0
+      splineAreaFalloffBoost: 0
+      easing:
+        blend: 0
+      noise:
+        noiseType: 0
+        noiseSpace: 0
+        frequency: 10
+        amplitude: 1
+        offset: 0
+        balance: 0
+        texture: {fileID: 0}
+        textureST: {x: 0, y: 0, z: 1, w: 1}
+        channel: 0
+      falloffRange: {x: 0.35191262, y: 0.3989073}
+      paintMask:
+        bytes: 
+        size: 256
+    weight: 1
+    weightNoise:
+      noiseType: 0
+      noiseSpace: 0
+      frequency: 10
+      amplitude: 1
+      offset: 0
+      balance: 0
+      texture: {fileID: 0}
+      textureST: {x: 0, y: 0, z: 1, w: 1}
+      channel: 0
+    weight2Noise:
+      noiseType: 0
+      noiseSpace: 0
+      frequency: 10
+      amplitude: 1
+      offset: 0
+      balance: 0
+      texture: {fileID: 0}
+      textureST: {x: 0, y: 0, z: 1, w: 1}
+      channel: 0
+    weight3Noise:
+      noiseType: 0
+      noiseSpace: 0
+      frequency: 10
+      amplitude: 1
+      offset: 0
+      balance: 0
+      texture: {fileID: 0}
+      textureST: {x: 0, y: 0, z: 1, w: 1}
+      channel: 0
+    weight2NoiseOp: 0
+    weight3NoiseOp: 0
+    version: 2
+    heightFilter:
+      enabled: 0
+      filterType: 0
+      weight: 1
+      range: {x: 0, y: 500}
+      smoothness: {x: 20, y: 20}
+      noise:
+        noiseType: 0
+        noiseSpace: 0
+        frequency: 10
+        amplitude: 1
+        offset: 0
+        balance: 0
+        texture: {fileID: 0}
+        textureST: {x: 0, y: 0, z: 1, w: 1}
+        channel: 0
+      mipBias: 0
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.25
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.75
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      _curveTexture: {fileID: 0}
+    slopeFilter:
+      enabled: 0
+      filterType: 0
+      weight: 1
+      range: {x: 0, y: 28.421053}
+      smoothness: {x: 6.3157897, y: 6.3157897}
+      noise:
+        noiseType: 0
+        noiseSpace: 0
+        frequency: 10
+        amplitude: 1
+        offset: 0
+        balance: 0
+        texture: {fileID: 0}
+        textureST: {x: 0, y: 0, z: 1, w: 1}
+        channel: 0
+      mipBias: 0
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.25
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.75
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      _curveTexture: {fileID: 0}
+    angleFilter:
+      enabled: 0
+      filterType: 0
+      weight: 1
+      range: {x: 0, y: 90}
+      smoothness: {x: 12, y: 12}
+      noise:
+        noiseType: 0
+        noiseSpace: 0
+        frequency: 10
+        amplitude: 1
+        offset: 0
+        balance: 0
+        texture: {fileID: 0}
+        textureST: {x: 0, y: 0, z: 1, w: 1}
+        channel: 0
+      mipBias: 0
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.25
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.75
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      _curveTexture: {fileID: 0}
+    curvatureFilter:
+      enabled: 0
+      filterType: 0
+      weight: 1
+      range: {x: 0.6, y: 1}
+      smoothness: {x: 0.1, y: 0.1}
+      noise:
+        noiseType: 0
+        noiseSpace: 0
+        frequency: 10
+        amplitude: 1
+        offset: 0
+        balance: 0
+        texture: {fileID: 0}
+        textureST: {x: 0, y: 0, z: 1, w: 1}
+        channel: 0
+      mipBias: 0
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.25
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.75
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      _curveTexture: {fileID: 0}
+    flowFilter:
+      enabled: 0
+      filterType: 0
+      weight: 1
+      range: {x: 0.6, y: 1}
+      smoothness: {x: 0.1, y: 0.1}
+      noise:
+        noiseType: 0
+        noiseSpace: 0
+        frequency: 10
+        amplitude: 1
+        offset: 0
+        balance: 0
+        texture: {fileID: 0}
+        textureST: {x: 0, y: 0, z: 1, w: 1}
+        channel: 0
+      mipBias: 0
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.25
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.75
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      _curveTexture: {fileID: 0}
+    textureFilterEnabled: 0
+    otherTextureWeight: 1
+    textureFilters: []
+  ignoreOcclusion: 0
 --- !u!1001 &291719795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4647,7 +5056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &393497318
 Transform:
   m_ObjectHideFlags: 0
@@ -4698,7 +5107,7 @@ MonoBehaviour:
         texture: {fileID: 2800000, guid: ac0860a6a77e29d4091ba790a17daa0f, type: 3}
         textureST: {x: 0, y: 0, z: 1, w: 1}
         channel: 0
-      falloffRange: {x: 0, y: 1}
+      falloffRange: {x: 1, y: 1}
       paintMask:
         bytes: 
         size: 256
@@ -4800,8 +5209,8 @@ MonoBehaviour:
       enabled: 1
       filterType: 0
       weight: 1
-      range: {x: 0, y: 90}
-      smoothness: {x: 1, y: 15.76}
+      range: {x: 33.42857, y: 90}
+      smoothness: {x: 100, y: 100}
       noise:
         noiseType: 0
         noiseSpace: 0
@@ -5725,6 +6134,7 @@ Transform:
   - {fileID: 484679633}
   - {fileID: 517774424}
   - {fileID: 1172954170}
+  - {fileID: 633620975}
   - {fileID: 480006079}
   - {fileID: 537135875}
   - {fileID: 460396310}
@@ -8123,7 +8533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &537135875
 Transform:
   m_ObjectHideFlags: 0
@@ -9611,6 +10021,117 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dc6302d72fdc4e2c94c7d51c9e76dc4, type: 3}
+--- !u!1 &633620974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 633620975}
+  - component: {fileID: 633620977}
+  - component: {fileID: 633620976}
+  m_Layer: 0
+  m_Name: CopyPaste Stamp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &633620975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633620974}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 854, y: -35.1, z: 328}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 458111189}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &633620976
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633620974}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46dcf383b4434ac0a71a028e5ff4cad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stamp: {fileID: 0}
+  mode: 1
+  falloff:
+    filterType: 1
+    texture: {fileID: 0}
+    textureChannel: 0
+    textureParams: {x: 1, y: 0}
+    textureRotationScale: {x: 0, y: 1, z: 0, w: 0}
+    splineArea: {fileID: 0}
+    splineAreaFalloff: 0
+    splineAreaFalloffBoost: 0
+    easing:
+      blend: 0
+    noise:
+      noiseType: 0
+      noiseSpace: 0
+      frequency: 10
+      amplitude: 1
+      offset: 0
+      balance: 0
+      texture: {fileID: 0}
+      textureST: {x: 0, y: 0, z: 1, w: 1}
+      channel: 0
+    falloffRange: {x: 0.8, y: 1}
+    paintMask:
+      bytes: 
+      size: 256
+  twist: 0
+  erosion: 0
+  erosionSize: 4
+  power: 1
+  invert: 0
+  blend: 1
+  remapRange: {x: 0, y: 1}
+  scaleOffset: {x: 1, y: 1, z: 0, w: 0}
+  tiltX: 0
+  tiltZ: 0
+  tiltScaleX: 0
+  tiltScaleZ: 0
+  mipBias: 0
+  version: 2
+--- !u!114 &633620977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633620974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12994c2ad718e45a6b1b954a4537b778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stamp: {fileID: 11400000, guid: 61fd87dd6750648a0b3c785338dda6d7, type: 2}
+  copyHeights: 1
+  copyTexturing: 1
+  copyTrees: 1
+  copyDetails: 1
+  copyHoles: 1
+  applyHeights: 1
+  applyTexturing: 1
+  applyTrees: 0
+  applyDetails: 0
+  applyHoles: 0
+  pixelQuantization: 1
+  version: 2
 --- !u!1 &636510091
 GameObject:
   m_ObjectHideFlags: 0
@@ -11070,13 +11591,13 @@ MonoBehaviour:
         m_RotationOrder: 4
       _curveTexture: {fileID: 0}
     slopeFilter:
-      enabled: 0
+      enabled: 1
       filterType: 0
-      weight: 0.551
-      range: {x: 39.489456, y: 90}
-      smoothness: {x: 6.3157897, y: 6.3157897}
+      weight: 0.68
+      range: {x: 61.953995, y: 90}
+      smoothness: {x: 100, y: 100}
       noise:
-        noiseType: 4
+        noiseType: 0
         noiseSpace: 0
         frequency: 10
         amplitude: 1
@@ -11132,8 +11653,8 @@ MonoBehaviour:
     angleFilter:
       enabled: 0
       filterType: 0
-      weight: 0.517
-      range: {x: -360, y: 216}
+      weight: 0.95
+      range: {x: -360, y: -246.85715}
       smoothness: {x: 12, y: 12}
       noise:
         noiseType: 0
@@ -12660,11 +13181,11 @@ Transform:
   m_GameObject: {fileID: 849893380}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.006100016, y: 0.9292582, z: 0.0060999575}
-  m_LocalScale: {x: 0.18179412, y: 0.1817941, z: 0.18179412}
+  m_LocalPosition: {x: 0, y: 0.047703866, z: 0}
+  m_LocalScale: {x: 1.1725155, y: -1.4454218, z: 1.1725155}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1172954170}
+  m_Father: {fileID: 2139590933}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &849893382
 MonoBehaviour:
@@ -13250,7 +13771,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.005300016, y: 0.92945576, z: 0.0036999574}
-  m_LocalScale: {x: 0.3703036, y: 0.5744257, z: 0.3703036}
+  m_LocalScale: {x: 0.4521407, y: 0.70137376, z: 0.4521407}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1172954170}
@@ -13290,7 +13811,7 @@ MonoBehaviour:
         texture: {fileID: 2800000, guid: ac0860a6a77e29d4091ba790a17daa0f, type: 3}
         textureST: {x: 0, y: 0, z: 1, w: 1}
         channel: 0
-      falloffRange: {x: 0.44141993, y: 0.5365091}
+      falloffRange: {x: 0.42656845, y: 0.58601403}
       paintMask:
         bytes: 
         size: 256
@@ -15707,7 +16228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1087083835
 Transform:
   m_ObjectHideFlags: 0
@@ -15717,8 +16238,8 @@ Transform:
   m_GameObject: {fileID: 1087083834}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0026, y: 0.92945576, z: -0.0018}
-  m_LocalScale: {x: 0.46083, y: 0.46083, z: 0.46083}
+  m_LocalPosition: {x: 0.015, y: 0.848, z: 0}
+  m_LocalScale: {x: 0.99116, y: 0.99116, z: 0.99116}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1172954170}
@@ -15749,8 +16270,8 @@ MonoBehaviour:
       easing:
         blend: 0
       noise:
-        noiseType: 6
-        noiseSpace: 0
+        noiseType: 0
+        noiseSpace: 1
         frequency: 10
         amplitude: 0.54
         offset: 0
@@ -15758,7 +16279,7 @@ MonoBehaviour:
         texture: {fileID: 2800000, guid: ac0860a6a77e29d4091ba790a17daa0f, type: 3}
         textureST: {x: 0, y: 0, z: 1, w: 1}
         channel: 0
-      falloffRange: {x: 0.28333962, y: 0.618436}
+      falloffRange: {x: 0.009900996, y: 0.46534652}
       paintMask:
         bytes: 
         size: 256
@@ -21688,18 +22209,16 @@ Transform:
   m_GameObject: {fileID: 1172954169}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 531.4, y: -35.1, z: 501.1}
-  m_LocalScale: {x: 213.36826, y: 137.54785, z: 213.36826}
+  m_LocalPosition: {x: 532.2, y: -88.5, z: 498.3}
+  m_LocalScale: {x: 152.07025, y: 195.30878, z: 152.07025}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1503129717}
   - {fileID: 1087083835}
   - {fileID: 899264313}
-  - {fileID: 849893381}
   - {fileID: 1404584201}
+  - {fileID: 1752770562}
   - {fileID: 2139590933}
   - {fileID: 71080508}
-  - {fileID: 1752770562}
   - {fileID: 1907405129}
   m_Father: {fileID: 458111189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21738,7 +22257,7 @@ MonoBehaviour:
       texture: {fileID: 0}
       textureST: {x: 0, y: 0, z: 1, w: 1}
       channel: 0
-    falloffRange: {x: 0.2330941, y: 0.42576504}
+    falloffRange: {x: 0.19120929, y: 1}
     paintMask:
       bytes: 
       size: 256
@@ -22067,7 +22586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204521929}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 534.7, y: 0, z: 510}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
@@ -22885,7 +23404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220555010}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 714.2, y: 0, z: 549.1}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
@@ -23026,11 +23545,11 @@ MonoBehaviour:
         m_RotationOrder: 4
       _curveTexture: {fileID: 0}
     slopeFilter:
-      enabled: 0
+      enabled: 1
       filterType: 0
       weight: 1
-      range: {x: 0, y: 41.530605}
-      smoothness: {x: 1, y: 15.76}
+      range: {x: 0, y: 11.832939}
+      smoothness: {x: 20, y: 30}
       noise:
         noiseType: 0
         noiseSpace: 0
@@ -24566,7 +25085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1451474111
 Transform:
   m_ObjectHideFlags: 0
@@ -24993,11 +25512,11 @@ Transform:
   m_GameObject: {fileID: 1503129716}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.008851089, y: 0.9311595, z: 0.018496461}
-  m_LocalScale: {x: 0.34410095, y: 0.37637815, z: 0.42894942}
+  m_LocalPosition: {x: -0.012, y: -0.087, z: 0}
+  m_LocalScale: {x: 2.6624637, y: -3.2821598, z: 2.6624637}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1172954170}
+  m_Father: {fileID: 2139590933}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1503129718
 MonoBehaviour:
@@ -25014,7 +25533,7 @@ MonoBehaviour:
   layer: {fileID: 8574412962073106934, guid: 3988fb1f97def4acabdb2c97a58cf1a4, type: 2}
   filterSet:
     falloffFilter:
-      filterType: 1
+      filterType: 2
       texture: {fileID: 0}
       textureChannel: 0
       textureParams: {x: 1, y: 0}
@@ -28584,8 +29103,8 @@ Transform:
   m_GameObject: {fileID: 1752770561}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.86309373, z: 0, w: -0.5050438}
-  m_LocalPosition: {x: 0.024499984, y: 0.9708, z: -0.041900042}
-  m_LocalScale: {x: 0.09508266, y: 0.024284782, z: 0.16397285}
+  m_LocalPosition: {x: 0.024499984, y: 0.9642, z: -0.041900042}
+  m_LocalScale: {x: 0.18400396, y: -0.013904225, z: 0.16397285}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1172954170}
@@ -28625,7 +29144,7 @@ MonoBehaviour:
       texture: {fileID: 0}
       textureST: {x: 0, y: 0, z: 1, w: 1}
       channel: 0
-    falloffRange: {x: 0.17000377, y: 1}
+    falloffRange: {x: 0.18571058, y: 1}
     paintMask:
       bytes: 
       size: 256
@@ -28636,7 +29155,7 @@ MonoBehaviour:
   invert: 0
   blend: 1
   remapRange: {x: 0, y: 1}
-  scaleOffset: {x: 1, y: 1, z: 0, w: 0}
+  scaleOffset: {x: 0, y: 0, z: 0, w: 0}
   tiltX: 0
   tiltZ: 0
   tiltScaleX: 0
@@ -30390,7 +30909,7 @@ Transform:
   m_GameObject: {fileID: 1907405128}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.17809598, y: 0.40931207, z: 0}
+  m_LocalPosition: {x: -0.229, y: 0.40931207, z: 0}
   m_LocalScale: {x: 0.4429689, y: 0.54646367, z: 0.60899025}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30399,6 +30918,7 @@ Transform:
   - {fileID: 2063199228}
   - {fileID: 385751961}
   - {fileID: 1847961355}
+  - {fileID: 285356677}
   m_Father: {fileID: 1172954170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1907405130
@@ -33235,7 +33755,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127656448}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 534.7, y: 0, z: 510}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
@@ -33376,7 +33896,7 @@ MonoBehaviour:
         m_RotationOrder: 4
       _curveTexture: {fileID: 0}
     slopeFilter:
-      enabled: 1
+      enabled: 0
       filterType: 0
       weight: 1
       range: {x: 0, y: 41.530605}
@@ -33847,10 +34367,12 @@ Transform:
   m_GameObject: {fileID: 2139590932}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0046000164, y: 0.9383, z: 0.0065999576}
-  m_LocalScale: {x: 0.08915682, y: -0.07232335, z: 0.08915682}
+  m_LocalPosition: {x: -0.0072, y: 0.9383, z: 0.0065999576}
+  m_LocalScale: {x: 0.12006562, y: -0.09739633, z: 0.12006562}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1503129717}
+  - {fileID: 849893381}
   m_Father: {fileID: 1172954170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2139590934
@@ -33888,7 +34410,7 @@ MonoBehaviour:
       texture: {fileID: 0}
       textureST: {x: 0, y: 0, z: 1, w: 1}
       channel: 0
-    falloffRange: {x: 0.26067245, y: 1}
+    falloffRange: {x: 0, y: 1}
     paintMask:
       bytes: 
       size: 256
