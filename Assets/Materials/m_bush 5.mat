@@ -299,7 +299,7 @@ Material:
     - _Innerradius: 4.19
     - _JitterNoiseSize: 4.74
     - _Level: 0.917
-    - _LightGradientMidLevel: 0.6
+    - _LightGradientMidLevel: 0.5
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.5
     - _LightGradientSize1: 0
