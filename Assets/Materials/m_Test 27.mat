@@ -100,9 +100,9 @@ Material:
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
-    - _LightGradientMidLevel: 0.529
+    - _LightGradientMidLevel: 0.5
     - _LightGradientMidLevel1: 0
-    - _LightGradientSize: 0.25
+    - _LightGradientSize: 0.385
     - _LightGradientSize1: 0
     - _NormalRimPush: 0
     - _NormalStr: 0
@@ -123,7 +123,7 @@ Material:
     - _StepShadows: -1.19
     - _StepShadows1: 0
     - _StepWidth: 0.37
-    - _Steps: 2
+    - _Steps: 1
     - __dirty: 0
     - _fractmult: 1.21
     - _frequency: 8.57

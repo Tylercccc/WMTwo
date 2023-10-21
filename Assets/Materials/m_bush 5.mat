@@ -303,9 +303,9 @@ Material:
     - _Innerradius: 4.19
     - _JitterNoiseSize: 4.74
     - _Level: 0.917
-    - _LightGradientMidLevel: 0.349
+    - _LightGradientMidLevel: 0.5
     - _LightGradientMidLevel1: 0
-    - _LightGradientSize: 0.674
+    - _LightGradientSize: 0.5
     - _LightGradientSize1: 0
     - _NoiseSize: 0.001
     - _NormalPwr: 20000000
@@ -366,6 +366,7 @@ Material:
     - _blenddd: 0
     - _cliffblendstr: 1.02
     - _cuttingval: 6.58
+    - _dirtTest: 0
     - _divTest: 2
     - _divTest1: 6.12
     - _float20: 0.25
@@ -390,6 +391,7 @@ Material:
     - _pullback: 0.43
     - _rampsize2: 0
     - _rimoffset: 0.76
+    - _rocktest: 0
     - _sdasdasd: -0.38
     - _shinesize: 0.08
     - _stepp: 2
@@ -452,6 +454,8 @@ Material:
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
     - _compare: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0}
     - _dirtTiling: {r: 0.2, g: 0.2, b: 0, a: 0}
+    - _normcolor: {r: 0, g: 0, b: 0, a: 0}
+    - _normcolorDirt: {r: 0, g: 0, b: 0, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
     - _tiling: {r: 0, g: 1, b: 123, a: 0}
