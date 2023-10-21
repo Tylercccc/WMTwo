@@ -135,8 +135,8 @@ Material:
     - _PointLightAttenuationBoost: 2.68
     - _RampSize: 0.52
     - _RampSize1: 0
-    - _RimPower: 1.93
-    - _RimScale: 0.52
+    - _RimPower: 6.31
+    - _RimScale: 0.58
     - _SecondaryFrequency: 9.47
     - _ShadowLevel: 0
     - _SpecIntensity: 0.46
@@ -152,7 +152,7 @@ Material:
     - _Steps: 3
     - _TimeScaleLeaves: 5
     - _Timesteps: 10.5
-    - _Tonedown: 1
+    - _Tonedown: 0.91
     - _VertOffset: 0
     - _Wind: 1.4
     - _WindDirection: 1.41
@@ -185,7 +185,7 @@ Material:
     - _NormalTiling: {r: 0.2, g: 0.2, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
-    - _RimColor: {r: 0.26598534, g: 0.3301887, b: 0, a: 0}
+    - _RimColor: {r: 0.13082945, g: 0.26415092, b: 0.17971398, a: 0}
     - _Scale: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
     - _ShadowColor1: {r: 0.4509804, g: 0.60784316, b: 0.49019608, a: 1}
