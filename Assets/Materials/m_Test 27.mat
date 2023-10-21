@@ -100,7 +100,7 @@ Material:
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
-    - _LightGradientMidLevel: 0.5
+    - _LightGradientMidLevel: 0.362
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.385
     - _LightGradientSize1: 0
