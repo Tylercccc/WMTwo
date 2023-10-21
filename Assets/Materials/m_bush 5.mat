@@ -367,6 +367,7 @@ Material:
     - _cliffblendstr: 1.02
     - _cuttingval: 6.58
     - _dirtTest: 0
+    - _dirtftrtrt: 0.22
     - _divTest: 2
     - _divTest1: 6.12
     - _float20: 0.25
