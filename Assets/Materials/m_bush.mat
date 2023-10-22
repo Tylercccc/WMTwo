@@ -26,7 +26,7 @@ Material:
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -89,9 +89,17 @@ Material:
         m_Texture: {fileID: 2800000, guid: 7fe85df733e76164b912c7ade9e31f71, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TopTexture0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _intersectionnoise:
         m_Texture: {fileID: 2800000, guid: 5de19c12d50ae489cbef19008a4335d4, type: 3}
         m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
+    - _noise:
+        m_Texture: {fileID: 2800000, guid: 3eda0c4754885564f9df920405499055, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
@@ -103,6 +111,7 @@ Material:
     - _BendAmt: 2.5
     - _BendDist: 0.03
     - _BottomGradientSize: 2.41
+    - _Cutoff: 0.5
     - _Depthfadedist: 47.3
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 3.07
@@ -120,7 +129,10 @@ Material:
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
     - _Intersectionshadowmult: 1
-    - _Intersectradius: 0.7
+    - _Intersectradius: 0
+    - _LeafNoise: 1.15
+    - _LeafPower: 4.8
+    - _LeafScale: 2.34
     - _LightGradientMidLevel: 0.641
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.31
@@ -143,7 +155,7 @@ Material:
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
-    - _SphereHardness: 0.2
+    - _SphereHardness: 0.57
     - _SphereRadius: 4.5
     - _StepAmount: 6
     - _StepShadows: -1.19
@@ -163,16 +175,18 @@ Material:
     - _bushtimesteps: 9.2
     - _fractmult: 1.21
     - _frequency: 8.57
-    - _intersectnoisescale: 0.02
+    - _intersectnoisescale: 2
     - _max: 100000
     - _min: 0
     - _noise: 1000
+    - _noisesetting: 0.2
     - _normalWindScale: 0.2
     - _normalspeed: 1
     - _rampsize2: 0
     - _rimoffset: 0.76
     - _tempscale: 1
     - _test: 1
+    - _tilingnoise: 1.2
     - _timespeed: 8
     - _useUVcoords: 0
     m_Colors:
