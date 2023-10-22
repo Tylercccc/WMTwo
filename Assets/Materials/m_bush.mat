@@ -157,6 +157,7 @@ Material:
     - _SpecularSize: 0.82
     - _SphereHardness: 0.57
     - _SphereRadius: 4.5
+    - _SphereSoftness: 1.27
     - _StepAmount: 6
     - _StepShadows: -1.19
     - _StepShadows1: 0

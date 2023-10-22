@@ -26,7 +26,7 @@ Material:
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -89,8 +89,16 @@ Material:
         m_Texture: {fileID: 2800000, guid: 7fe85df733e76164b912c7ade9e31f71, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TopTexture0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _intersectionnoise:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _noise:
+        m_Texture: {fileID: 2800000, guid: 1255cb70efe984d4981fbc5659e477ea, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -103,6 +111,7 @@ Material:
     - _BendAmt: 0.85
     - _BendDist: 0.03
     - _BottomGradientSize: 0
+    - _Cutoff: 0.5
     - _Depthfadedist: 47.3
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 3.07
@@ -121,6 +130,9 @@ Material:
     - _Innerradius: 4.19
     - _Intersectionshadowmult: 1
     - _Intersectradius: 0
+    - _LeafNoise: 0
+    - _LeafPower: 7.79
+    - _LeafScale: 2.2
     - _LightGradientMidLevel: 0.641
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.31
@@ -145,6 +157,7 @@ Material:
     - _SpecularSize: 0.82
     - _SphereHardness: 0.35
     - _SphereRadius: 4.5
+    - _SphereSoftness: 0
     - _StepAmount: 6
     - _StepShadows: -1.19
     - _StepShadows1: 0
@@ -167,12 +180,14 @@ Material:
     - _max: 100000
     - _min: 0
     - _noise: 1000
+    - _noisesetting: 0
     - _normalWindScale: 0.2
     - _normalspeed: 1
     - _rampsize2: 0
     - _rimoffset: 0.76
     - _tempscale: 1
     - _test: 1
+    - _tilingnoise: 1
     - _timespeed: 8
     - _useUVcoords: 0
     m_Colors:
