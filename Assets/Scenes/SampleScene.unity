@@ -14419,11 +14419,11 @@ MonoBehaviour:
         blend: 0
       noise:
         noiseType: 0
-        noiseSpace: 0
-        frequency: 10
-        amplitude: 0.54
-        offset: 0
-        balance: -0.03
+        noiseSpace: 1
+        frequency: 999.4
+        amplitude: 0.7
+        offset: 0.9
+        balance: 0.1
         texture: {fileID: 2800000, guid: ac0860a6a77e29d4091ba790a17daa0f, type: 3}
         textureST: {x: 0, y: 0, z: 1, w: 1}
         channel: 0
