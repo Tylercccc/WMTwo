@@ -45,6 +45,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: 3eda0c4754885564f9df920405499055, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _NoiseTexture:
         m_Texture: {fileID: 2800000, guid: 71ee2865e455142fb9a3cd6e3ef3fc51, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -111,6 +115,7 @@ Material:
     - _BendAmt: 2.5
     - _BendDist: 0.03
     - _BottomGradientSize: 2.41
+    - _CamPos: 0.94
     - _Cutoff: 0.5
     - _Depthfadedist: 47.3
     - _DirectionalLightAttenuationBoost: 1
@@ -120,7 +125,7 @@ Material:
     - _EdgeSize: 0
     - _FadeMidRange: 1
     - _Float0: 1.184299
-    - _Float1: 0.02
+    - _Float1: 25.9
     - _Float2: 0
     - _Freq: 0.2
     - _GradientHeight: 1.5
@@ -131,8 +136,8 @@ Material:
     - _Intersectionshadowmult: 1
     - _Intersectradius: 0
     - _LeafNoise: 1.15
-    - _LeafPower: 4.8
-    - _LeafScale: 2.34
+    - _LeafPower: 1.96
+    - _LeafScale: 1.76
     - _LightGradientMidLevel: 0.641
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.31
@@ -147,8 +152,9 @@ Material:
     - _PointLightAttenuationBoost: 10
     - _RampSize: 0.52
     - _RampSize1: 0
-    - _RimPower: 3.79
-    - _RimScale: 1.77
+    - _RimPower: 4.05
+    - _RimScale: 3.89
+    - _ScaleFactor: 0.03
     - _SecondaryFrequency: 9.47
     - _ShadowLevel: 0
     - _SpecIntensity: 0.46
@@ -163,6 +169,7 @@ Material:
     - _StepShadows1: 0
     - _StepWidth: 0.37
     - _Steps: 3
+    - _TexScale: 2.44
     - _TimeScaleLeaves: 5
     - _Timesteps: 10.5
     - _Tonedown: 0.6
@@ -173,7 +180,9 @@ Material:
     - _WindNoiseScale: 4
     - _WorldFrequency: 0.458
     - __dirty: 0
+    - _bbamount: 0.11
     - _bushtimesteps: 9.2
+    - _bushytop: 0.91
     - _fractmult: 1.21
     - _frequency: 8.57
     - _intersectnoisescale: 2
@@ -187,6 +196,7 @@ Material:
     - _rimoffset: 0.76
     - _tempscale: 1
     - _test: 1
+    - _testcamerapos: 100
     - _tilingnoise: 1.2
     - _timespeed: 8
     - _useUVcoords: 0
@@ -196,11 +206,12 @@ Material:
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _Extrusion: {r: 0.02, g: 0.02, b: 0.02, a: 0}
     - _Highlightcolor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
+    - _NoiseSize: {r: 3, g: 3, b: 0, a: 0}
     - _NormalTexFlow: {r: -0.4, g: 300, b: 0, a: 0}
     - _NormalTiling: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
-    - _RimColor: {r: 0.015574938, g: 0.13207549, b: 0.06497737, a: 0}
+    - _RimColor: {r: 0, g: 0.0754717, b: 0.03270441, a: 0}
     - _Scale: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
     - _ShadowColor1: {r: 0.4509804, g: 0.60784316, b: 0.49019608, a: 1}
