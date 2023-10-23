@@ -136,8 +136,8 @@ Material:
     - _Intersectionshadowmult: 1
     - _Intersectradius: 0
     - _LeafNoise: 1.15
-    - _LeafPower: 1.96
-    - _LeafScale: 1.76
+    - _LeafPower: 5.84
+    - _LeafScale: 4.3
     - _LightGradientMidLevel: 0.641
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.31
@@ -152,8 +152,8 @@ Material:
     - _PointLightAttenuationBoost: 10
     - _RampSize: 0.52
     - _RampSize1: 0
-    - _RimPower: 4.05
-    - _RimScale: 3.89
+    - _RimPower: 4.24
+    - _RimScale: 8.25
     - _ScaleFactor: 0.03
     - _SecondaryFrequency: 9.47
     - _ShadowLevel: 0
@@ -169,7 +169,7 @@ Material:
     - _StepShadows1: 0
     - _StepWidth: 0.37
     - _Steps: 3
-    - _TexScale: 2.44
+    - _TexScale: 1.48
     - _TimeScaleLeaves: 5
     - _Timesteps: 10.5
     - _Tonedown: 0.6
@@ -183,6 +183,7 @@ Material:
     - _bbamount: 0.11
     - _bushtimesteps: 9.2
     - _bushytop: 0.91
+    - _dasvcxvef: 2
     - _fractmult: 1.21
     - _frequency: 8.57
     - _intersectnoisescale: 2
@@ -211,7 +212,7 @@ Material:
     - _NormalTiling: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
-    - _RimColor: {r: 0, g: 0.0754717, b: 0.03270441, a: 0}
+    - _RimColor: {r: 0, g: 0.0754717, b: 0.029452378, a: 0}
     - _Scale: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
     - _ShadowColor1: {r: 0.4509804, g: 0.60784316, b: 0.49019608, a: 1}
@@ -220,7 +221,7 @@ Material:
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 0.20241535, g: 0.31132078, b: 0.0044054748, a: 0}
     - _SphereCenter: {r: 0.91, g: 0.5, b: 0.13, a: 0}
-    - _Squash: {r: 0, g: 0, b: 0, a: 0}
+    - _Squash: {r: -0.0014428113, g: 0.0028856227, b: -0.0014428113, a: 0}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
     - _Vector3: {r: 0, g: 0, b: 0, a: 0}
