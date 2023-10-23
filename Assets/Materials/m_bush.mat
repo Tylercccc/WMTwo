@@ -23,6 +23,7 @@ Material:
   - TCP2_UV4_AS_NORMALS
   - TCP2_UV_NORMALS_FULL
   - _FADEMIDRANGE_ON
+  - _USEUVCOORDS_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -136,8 +137,8 @@ Material:
     - _Intersectionshadowmult: 1
     - _Intersectradius: 0
     - _LeafNoise: 1.15
-    - _LeafPower: 5.84
-    - _LeafScale: 4.3
+    - _LeafPower: 3.83
+    - _LeafScale: 1.76
     - _LightGradientMidLevel: 0.641
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.31
@@ -200,7 +201,7 @@ Material:
     - _testcamerapos: 100
     - _tilingnoise: 1.2
     - _timespeed: 8
-    - _useUVcoords: 0
+    - _useUVcoords: 1
     m_Colors:
     - _Color: {r: 0.45882353, g: 0.7176471, b: 0.5176471, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
@@ -221,7 +222,7 @@ Material:
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 0.20241535, g: 0.31132078, b: 0.0044054748, a: 0}
     - _SphereCenter: {r: 0.91, g: 0.5, b: 0.13, a: 0}
-    - _Squash: {r: -0.0014428113, g: 0.0028856227, b: -0.0014428113, a: 0}
+    - _Squash: {r: 0, g: 0, b: 0, a: 0}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
     - _Vector3: {r: 0, g: 0, b: 0, a: 0}
