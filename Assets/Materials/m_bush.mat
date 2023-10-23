@@ -58,6 +58,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: bd4806d82731a422ea0b106e0524d364, type: 3}
+        m_Scale: {x: 0.01, y: 0.01}
+        m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: bd4806d82731a422ea0b106e0524d364, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -113,7 +117,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Band2Mult: 0.005
-    - _BendAmt: 2.5
+    - _BendAmt: 1
     - _BendDist: 0.03
     - _BottomGradientSize: 2.41
     - _CamPos: 0.94
@@ -184,6 +188,7 @@ Material:
     - _bbamount: 0.11
     - _bushtimesteps: 9.2
     - _bushytop: 0.91
+    - _chill: 0
     - _dasvcxvef: 2
     - _fractmult: 1.21
     - _frequency: 8.57
