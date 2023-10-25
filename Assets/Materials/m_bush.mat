@@ -117,7 +117,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Band2Mult: 0.005
-    - _BendAmt: 1
+    - _BendAmt: 1.82
     - _BendDist: 0.03
     - _BottomGradientSize: 2.41
     - _CamPos: 0.94
@@ -129,7 +129,7 @@ Material:
     - _EdgeLength: 15
     - _EdgeSize: 0
     - _FadeMidRange: 1
-    - _Float0: 1.184299
+    - _Float0: 0.61
     - _Float1: 25.9
     - _Float2: 0
     - _Freq: 0.2
@@ -166,8 +166,8 @@ Material:
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
-    - _SphereHardness: 0.57
-    - _SphereRadius: 4.5
+    - _SphereHardness: 0.1
+    - _SphereRadius: 4
     - _SphereSoftness: 1.27
     - _StepAmount: 6
     - _StepShadows: -1.19
@@ -193,6 +193,7 @@ Material:
     - _fractmult: 1.21
     - _frequency: 8.57
     - _intersectnoisescale: 2
+    - _leaftesttt: 133.58
     - _max: 100000
     - _min: 0
     - _noise: 1000
@@ -228,6 +229,7 @@ Material:
     - _SpecularColor: {r: 0.20241535, g: 0.31132078, b: 0.0044054748, a: 0}
     - _SphereCenter: {r: 0.91, g: 0.5, b: 0.13, a: 0}
     - _Squash: {r: 0, g: 0, b: 0, a: 0}
+    - _Squash1: {r: 0, g: 0, b: 0, a: 0}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
     - _Vector3: {r: 0, g: 0, b: 0, a: 0}

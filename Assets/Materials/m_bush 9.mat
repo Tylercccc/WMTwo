@@ -165,8 +165,8 @@ Material:
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
-    - _SphereHardness: 0.76
-    - _SphereRadius: 2
+    - _SphereHardness: 0.1
+    - _SphereRadius: 4
     - _SphereSoftness: 1.27
     - _StepAmount: 6
     - _StepShadows: -1.19
@@ -192,6 +192,7 @@ Material:
     - _fractmult: 1.21
     - _frequency: 8.57
     - _intersectnoisescale: 2
+    - _leaftesttt: 78.2
     - _max: 100000
     - _min: 0
     - _noise: 1000
@@ -217,7 +218,7 @@ Material:
     - _NormalTiling: {r: 0.0001, g: 0.0001, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
-    - _RimColor: {r: 0, g: 0.0754717, b: 0.029452378, a: 0}
+    - _RimColor: {r: 0, g: 0.7075472, b: 0.29791465, a: 0.5176471}
     - _Scale: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
     - _ShadowColor1: {r: 0.4509804, g: 0.60784316, b: 0.49019608, a: 1}
@@ -226,7 +227,8 @@ Material:
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 0.20241535, g: 0.31132078, b: 0.0044054748, a: 0}
     - _SphereCenter: {r: 0.91, g: 0.5, b: 0.13, a: 0}
-    - _Squash: {r: 0, g: 0, b: 0, a: 0}
+    - _Squash: {r: 0.25, g: -0.5, b: 0.25, a: 0}
+    - _Squash1: {r: 0, g: 0, b: 0, a: 0}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
     - _Vector3: {r: 0, g: 0, b: 0, a: 0}
