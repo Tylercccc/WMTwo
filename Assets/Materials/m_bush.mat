@@ -117,7 +117,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Band2Mult: 0.005
-    - _BendAmt: 1.82
+    - _BendAmt: 0.9
     - _BendDist: 0.03
     - _BottomGradientSize: 2.41
     - _CamPos: 0.94
@@ -166,8 +166,8 @@ Material:
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
-    - _SphereHardness: 0.1
-    - _SphereRadius: 4
+    - _SphereHardness: 1
+    - _SphereRadius: 2.5
     - _SphereSoftness: 1.27
     - _StepAmount: 6
     - _StepShadows: -1.19
