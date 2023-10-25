@@ -117,7 +117,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Band2Mult: 0.005
-    - _BendAmt: 0.9
+    - _BendAmt: 0.4
     - _BendDist: 0.03
     - _BottomGradientSize: 2.41
     - _CamPos: 0.94
@@ -166,7 +166,7 @@ Material:
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
-    - _SphereHardness: 1
+    - _SphereHardness: 0.5
     - _SphereRadius: 2.5
     - _SphereSoftness: 1.27
     - _StepAmount: 6
@@ -208,6 +208,10 @@ Material:
     - _tilingnoise: 1.2
     - _timespeed: 8
     - _useUVcoords: 1
+    - _whatsthiedo: 0
+    - _xDeform: 1
+    - _yDeform: 3
+    - _zDeform: 1
     m_Colors:
     - _Color: {r: 0.45882353, g: 0.7176471, b: 0.5176471, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
