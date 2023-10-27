@@ -117,9 +117,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _Band2Mult: 0.005
-    - _BendAmt: 0.4
+    - _BendAmt: 3.8
     - _BendDist: 0.03
-    - _BottomGradientSize: 2.41
+    - _BottomGradientSize: 5
     - _CamPos: 0.94
     - _Cutoff: 0.5
     - _Depthfadedist: 47.3
@@ -133,7 +133,7 @@ Material:
     - _Float1: 25.9
     - _Float2: 0
     - _Freq: 0.2
-    - _GradientHeight: 1.5
+    - _GradientHeight: 1
     - _HueShift: 0.807
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
