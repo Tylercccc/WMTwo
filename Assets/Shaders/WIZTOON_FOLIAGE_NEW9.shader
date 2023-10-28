@@ -30,6 +30,7 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 		_secondaryspeed("secondary speed", Vector) = (1,1,0,0)
 		_timespeed("time speed", Float) = 0
 		_bushtimesteps("bush time steps", Range( 0 , 20)) = 0
+		_Squash("Squash", Vector) = (0,0,0,0)
 		_NormalScale("Normal Scale", Range( 0 , 1)) = 0
 		_Normal("Normal", 2D) = "bump" {}
 		_dasvcxvef("dasvcxvef", Float) = 0
@@ -94,6 +95,7 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 		uniform float2 _secondaryspeed;
 		uniform float _SecondaryFrequency;
 		uniform float _BendAmt;
+		uniform float3 _Squash;
 		uniform float3 _BushPosition;
 		uniform float3 _bendoffset;
 		uniform float3 _bushdimensions;
@@ -230,6 +232,7 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 			float4 break584 = appendResult580;
 			float4 appendResult585 = (float4(break584.x , 0 , break584.z , 0.0));
 			float3 worldToObjDir1059 = ASESafeNormalize( mul( unity_WorldToObject, float4( ( smoothstepResult599 * appendResult585 ).xyz, 0 ) ).xyz );
+			float3 worldToObjDir1072 = mul( unity_WorldToObject, float4( (ase_worldNormal*_Squash + 0.0), 0 ) ).xyz;
 			float3 worldToObj1060 = mul( unity_WorldToObject, float4( ase_worldPos, 1 ) ).xyz;
 			float3 worldToObj512 = mul( unity_WorldToObject, float4( _BushPosition, 1 ) ).xyz;
 			float3 ase_parentObjectScale = (1.0/float3( length( unity_WorldToObject[ 0 ].xyz ), length( unity_WorldToObject[ 1 ].xyz ), length( unity_WorldToObject[ 2 ].xyz ) ));
@@ -240,7 +243,7 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 			float sphereMask496 = temp_output_495_0;
 			float4 appendResult1047 = (float4(( ase_worldNormal.x * _xDeform ) , ( ase_worldNormal.y * _yDeform ) , ( ase_worldNormal.z * _zDeform ) , 0.0));
 			float3 worldToObjDir1064 = mul( unity_WorldToObject, float4( ( ( 1.0 - sphereMask496 ) * appendResult1047 ).xyz, 0 ) ).xyz;
-			float3 rotatedValue587 = RotateAroundAxis( float3( 0,0,0 ), ( worldToObjDir1059 - worldToObjDir1064 ), float3( 0,0,0 ), _WindDirection );
+			float3 rotatedValue587 = RotateAroundAxis( float3( 0,0,0 ), ( ( worldToObjDir1059 + worldToObjDir1072 ) - worldToObjDir1064 ), float3( 0,0,0 ), _WindDirection );
 			float3 NewWind589 = rotatedValue587;
 			v.vertex.xyz += NewWind589;
 			v.vertex.w = 1;
@@ -367,7 +370,7 @@ Shader "WIZTOON_FOLIAGE_NEW9"
 /*ASEBEGIN
 Version=19108
 Node;AmplifyShaderEditor.CommentaryNode;673;4478.147,832.4617;Inherit;False;465.3599;241.5649;????;0;LOOK AT THIS TMRW (STOP WIND BASED ON PLAYER POSITION MASK?;1,1,1,1;0;0
-Node;AmplifyShaderEditor.CommentaryNode;651;2561.192,-15.60339;Inherit;False;4194.815;1508.157;Comment;49;569;570;571;572;573;575;579;581;582;584;586;585;599;597;604;588;576;577;580;606;618;628;616;631;603;622;578;587;640;639;642;643;574;645;646;647;648;649;668;672;673;970;1041;1042;980;1043;1046;1056;1059;WIND;1,1,1,1;0;0
+Node;AmplifyShaderEditor.CommentaryNode;651;2561.192,-15.60339;Inherit;False;4194.815;1508.157;Comment;50;569;570;571;572;573;575;579;581;582;584;586;585;599;597;604;588;576;577;580;606;618;628;616;631;603;622;578;587;640;639;642;643;574;645;646;647;648;649;668;672;673;970;1041;1042;980;1043;1046;1056;1059;1072;WIND;1,1,1,1;0;0
 Node;AmplifyShaderEditor.CommentaryNode;650;-2969.379,1797.22;Inherit;False;1751.468;747.2209;Comment;15;491;492;494;495;493;490;489;565;564;517;512;504;496;1061;1071;Player Deform Bush;1,1,1,1;0;0
 Node;AmplifyShaderEditor.CommentaryNode;536;-1827.159,-644.2699;Inherit;False;100;100; f;0;;1,1,1,1;0;0
 Node;AmplifyShaderEditor.CommentaryNode;307;-2675.733,-887.3652;Inherit;False;100;100; ;0;;1,1,1,1;0;0
@@ -561,11 +564,11 @@ Node;AmplifyShaderEditor.WorldNormalVector;1046;4916.613,1315.323;Inherit;False;
 Node;AmplifyShaderEditor.WorldNormalVector;1013;5547.535,1838.555;Inherit;False;False;1;0;FLOAT3;0,0,1;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.DynamicAppendNode;1047;5959.91,1820.744;Inherit;False;FLOAT4;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;1050;5839.554,1732.375;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;3;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;1051;5640.554,1766.375;Inherit;False;Property;_xDeform;xDeform;33;0;Create;True;0;0;0;False;0;False;0;3;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;1049;5656.054,2004.875;Inherit;False;Property;_yDeform;yDeform;34;0;Create;True;0;0;0;False;0;False;0;6;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;1051;5640.554,1766.375;Inherit;False;Property;_xDeform;xDeform;33;0;Create;True;0;0;0;False;0;False;0;1;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;1049;5656.054,2004.875;Inherit;False;Property;_yDeform;yDeform;34;0;Create;True;0;0;0;False;0;False;0;4;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;1048;5817.054,1887.875;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;3;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;1053;5869.554,2065.375;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;3;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;1052;5708.554,2182.375;Inherit;False;Property;_zDeform;zDeform;35;0;Create;True;0;0;0;False;0;False;0;3;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;1052;5708.554,2182.375;Inherit;False;Property;_zDeform;zDeform;35;0;Create;True;0;0;0;False;0;False;0;1;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;582;5553.261,509.3618;Inherit;False;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT4x4;0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.TransformDirectionNode;1056;6074.284,1094.706;Inherit;False;World;Object;True;Fast;True;1;0;FLOAT3;0,0,0;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;576;4130.671,509.2471;Inherit;True;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
@@ -589,12 +592,13 @@ Node;AmplifyShaderEditor.GetLocalVarNode;1030;1418.818,637.1389;Inherit;False;49
 Node;AmplifyShaderEditor.WorldPosInputsNode;1065;-3097.525,1706.616;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.TransformPositionNode;1060;-2813.15,1652.203;Inherit;False;World;Object;False;Fast;True;1;0;FLOAT3;0,0,0;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.TransformPositionNode;512;-2602.95,2360.441;Inherit;False;World;Object;False;Fast;True;1;0;FLOAT3;0,0,0;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
-Node;AmplifyShaderEditor.Vector3Node;511;-3149.308,2226.189;Inherit;False;Global;_BushPosition;_BushPosition;31;0;Create;True;0;0;0;False;0;False;0,0,0;-202.4114,93.61079,-473.8517;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
+Node;AmplifyShaderEditor.Vector3Node;511;-3149.308,2226.189;Inherit;False;Global;_BushPosition;_BushPosition;31;0;Create;True;0;0;0;False;0;False;0,0,0;-199.3135,92.58172,-468.9871;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.OneMinusNode;1070;1869.098,665.7305;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;489;-2582.796,2021.731;Inherit;False;Property;_SphereRadius;SphereRadius;15;0;Create;True;0;0;0;False;0;False;0;2;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.DotProductOpNode;493;-2042.171,1926.463;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.Vector3Node;1071;-2762.072,1980.174;Inherit;False;Property;_bushdimensions;bush dimensions;36;0;Create;True;0;0;0;False;0;False;0,0,0;3,4,3;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
+Node;AmplifyShaderEditor.Vector3Node;1071;-2762.072,1980.174;Inherit;False;Property;_bushdimensions;bush dimensions;36;0;Create;True;0;0;0;False;0;False;0,0,0;5,12,5;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.TransformDirectionNode;1064;6601.775,1481.342;Inherit;False;World;Object;False;Fast;False;1;0;FLOAT3;0,0,0;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
+Node;AmplifyShaderEditor.TransformDirectionNode;1072;5593.633,1348.443;Inherit;False;World;Object;False;Fast;False;1;0;FLOAT3;0,0,0;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 WireConnection;6;0;262;0
 WireConnection;5;0;6;0
 WireConnection;5;1;7;0
@@ -757,13 +761,13 @@ WireConnection;195;0;820;0
 WireConnection;1037;0;1036;0
 WireConnection;1038;0;1037;0
 WireConnection;668;0;1059;0
-WireConnection;668;1;653;0
+WireConnection;668;1;1072;0
 WireConnection;573;0;571;0
 WireConnection;573;1;648;0
 WireConnection;618;0;1042;0
 WireConnection;618;2;622;0
 WireConnection;618;1;648;0
-WireConnection;980;0;1059;0
+WireConnection;980;0;668;0
 WireConnection;980;1;1064;0
 WireConnection;948;0;937;0
 WireConnection;642;0;639;0
@@ -817,5 +821,6 @@ WireConnection;1070;0;1030;0
 WireConnection;493;0;492;0
 WireConnection;493;1;492;0
 WireConnection;1064;0;999;0
+WireConnection;1072;0;653;0
 ASEEND*/
-//CHKSM=82B3D3E4AD80E484F7D1263E60360B9FA677D0FE
+//CHKSM=FBADCDC644A9E8669E900CE1E8DBAE20CD9F6251

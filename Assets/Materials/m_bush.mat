@@ -239,7 +239,7 @@ Material:
     - _Vector3: {r: 0, g: 0, b: 0, a: 0}
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
     - _bendoffset: {r: 4, g: 4, b: 4, a: 0}
-    - _bushdimensions: {r: 5, g: 12, b: 5, a: 0}
+    - _bushdimensions: {r: 4, g: 12, b: 4, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
     - _secondaryspeed: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _tempoffset: {r: -0.99, g: -0.99, b: -0.99, a: 0}
