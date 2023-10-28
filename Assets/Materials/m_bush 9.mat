@@ -23,6 +23,7 @@ Material:
   - TCP2_UV4_AS_NORMALS
   - TCP2_UV_NORMALS_FULL
   - _FADEMIDRANGE_ON
+  - _USEUVCOORDS_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -83,7 +84,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Texture0:
         m_Texture: {fileID: 2800000, guid: bd4806d82731a422ea0b106e0524d364, type: 3}
-        m_Scale: {x: 0.1, y: 0.1}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture1:
         m_Texture: {fileID: 0}
@@ -116,9 +117,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _Band2Mult: 0.005
-    - _BendAmt: 1.68
+    - _BendAmt: 3.8
     - _BendDist: 0.03
-    - _BottomGradientSize: 0
+    - _BottomGradientSize: 5
     - _CamPos: 0.94
     - _Cutoff: 0.5
     - _Depthfadedist: 47.3
@@ -128,7 +129,7 @@ Material:
     - _EdgeLength: 15
     - _EdgeSize: 0
     - _FadeMidRange: 1
-    - _Float0: 1.184299
+    - _Float0: 0.61
     - _Float1: 25.9
     - _Float2: 0
     - _Freq: 0.2
@@ -140,14 +141,14 @@ Material:
     - _Intersectionshadowmult: 1
     - _Intersectradius: 0
     - _LeafNoise: 1.15
-    - _LeafPower: 6.99
-    - _LeafScale: 1
+    - _LeafPower: 3.83
+    - _LeafScale: 1.76
     - _LightGradientMidLevel: 0.641
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.31
     - _LightGradientSize1: 0
     - _NormalRimPush: 0
-    - _NormalScale: 0.872
+    - _NormalScale: 0.212
     - _NormalStr: 0.28
     - _NormalStr1: 0.23
     - _NormalTexFlow: 1
@@ -156,8 +157,8 @@ Material:
     - _PointLightAttenuationBoost: 10
     - _RampSize: 0.52
     - _RampSize1: 0
-    - _RimPower: 5.79
-    - _RimScale: 3.24
+    - _RimPower: 4.24
+    - _RimScale: 8.25
     - _ScaleFactor: 0.03
     - _SecondaryFrequency: 9.47
     - _ShadowLevel: 0
@@ -165,15 +166,15 @@ Material:
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
-    - _SphereHardness: 0.1
-    - _SphereRadius: 4
+    - _SphereHardness: 1
+    - _SphereRadius: 2
     - _SphereSoftness: 1.27
     - _StepAmount: 6
     - _StepShadows: -1.19
     - _StepShadows1: 0
     - _StepWidth: 0.37
     - _Steps: 3
-    - _TexScale: 2.62
+    - _TexScale: 1.48
     - _TimeScaleLeaves: 5
     - _Timesteps: 10.5
     - _Tonedown: 0.6
@@ -182,17 +183,19 @@ Material:
     - _WindDirection: 1.41
     - _WindMulty: 4.83
     - _WindNoiseScale: 4
+    - _WorldFreq: 0
     - _WorldFrequency: 0.458
     - __dirty: 0
     - _bbamount: 0.11
+    - _bushheight: 0
     - _bushtimesteps: 9.2
     - _bushytop: 0.91
-    - _chill: 0.001
+    - _chill: 0
     - _dasvcxvef: 2
     - _fractmult: 1.21
     - _frequency: 8.57
     - _intersectnoisescale: 2
-    - _leaftesttt: 78.2
+    - _leaftesttt: 133.58
     - _max: 100000
     - _min: 0
     - _noise: 1000
@@ -206,7 +209,10 @@ Material:
     - _testcamerapos: 100
     - _tilingnoise: 1.2
     - _timespeed: 8
-    - _useUVcoords: 0
+    - _useUVcoords: 1
+    - _xDeform: 1
+    - _yDeform: 3.65
+    - _zDeform: 1
     m_Colors:
     - _Color: {r: 0.45882353, g: 0.7176471, b: 0.5176471, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
@@ -215,10 +221,10 @@ Material:
     - _Highlightcolor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
     - _NoiseSize: {r: 3, g: 3, b: 0, a: 0}
     - _NormalTexFlow: {r: -0.4, g: 300, b: 0, a: 0}
-    - _NormalTiling: {r: 0.0001, g: 0.0001, b: 0, a: 0}
+    - _NormalTiling: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
-    - _RimColor: {r: 0, g: 0.7075472, b: 0.29791465, a: 0.5176471}
+    - _RimColor: {r: 0, g: 0.0754717, b: 0.029452378, a: 0}
     - _Scale: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
     - _ShadowColor1: {r: 0.4509804, g: 0.60784316, b: 0.49019608, a: 1}
@@ -227,15 +233,17 @@ Material:
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 0.20241535, g: 0.31132078, b: 0.0044054748, a: 0}
     - _SphereCenter: {r: 0.91, g: 0.5, b: 0.13, a: 0}
-    - _Squash: {r: 0.25, g: -0.5, b: 0.25, a: 0}
+    - _Squash: {r: 0, g: 0, b: 0, a: 0}
     - _Squash1: {r: 0, g: 0, b: 0, a: 0}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
     - _Vector3: {r: 0, g: 0, b: 0, a: 0}
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
     - _bendoffset: {r: 4, g: 4, b: 4, a: 0}
+    - _bushdimensions: {r: 2, g: 12, b: 2, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
     - _secondaryspeed: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - _speed: {r: 1, g: 1, b: 0, a: 0}
     - _tempoffset: {r: -0.99, g: -0.99, b: -0.99, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
     - _windrotation: {r: 3.62, g: 0, b: 0, a: 0}

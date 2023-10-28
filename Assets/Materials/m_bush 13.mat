@@ -117,9 +117,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _Band2Mult: 0.005
-    - _BendAmt: 1.82
+    - _BendAmt: 3.8
     - _BendDist: 0.03
-    - _BottomGradientSize: 2.41
+    - _BottomGradientSize: 5
     - _CamPos: 0.94
     - _Cutoff: 0.5
     - _Depthfadedist: 47.3
@@ -133,7 +133,7 @@ Material:
     - _Float1: 25.9
     - _Float2: 0
     - _Freq: 0.2
-    - _GradientHeight: 1.5
+    - _GradientHeight: 1
     - _HueShift: 0.807
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
@@ -166,8 +166,8 @@ Material:
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
-    - _SphereHardness: 0.1
-    - _SphereRadius: 4
+    - _SphereHardness: 1
+    - _SphereRadius: 2
     - _SphereSoftness: 1.27
     - _StepAmount: 6
     - _StepShadows: -1.19
@@ -183,9 +183,11 @@ Material:
     - _WindDirection: 1.41
     - _WindMulty: 4.83
     - _WindNoiseScale: 4
+    - _WorldFreq: 0
     - _WorldFrequency: 0.458
     - __dirty: 0
     - _bbamount: 0.11
+    - _bushheight: 0
     - _bushtimesteps: 9.2
     - _bushytop: 0.91
     - _chill: 0
@@ -208,6 +210,9 @@ Material:
     - _tilingnoise: 1.2
     - _timespeed: 8
     - _useUVcoords: 1
+    - _xDeform: 1
+    - _yDeform: 4
+    - _zDeform: 1
     m_Colors:
     - _Color: {r: 0.45882353, g: 0.7176471, b: 0.5176471, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
@@ -235,8 +240,10 @@ Material:
     - _Vector3: {r: 0, g: 0, b: 0, a: 0}
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
     - _bendoffset: {r: 4, g: 4, b: 4, a: 0}
+    - _bushdimensions: {r: 5, g: 12, b: 5, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
     - _secondaryspeed: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - _speed: {r: 1, g: 1, b: 0, a: 0}
     - _tempoffset: {r: -0.99, g: -0.99, b: -0.99, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
     - _windrotation: {r: 3.62, g: 0, b: 0, a: 0}

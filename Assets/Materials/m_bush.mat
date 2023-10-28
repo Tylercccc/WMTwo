@@ -209,9 +209,9 @@ Material:
     - _timespeed: 8
     - _useUVcoords: 1
     - _whatsthiedo: 0
-    - _xDeform: 3
-    - _yDeform: 6
-    - _zDeform: 3
+    - _xDeform: 1
+    - _yDeform: 4
+    - _zDeform: 1
     m_Colors:
     - _Color: {r: 0.45882353, g: 0.7176471, b: 0.5176471, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
@@ -239,7 +239,7 @@ Material:
     - _Vector3: {r: 0, g: 0, b: 0, a: 0}
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
     - _bendoffset: {r: 4, g: 4, b: 4, a: 0}
-    - _bushdimensions: {r: 3, g: 4, b: 3, a: 0}
+    - _bushdimensions: {r: 5, g: 12, b: 5, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
     - _secondaryspeed: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _tempoffset: {r: -0.99, g: -0.99, b: -0.99, a: 0}
