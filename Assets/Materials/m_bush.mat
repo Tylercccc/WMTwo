@@ -166,7 +166,7 @@ Material:
     - _SpecSmoothing: 18.19
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
-    - _SphereHardness: 0.5
+    - _SphereHardness: 1
     - _SphereRadius: 2
     - _SphereSoftness: 1.27
     - _StepAmount: 6
@@ -239,6 +239,7 @@ Material:
     - _Vector3: {r: 0, g: 0, b: 0, a: 0}
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
     - _bendoffset: {r: 4, g: 4, b: 4, a: 0}
+    - _bushdimensions: {r: 3, g: 4, b: 3, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
     - _secondaryspeed: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _tempoffset: {r: -0.99, g: -0.99, b: -0.99, a: 0}
