@@ -27,7 +27,7 @@ Material:
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2450
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -140,9 +140,10 @@ Material:
     - _Innerradius: 4.19
     - _Intersectionshadowmult: 1
     - _Intersectradius: 0
+    - _Keyword0: 0
     - _LeafNoise: 1.15
-    - _LeafPower: 3.83
-    - _LeafScale: 1.76
+    - _LeafPower: 9.2
+    - _LeafScale: 22.05
     - _LightGradientMidLevel: 0.641
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.31
@@ -213,7 +214,7 @@ Material:
     - _yDeform: 4
     - _zDeform: 1
     m_Colors:
-    - _Color: {r: 0.45882353, g: 0.7176471, b: 0.5176471, a: 0}
+    - _Color: {r: 0.4588235, g: 0.7176471, b: 0.5176471, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _Extrusion: {r: 0.02, g: 0.02, b: 0.02, a: 0}
@@ -223,10 +224,10 @@ Material:
     - _NormalTiling: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _NormalUV: {r: 1, g: 2, b: 0, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
-    - _RimColor: {r: 0, g: 0.0754717, b: 0.029452378, a: 0}
+    - _RimColor: {r: 0, g: 0.0754717, b: 0.02945238, a: 0}
     - _Scale: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
-    - _ShadowColor1: {r: 0.4509804, g: 0.60784316, b: 0.49019608, a: 1}
+    - _ShadowColor1: {r: 0.4509804, g: 0.6078432, b: 0.4901961, a: 1}
     - _ShadowTint: {r: 0.039215565, g: 1, b: 0, a: 1}
     - _SpecColor: {r: 1, g: 0.10849059, b: 0.10849059, a: 0}
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
