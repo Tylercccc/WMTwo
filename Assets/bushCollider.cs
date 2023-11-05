@@ -5,7 +5,9 @@ using UnityEngine;
 public class bushCollider : MonoBehaviour
 {
     public Vector3 offset;
+    public GameObject psLeaves;
 
+    private float timePassed = 0;
     private void Update()
     {
         Shader.SetGlobalVector("_BushPosition", transform.position + offset);
@@ -21,7 +23,15 @@ public class bushCollider : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        
+        if(other.tag == "Bush")
+        {
+            timePassed += Time.deltaTime;
+            if(timePassed > 1f)
+            {
+                Instantiate(psLeaves, transform.position, psLeaves.transform.rotation);
+                timePassed = 0;
+            }
+        }
     }
     private void OnTriggerExit(Collider other)
     {
