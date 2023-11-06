@@ -30,6 +30,8 @@ public class PlayerMovementController : MonoBehaviour
             return _baseSpeed;
         }
     }
+
+    private Vector3 boostMult = new Vector3(0,0,0);
     public ParticleSystem WalkDecal;
 
     private MovementStates _currentMovement;
@@ -155,7 +157,15 @@ public class PlayerMovementController : MonoBehaviour
     {
         float newSpeed = _baseSpeed * speedMult;
             _walkSpeed = newSpeed;
-            _agent.speed = _walkSpeed;
-        
+            _agent.speed = _walkSpeed;   
+    }
+    public void UpdateVelocity(float velocityMult)
+    {
+        _agent.velocity = new Vector3(0,0,0);
+        boostMult = transform.forward * velocityMult;
+    }
+    private void FixedUpdate()
+    {
+        //_agent.velocity += boostMult *0.5f * Time.deltaTime;
     }
 }

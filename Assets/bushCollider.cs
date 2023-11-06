@@ -11,6 +11,7 @@ public class bushCollider : MonoBehaviour
 
 
     private float timePassed = 0;
+
     private PlayerMovementController playerMovement;
 
     private void Awake()
@@ -30,7 +31,7 @@ public class bushCollider : MonoBehaviour
             BushAnimate(other, new Vector3(2.25f, -1.5f, 2.25f), 0.75f, LeanTweenType.easeOutBack);
             if(playerMovement != null)
             {
-                playerMovement.UpdateSpeed(bushSlowAmt);
+                //playerMovement.UpdateSpeed(bushSlowAmt);
             }
         }
     }
@@ -60,7 +61,8 @@ public class bushCollider : MonoBehaviour
             var bushShape = leavesExit.GetComponent<ParticleSystem>().shape;
             bushShape.mesh = other.GetComponent<MeshFilter>().mesh;
 
-            playerMovement.UpdateSpeed(1);
+            //playerMovement.UpdateSpeed(1);
+            //playerMovement.UpdateVelocity(12);
         }
     }
     private void BushAnimate(Collider other, Vector3 squashAmt, float squashTime, LeanTweenType ltType )
