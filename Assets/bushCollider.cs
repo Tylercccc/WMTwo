@@ -10,6 +10,12 @@ public class bushCollider : MonoBehaviour
     public GameObject psLeavesExit;
 
     private float timePassed = 0;
+    private PlayerMovementController playerMovement;
+
+    private void Awake()
+    {
+        playerMovement = GetComponent<PlayerMovementController>();
+    }
     private void Update()
     {
         Shader.SetGlobalVector("_BushPosition", transform.position + offset);
@@ -21,6 +27,10 @@ public class bushCollider : MonoBehaviour
         if(other.tag == "Bush")
         {
             BushAnimate(other, new Vector3(2.25f, -1.5f, 2.25f), 0.75f, LeanTweenType.easeOutBack);
+            if(playerMovement != null)
+            {
+                playerMovement.UpdateVelocity(0.2f);
+            }
         }
     }
     private void OnTriggerStay(Collider other)
@@ -48,15 +58,21 @@ public class bushCollider : MonoBehaviour
             GameObject leavesExit = Instantiate(psLeavesExit, other.transform.position, psLeaves.transform.rotation);
             var bushShape = leavesExit.GetComponent<ParticleSystem>().shape;
             bushShape.mesh = other.GetComponent<MeshFilter>().mesh;
+
+            playerMovement.UpdateVelocity(5);
         }
     }
     private void BushAnimate(Collider other, Vector3 squashAmt, float squashTime, LeanTweenType ltType )
     {
         LeanTween.cancel(other.gameObject);
-        Material bushMat = other.GetComponent<MeshRenderer>().material;
+        LeanTween.cancel(other.transform.parent.gameObject);
+        Material bushColliderMat = other.GetComponent<MeshRenderer>().material;
+        Material bushMat = other.transform.parent.GetComponent<MeshRenderer>().material;
+
         Vector3 currentSquash = bushMat.GetVector("_Squash");
         LeanTween.value(other.gameObject, currentSquash, squashAmt, squashTime).setEase(ltType).setOnUpdate((Vector3 val) =>
         {
+            bushColliderMat.SetVector("_Squash", val);
             bushMat.SetVector("_Squash", val);
         });
     }

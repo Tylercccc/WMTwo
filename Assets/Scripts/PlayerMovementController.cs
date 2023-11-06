@@ -33,7 +33,7 @@ public class PlayerMovementController : MonoBehaviour
             switch (value)
             {
                 case MovementStates.Walk:
-                    _agent.speed = 2.5f;
+                    _agent.speed = _walkSpeed;
                     break;
                 case MovementStates.Run:
                     _agent.speed = 4f;
@@ -141,5 +141,10 @@ public class PlayerMovementController : MonoBehaviour
         _agent.SetDestination(transform.position);
         CurrentMovement = MovementStates.None;
         AnimationController.Instance.CurrentState = CurrentMovement;
+    }
+    public void UpdateVelocity(float velocityMult)
+    {
+        _walkSpeed *= velocityMult;
+        _agent.speed = _walkSpeed;
     }
 }
