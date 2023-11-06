@@ -22,6 +22,14 @@ public class PlayerMovementController : MonoBehaviour
     public float _walkSpeed = 2.5f;
     public float _runSpeed = 4f;
 
+    private float _baseSpeed;
+    public float baseSpeed
+    {
+        get
+        {
+            return _baseSpeed;
+        }
+    }
     public ParticleSystem WalkDecal;
 
     private MovementStates _currentMovement;
@@ -59,6 +67,7 @@ public class PlayerMovementController : MonoBehaviour
 
         _camera = Camera.main;
         _agent = GetComponent<NavMeshAgent>();
+        _baseSpeed = _walkSpeed;
     }
 
     private void Update()
@@ -142,9 +151,11 @@ public class PlayerMovementController : MonoBehaviour
         CurrentMovement = MovementStates.None;
         AnimationController.Instance.CurrentState = CurrentMovement;
     }
-    public void UpdateVelocity(float velocityMult)
+    public void UpdateSpeed(float speedMult)
     {
-        _walkSpeed *= velocityMult;
-        _agent.speed = _walkSpeed;
+        float newSpeed = _baseSpeed * speedMult;
+            _walkSpeed = newSpeed;
+            _agent.speed = _walkSpeed;
+        
     }
 }

@@ -7633,7 +7633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8283223357145734814, guid: 8dc6302d72fdc4e2c94c7d51c9e76dc4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -198.99
+      value: -201.4
       objectReference: {fileID: 0}
     - target: {fileID: 8283223357145734814, guid: 8dc6302d72fdc4e2c94c7d51c9e76dc4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -34531,6 +34531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
+  bushSlowAmt: 0.5
   psLeaves: {fileID: 0}
   psLeavesExit: {fileID: 0}
 --- !u!1 &1986198554
@@ -35068,7 +35069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52846d1f2c765434aa9e182e80b91a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkSpeed: 6
+  _walkSpeed: 5
   _runSpeed: 4
   WalkDecal: {fileID: 97821340833781520, guid: 174f81b31c81d44a0bacd83ac98785e9, type: 3}
 --- !u!114 &2027203698
@@ -35214,6 +35215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: -1, z: 0}
+  bushSlowAmt: 0.5
   psLeaves: {fileID: 8018106126517229565, guid: 2a91d8ce0cfc94ca19b7e226acf43f2b, type: 3}
   psLeavesExit: {fileID: 8018106126517229565, guid: 9c76ff156eda24f7197c771f47cbb332, type: 3}
 --- !u!1001 &2027546694

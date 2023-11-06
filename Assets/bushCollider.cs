@@ -5,9 +5,10 @@ using UnityEngine;
 public class bushCollider : MonoBehaviour
 {
     public Vector3 offset;
-
+    public float bushSlowAmt = 0.5f;
     public GameObject psLeaves;
     public GameObject psLeavesExit;
+
 
     private float timePassed = 0;
     private PlayerMovementController playerMovement;
@@ -29,7 +30,7 @@ public class bushCollider : MonoBehaviour
             BushAnimate(other, new Vector3(2.25f, -1.5f, 2.25f), 0.75f, LeanTweenType.easeOutBack);
             if(playerMovement != null)
             {
-                playerMovement.UpdateVelocity(0.2f);
+                playerMovement.UpdateSpeed(bushSlowAmt);
             }
         }
     }
@@ -59,13 +60,13 @@ public class bushCollider : MonoBehaviour
             var bushShape = leavesExit.GetComponent<ParticleSystem>().shape;
             bushShape.mesh = other.GetComponent<MeshFilter>().mesh;
 
-            playerMovement.UpdateVelocity(5);
+            playerMovement.UpdateSpeed(1);
         }
     }
     private void BushAnimate(Collider other, Vector3 squashAmt, float squashTime, LeanTweenType ltType )
     {
         LeanTween.cancel(other.gameObject);
-        LeanTween.cancel(other.transform.parent.gameObject);
+        //LeanTween.cancel(other.transform.parent.gameObject);
         Material bushColliderMat = other.GetComponent<MeshRenderer>().material;
         Material bushMat = other.transform.parent.GetComponent<MeshRenderer>().material;
 
