@@ -5,7 +5,9 @@ using UnityEngine;
 public class bushCollider : MonoBehaviour
 {
     public Vector3 offset;
+
     public GameObject psLeaves;
+    public GameObject psLeavesExit;
 
     private float timePassed = 0;
     private void Update()
@@ -28,9 +30,14 @@ public class bushCollider : MonoBehaviour
             timePassed += Time.deltaTime;
             if(timePassed > 1f)
             {
-                Instantiate(psLeaves, transform.position, psLeaves.transform.rotation);
+                var collisionPoint = other.ClosestPoint(transform.position);
+                Instantiate(psLeaves, collisionPoint, psLeaves.transform.rotation);
                 timePassed = 0;
             }
+
+
+                //Debug.DrawRay(item.point, item.normal * 100, Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f), 10f);
+            
         }
     }
     private void OnTriggerExit(Collider other)
@@ -38,6 +45,9 @@ public class bushCollider : MonoBehaviour
         if (other.tag == "Bush")
         {
             BushAnimate(other, new Vector3(0, 0, 0), 2f, LeanTweenType.easeOutElastic);
+            GameObject leavesExit = Instantiate(psLeavesExit, other.transform.position, psLeaves.transform.rotation);
+            var bushShape = leavesExit.GetComponent<ParticleSystem>().shape;
+            bushShape.mesh = other.GetComponent<MeshFilter>().mesh;
         }
     }
     private void BushAnimate(Collider other, Vector3 squashAmt, float squashTime, LeanTweenType ltType )
