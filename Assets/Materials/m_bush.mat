@@ -212,7 +212,7 @@ Material:
     - _useUVcoords: 1
     - _whatsthiedo: 0
     - _xDeform: 1
-    - _yDeform: 4
+    - _yDeform: 5
     - _zDeform: 1
     m_Colors:
     - _Color: {r: 0.4588235, g: 0.7176471, b: 0.5176471, a: 0}
