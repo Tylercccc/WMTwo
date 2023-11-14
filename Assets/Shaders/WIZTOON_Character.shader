@@ -19,8 +19,8 @@ Shader "WIZTOON_Character"
 		_NormalStr("Normal Str", Range( 0 , 1)) = 0
 		[Toggle]_FadeMidRange("Fade Mid Range", Range( 0 , 1)) = 0
 		_ShirtOffset("ShirtOffset", Float) = 0
-		_RobeTopDisplacement("RobeTopDisplacement", 2D) = "white" {}
 		_BottomOffset("BottomOffset", Float) = 0
+		_RobeTopDisplacement("RobeTopDisplacement", 2D) = "white" {}
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
@@ -77,6 +77,7 @@ Shader "WIZTOON_Character"
 		};
 
 		UNITY_DECLARE_TEX2D_NOSAMPLER(_RobeTopDisplacement);
+		uniform float4 _RobeTopDisplacement_ST;
 		SamplerState sampler_RobeTopDisplacement;
 		uniform float _ShirtOffset;
 		uniform float _BottomOffset;
@@ -146,12 +147,13 @@ Shader "WIZTOON_Character"
 		void vertexDataFunc( inout appdata_full v, out Input o )
 		{
 			UNITY_INITIALIZE_OUTPUT( Input, o );
-			float3 ase_vertex3Pos = v.vertex.xyz;
-			float simplePerlin2D438 = snoise( ase_vertex3Pos.xy*10.0 );
+			float2 uv_RobeTopDisplacement = v.texcoord * _RobeTopDisplacement_ST.xy + _RobeTopDisplacement_ST.zw;
+			float4 ase_vertexTangent = v.tangent;
+			float simplePerlin2D438 = snoise( float2( 0,0 )*10.0 );
 			simplePerlin2D438 = simplePerlin2D438*0.5 + 0.5;
-			float4 temp_cast_2 = (( simplePerlin2D438 * _BottomOffset )).xxxx;
+			float4 temp_cast_1 = (( simplePerlin2D438 * _BottomOffset )).xxxx;
 			float4 weightedBlendVar485 = v.color;
-			float4 weightedAvg485 = ( ( weightedBlendVar485.x*( SAMPLE_TEXTURE2D_LOD( _RobeTopDisplacement, sampler_RobeTopDisplacement, ase_vertex3Pos.xy, 0.0 ) * _ShirtOffset ) + weightedBlendVar485.y*float4( 0,0,0,0 ) + weightedBlendVar485.z*temp_cast_2 + weightedBlendVar485.w*float4( 0,0,0,0 ) )/( weightedBlendVar485.x + weightedBlendVar485.y + weightedBlendVar485.z + weightedBlendVar485.w ) );
+			float4 weightedAvg485 = ( ( weightedBlendVar485.x*( ( SAMPLE_TEXTURE2D_LOD( _RobeTopDisplacement, sampler_RobeTopDisplacement, uv_RobeTopDisplacement, 0.0 ) * float4( ase_vertexTangent.xyz , 0.0 ) ) * _ShirtOffset ) + weightedBlendVar485.y*float4( 0,0,0,0 ) + weightedBlendVar485.z*temp_cast_1 + weightedBlendVar485.w*float4( 0,0,0,0 ) )/( weightedBlendVar485.x + weightedBlendVar485.y + weightedBlendVar485.z + weightedBlendVar485.w ) );
 			float3 ase_vertexNormal = v.normal.xyz;
 			v.vertex.xyz += ( weightedAvg485 * float4( ase_vertexNormal , 0.0 ) ).rgb;
 			v.vertex.w = 1;
@@ -448,18 +450,24 @@ Node;AmplifyShaderEditor.SimpleAddOpNode;257;518.5752,828.0313;Inherit;True;2;2;
 Node;AmplifyShaderEditor.DynamicAppendNode;449;397.5927,-113.8965;Inherit;False;FLOAT4;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.WorldNormalVector;466;-1056.651,157.4597;Inherit;False;False;1;0;FLOAT3;0,0,1;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.NormalVertexDataNode;420;257.6461,-239.2118;Inherit;False;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SimpleAddOpNode;175;-1129.525,-316.5655;Inherit;True;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.NormalVertexDataNode;442;-732.527,323.6804;Inherit;False;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.RangedFloatNode;417;-561.6431,28.63719;Inherit;False;Property;_ShirtOffset;ShirtOffset;15;0;Create;True;0;0;0;False;0;False;0;0.003;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;478;-380.101,-61.35659;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.WeightedBlendNode;485;-243.4283,43.98283;Inherit;False;5;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;4;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.PosVertexDataNode;471;-942.3752,-145.2607;Inherit;False;0;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;486;109.9689,267.7415;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT3;0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SamplerNode;446;-715.7731,-169.7618;Inherit;True;Property;_RobeTopDisplacement;RobeTopDisplacement;19;0;Create;True;0;0;0;False;0;False;-1;None;3db37a1292aec465b858d1dde656782b;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;487;-293.1497,248.2069;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.NoiseGeneratorNode;438;-542.4774,91.41001;Inherit;True;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;10;False;1;FLOAT;0
-Node;AmplifyShaderEditor.VertexColorNode;416;-818.0522,42.58785;Inherit;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;488;-451.2021,335.2245;Inherit;False;Property;_BottomOffset;BottomOffset;20;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.WeightedBlendNode;485;-96.92232,9.021175;Inherit;False;5;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;4;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.RangedFloatNode;417;-632.6431,-1.36281;Inherit;False;Property;_ShirtOffset;ShirtOffset;15;0;Create;True;0;0;0;False;0;False;0;0.005;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;492;-691.3089,-348.1942;Inherit;False;Property;_Float3;Float 3;21;0;Create;True;0;0;0;False;0;False;0;100;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.PosVertexDataNode;471;-942.3752,-145.2607;Inherit;False;0;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.VertexColorNode;416;-242.9019,-251.5117;Inherit;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ObjectToWorldTransfNode;494;-811.0558,101.6033;Inherit;False;1;0;FLOAT4;0,0,0,1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.TexturePropertyNode;496;-1158.79,-522.7753;Inherit;True;Property;_RobeTopDisplacement;RobeTopDisplacement;24;0;Create;True;0;0;0;False;0;False;None;3db37a1292aec465b858d1dde656782b;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
+Node;AmplifyShaderEditor.TangentVertexDataNode;498;-1346.758,-365.0155;Inherit;False;0;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.Vector2Node;493;-1215.506,21.822;Inherit;False;Property;_Vector0;Vector 0;22;0;Create;True;0;0;0;False;0;False;0,0;1,1;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
+Node;AmplifyShaderEditor.SimpleAddOpNode;175;-1232.129,-675.6757;Inherit;True;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SamplerNode;497;-888.0608,-308.9383;Inherit;True;Property;_TextureSample0;Texture Sample 0;23;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;499;-1076.494,-275.4584;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT3;0,0,0;False;1;COLOR;0
 WireConnection;6;0;262;0
 WireConnection;108;0;104;0
 WireConnection;108;1;103;0
@@ -571,18 +579,20 @@ WireConnection;436;1;437;0
 WireConnection;257;0;3;0
 WireConnection;257;1;290;0
 WireConnection;449;0;438;0
-WireConnection;175;0;126;0
-WireConnection;175;1;279;0
-WireConnection;478;0;446;0
+WireConnection;478;0;499;0
 WireConnection;478;1;417;0
+WireConnection;486;0;485;0
+WireConnection;486;1;442;0
+WireConnection;487;0;438;0
+WireConnection;487;1;488;0
 WireConnection;485;0;416;0
 WireConnection;485;1;478;0
 WireConnection;485;3;487;0
-WireConnection;486;0;485;0
-WireConnection;486;1;442;0
-WireConnection;446;1;471;0
-WireConnection;487;0;438;0
-WireConnection;487;1;488;0
-WireConnection;438;0;471;0
+WireConnection;494;0;471;0
+WireConnection;175;0;126;0
+WireConnection;175;1;279;0
+WireConnection;497;0;496;0
+WireConnection;499;0;497;0
+WireConnection;499;1;498;0
 ASEEND*/
-//CHKSM=0AF294CCB3187D3E7517941181D39A0E3FA83F8C
+//CHKSM=1C2162ED57EA397A9B01E1B296CF99EFD70D9846
