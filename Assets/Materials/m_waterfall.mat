@@ -113,7 +113,7 @@ Material:
     - _WaterfallGradientDistribution: 0.27
     - _WaterfallHeight: 1
     - _ZWrite: 0
-    - __dirty: 0
+    - __dirty: 1
     - _foamdepthfade: 11.35
     - _foamsteps: 0.54
     - _refreactsteps: 2
