@@ -359,7 +359,7 @@ Material:
     - _WindJitter: 0.682
     - _WindNoiseScale: 0.2
     - _WindScroll: 1
-    - __dirty: 1
+    - __dirty: 0
     - _adsasdasdasd: 0.42
     - _asdasdsad: 1.57
     - _blendStr: 0
