@@ -93,6 +93,7 @@ Material:
     m_Floats:
     - _Band2Mult: 0.005
     - _DirectionalLightAttenuationBoost: 1
+    - _DitherMidRange: 0
     - _EdgeSize: 0
     - _FadeMidRange: 1
     - _Float0: 0.89
@@ -137,13 +138,13 @@ Material:
     - _rampsize2: 0
     - _rimoffset: 0.76
     m_Colors:
-    - _Color: {r: 0.5411765, g: 0.54901963, b: 0.59607846, a: 0}
+    - _Color: {r: 0.5803922, g: 0.61960787, b: 0.7294118, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _Highlightcolor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0}
     - _OutlineColour: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 1, g: 0, b: 0.22638321, a: 1}
-    - _ShadowColor1: {r: 0.4431373, g: 0.36862746, b: 0.4901961, a: 1}
+    - _ShadowColor1: {r: 0.42352945, g: 0.37254903, b: 0.6039216, a: 1}
     - _ShadowTint: {r: 0.039215565, g: 1, b: 0, a: 1}
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}

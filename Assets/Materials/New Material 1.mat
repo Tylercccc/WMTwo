@@ -133,7 +133,7 @@ Material:
     - _TestStepper: 20
     - _UVSec: 0
     - _WaterDepth: 3.79
-    - _WaterFalloff: -0.52
+    - _WaterFalloff: -0.8
     - _ZWrite: 0
     - __dirty: 0
     - _divtest: 0
@@ -151,12 +151,12 @@ Material:
     - _wDepth: 1
     m_Colors:
     - _Color: {r: 0.37254903, g: 0.5472497, b: 0.972549, a: 0.9137255}
-    - _DeepColor: {r: 0.018689923, g: 0.47344506, b: 0.7924528, a: 0}
+    - _DeepColor: {r: 0.04650232, g: 0.5468474, b: 0.8962264, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 0.13269848, g: 0.24109498, b: 0.3962264, a: 0}
     - _Foamtiling: {r: 1, g: 1, b: 0, a: 0}
     - _Position: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor1: {r: 1, g: 1, b: 1, a: 0}
-    - _ShalowColor: {r: 0.73985404, g: 0.8413892, b: 0.9622642, a: 0}
+    - _ShalowColor: {r: 0.7122642, g: 0.8458558, b: 1, a: 0}
     - _Watertint: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
