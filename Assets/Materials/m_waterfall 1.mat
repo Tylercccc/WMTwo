@@ -77,7 +77,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WaveEdgeTex:
-        m_Texture: {fileID: 2800000, guid: 8be760b2b850c478ea609b8c3c310564, type: 3}
+        m_Texture: {fileID: 2800000, guid: ffd0f4964271747f88b8a5bf01537503, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -106,7 +106,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _GradientDistribution: 1
-    - _Holes: 0.05
+    - _Holes: 1
     - _Metallic: 0
     - _Mode: 2
     - _NormalScale: 0.33
@@ -123,12 +123,12 @@ Material:
     - _WaterDepth: 3.79
     - _WaterFallSpeed: 2
     - _WaterFalloff: -0.52
-    - _WaterfallGradientDistribution: -3.91
-    - _WaterfallHeight: -0.15
+    - _WaterfallGradientDistribution: 1.84
+    - _WaterfallHeight: 1
     - _WaveEdgeSpeed: 1
     - _WaveEdgeStepping: 10
     - _ZWrite: 0
-    - __dirty: 0
+    - __dirty: 1
     - _foamdepthfade: 11.35
     - _foamsteps: 0.54
     - _refreactsteps: 23.4
@@ -140,7 +140,7 @@ Material:
     - _Color0: {r: 1, g: 0, b: 0, a: 1}
     - _DeepColor: {r: 0.01868992, g: 0.4734451, b: 0.7924528, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 0.1326985, g: 0.241095, b: 0.3962264, a: 0}
+    - _FoamColor: {r: 0.02193842, g: 0.07772726, b: 0.16037738, a: 0}
     - _Foamtiling: {r: 1, g: 1, b: 0, a: 0}
     - _ShalowColor: {r: 0.739854, g: 0.8413892, b: 0.9622642, a: 0}
     - _Watertint: {r: 1, g: 1, b: 1, a: 1}
