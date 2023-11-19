@@ -22,6 +22,7 @@ Material:
   - TCP2_SKETCH
   - TCP2_UV4_AS_NORMALS
   - TCP2_UV_NORMALS_FULL
+  - _DITHERMIDRANGE_ON
   - _FADEMIDRANGE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -93,7 +94,7 @@ Material:
     m_Floats:
     - _Band2Mult: 0.005
     - _DirectionalLightAttenuationBoost: 1
-    - _DitherMidRange: 0
+    - _DitherMidRange: 1
     - _EdgeSize: 0
     - _FadeMidRange: 1
     - _Float0: 0.89
