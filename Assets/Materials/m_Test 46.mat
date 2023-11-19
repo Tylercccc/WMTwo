@@ -128,7 +128,7 @@ Material:
     - _StepWidth: 0.37
     - _Steps: 3
     - _VertOffset: 0
-    - __dirty: 0
+    - __dirty: 1
     - _fractmult: 1.21
     - _frequency: 8.57
     - _max: 1.5
