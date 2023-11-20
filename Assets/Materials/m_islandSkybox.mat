@@ -94,15 +94,15 @@ Material:
     - _SpecularHighlights: 1
     - _Speed: 0.01
     - _SrcBlend: 1
-    - _StarBrightness: 2.84
-    - _StarSteps: 0.7
+    - _StarBrightness: 2.8
+    - _StarSteps: 0.92
     - _TweakNoise: 7.11
     - _UVSec: 0
     - _ZWrite: 1
-    - _ok: 2.52
+    - _ok: -2.42
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color0: {r: 0.025948314, g: 0.011213946, b: 0.03773582, a: 0}
+    - _Color0: {r: 0.020463562, g: 0.010012463, b: 0.028301895, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Tiling: {r: -0.53, g: 3, b: 0, a: 0}
   m_BuildTextureStacks: []
