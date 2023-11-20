@@ -105,6 +105,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 3eda0c4754885564f9df920405499055, type: 3}
         m_Scale: {x: 75, y: 75}
         m_Offset: {x: 0, y: 0}
+    - _Grid:
+        m_Texture: {fileID: 2800000, guid: 0cf065aff55a4450d9970c3c07b67ee7, type: 3}
+        m_Scale: {x: 20, y: 20}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -274,6 +278,7 @@ Material:
     - _DirectionalLightAttenuationBoost: 1
     - _DirtNormalDiv: 1.2
     - _DisplacementSize: 6
+    - _DissolveSteps: 3
     - _DivisionScale: 1
     - _DivisionScale1: 500
     - _DivisionScale2: 15
@@ -341,6 +346,8 @@ Material:
     - _SpecularFalloff: 2
     - _SpecularSize: 0.82
     - _SpedSmoothstep: 0
+    - _SphereHardness: 4.39
+    - _SphereSoftness: 1000
     - _StepAmount: 6
     - _StepShadows: -1.19
     - _StepShadows1: 0
@@ -359,6 +366,7 @@ Material:
     - _WindJitter: 0.682
     - _WindNoiseScale: 0.2
     - _WindScroll: 1
+    - _WorldDissolve: 1
     - __dirty: 0
     - _adsasdasdasd: 0.42
     - _asdasdsad: 1.57
@@ -415,6 +423,9 @@ Material:
     - _Emission: {r: 1, g: 1, b: 1, a: 1}
     - _Extrusion: {r: 0.05, g: 0.05, b: 0.05, a: 0}
     - _Highlightcolor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
+    - _IslandDimensions: {r: 150, g: 500, b: 150, a: 0}
+    - _IslandOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _IslandPosition: {r: 0, g: 0, b: 0, a: 0}
     - _Layer0NoiseDivSize: {r: 100.21, g: 100, b: 0, a: 0}
     - _Layer1NoiseDivSize: {r: 1, g: 1, b: 0, a: 0}
     - _Layer1NoiseDivSize1: {r: 300, g: 300, b: 0, a: 0}
@@ -447,11 +458,12 @@ Material:
     - _Specular2: {r: 0.09090912, g: 1, b: 0, a: 0}
     - _Specular3: {r: 1, g: 0, b: 0, a: 0}
     - _SpecularColor: {r: 0.20241535, g: 0.31132078, b: 0.0044054748, a: 0}
+    - _SpherePos: {r: -208, g: 6, b: -488, a: 0}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tiling1: {r: 0, g: 0, b: 0, a: 0}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
     - _Triplanarnoisetiling: {r: 0.02, g: 0.02, b: 0, a: 0}
-    - _Vector0: {r: 4, g: 0.09, b: 0, a: 0}
+    - _Vector0: {r: 0, g: 0, b: 0, a: 0}
     - _WindProperties: {r: 1, g: 1, b: 1, a: 0}
     - _compare: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0}
     - _dirtTiling: {r: 0.2, g: 0.2, b: 0, a: 0}

@@ -185,7 +185,7 @@ Material:
     - _WindMulty: 4.83
     - _WindNoiseScale: 4
     - _WorldFrequency: 0.458
-    - __dirty: 0
+    - __dirty: 1
     - _bbamount: 0.11
     - _bushtimesteps: 9.2
     - _bushytop: 0.91
