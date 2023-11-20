@@ -46,11 +46,19 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _NoiseTexture:
         m_Texture: {fileID: 2800000, guid: 71ee2865e455142fb9a3cd6e3ef3fc51, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTexture1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -93,7 +101,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _Band2Mult: 0.005
+    - _BendAmt: 0
     - _BendDist: 1.8
+    - _BottomGradientSize: 0
+    - _Cutoff: 0.5
     - _Depthfadedist: 0
     - _DirectionalLightAttenuationBoost: 1
     - _DisplacementSize: 0
@@ -101,11 +112,14 @@ Material:
     - _FadeMidRange: 1
     - _Float0: -0.36
     - _Freq: 0
+    - _GradientHeight: 0
     - _HueShift: 0.807
     - _HueShiftPower: 123
     - _HueShiftStrength: 123
     - _Innerradius: 4.19
     - _Intersectionshadowmult: 0
+    - _LeafPower: 5
+    - _LeafScale: 1
     - _LightGradientMidLevel: 0.489
     - _LightGradientMidLevel1: 0
     - _LightGradientSize: 0.693
@@ -121,6 +135,7 @@ Material:
     - _RimMult: 0
     - _RimPower: 0.51
     - _RimScale: 0.16
+    - _SecondaryFrequency: 0
     - _ShadowLevel: 0
     - _SpecIntensity: 0
     - _SpecSmoothing: 0.21
@@ -137,9 +152,13 @@ Material:
     - _Timesteps: 4.4
     - _VertOffset: 0
     - _Wind: 0
+    - _WindDirection: 0
     - _WindMulty: 0
     - _WindNoiseScale: 0
+    - _WorldFrequency: 0
     - __dirty: 0
+    - _bushtimesteps: 1
+    - _dasvcxvef: 1
     - _fractmult: 1.21
     - _frequency: 8.57
     - _max: 1.5
@@ -149,7 +168,11 @@ Material:
     - _rampsize2: 0
     - _rimoffset: 0.76
     - _tempscale: 0
+    - _timespeed: 0
     - _useUVcoords: 1
+    - _xDeform: 1
+    - _yDeform: 1
+    - _zDeform: 1
     m_Colors:
     - _Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
@@ -163,12 +186,16 @@ Material:
     - _ShadowColor1: {r: 0.24942869, g: 0.19624422, b: 0.2830189, a: 1}
     - _ShadowTint: {r: 0.039215565, g: 1, b: 0, a: 1}
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
+    - _Squash: {r: 0, g: 0, b: 0, a: 0}
     - _TestShadowColor: {r: 0.8773585, g: 0, b: 0, a: 1}
     - _Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
     - _bendoffset: {r: 1, g: 1, b: 1, a: 1}
+    - _bushdimensions: {r: 1, g: 1, b: 1, a: 1}
     - _freq: {r: 0, g: 0, b: 0, a: 0}
     - _rimtint: {r: 1, g: 1, b: 1, a: 0}
+    - _secondaryspeed: {r: 1, g: 1, b: 0, a: 0}
     - _tempoffset: {r: 0, g: 0, b: 0, a: 0}
     - _testshadowcolor: {r: 1, g: 0, b: 0, a: 0}
+    - _textureScale: {r: 1, g: 1, b: 1, a: 1}
     - _windrotation: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
