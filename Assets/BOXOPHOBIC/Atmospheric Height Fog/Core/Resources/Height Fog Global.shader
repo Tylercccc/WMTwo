@@ -9,7 +9,8 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 		[StyledCategory(Directional Settings, false, _HeightFogStandalone, 10, 10)]_DirectionalCat("[ Directional Cat ]", Float) = 1
 		[StyledCategory(Noise Settings, false, _HeightFogStandalone, 10, 10)]_NoiseCat("[ Noise Cat ]", Float) = 1
 		[StyledCategory(Advanced Settings, false, _HeightFogStandalone, 10, 10)]_AdvancedCat("[ Advanced Cat ]", Float) = 1
-		_TextureSample0("Texture Sample 0", 2D) = "white" {}
+		_Float2("Float 2", Float) = 5
+		_TextureSample4("Texture Sample 4", 2D) = "white" {}
 		[HideInInspector]_HeightFogGlobal("_HeightFogGlobal", Float) = 1
 		[HideInInspector]_IsHeightFogShader("_IsHeightFogShader", Float) = 1
 		[ASEEnd][StyledBanner(Height Fog Global)]_Banner("[ Banner ]", Float) = 1
@@ -97,6 +98,7 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 			uniform half _DirectionalCat;
 			uniform half4 AHF_FogColorStart;
 			uniform half4 AHF_FogColorEnd;
+			uniform sampler2D _TextureSample4;
 			UNITY_DECLARE_DEPTH_TEXTURE( _CameraDepthTexture );
 			uniform float4 _CameraDepthTexture_TexelSize;
 			uniform half AHF_FogDistanceStart;
@@ -121,8 +123,8 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 			uniform half AHF_NoiseMax;
 			uniform half AHF_NoiseDistanceEnd;
 			uniform half AHF_NoiseIntensity;
+			uniform float _Float2;
 			uniform half AHF_FogIntensity;
-			uniform sampler2D _TextureSample0;
 			uniform half AHF_SkyboxFogOffset;
 			uniform half AHF_SkyboxFogHeight;
 			uniform half AHF_SkyboxFogFalloff;
@@ -166,39 +168,6 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 				return UV;
 			}
 			
-			inline float2 UnityVoronoiRandomVector( float2 UV, float offset )
-			{
-				float2x2 m = float2x2( 15.27, 47.63, 99.41, 89.98 );
-				UV = frac( sin(mul(UV, m) ) * 46839.32 );
-				return float2( sin(UV.y* +offset ) * 0.5 + 0.5, cos( UV.x* offset ) * 0.5 + 0.5 );
-			}
-			
-			//x - Out y - Cells
-			float3 UnityVoronoi( float2 UV, float AngleOffset, float CellDensity, inout float2 mr )
-			{
-				float2 g = floor( UV * CellDensity );
-				float2 f = frac( UV * CellDensity );
-				float t = 8.0;
-				float3 res = float3( 8.0, 0.0, 0.0 );
-			
-				for( int y = -1; y <= 1; y++ )
-				{
-					for( int x = -1; x <= 1; x++ )
-					{
-						float2 lattice = float2( x, y );
-						float2 offset = UnityVoronoiRandomVector( lattice + g, AngleOffset );
-						float d = distance( lattice + offset, f );
-			
-						if( d < res.x )
-						{
-							mr = f - lattice - offset;
-							res = float3( d, offset.x, offset.y );
-						}
-					}
-				}
-				return res;
-			}
-			
 
 			
 			v2f vert ( appdata v )
@@ -210,12 +179,12 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 
 				float4 ase_clipPos = UnityObjectToClipPos(v.vertex);
 				float4 screenPos = ComputeScreenPos(ase_clipPos);
-				o.ase_texcoord1 = screenPos;
+				o.ase_texcoord2 = screenPos;
 				
-				o.ase_texcoord2.xy = v.ase_texcoord.xy;
+				o.ase_texcoord1.xy = v.ase_texcoord.xy;
 				
 				//setting value to unused interpolator channels and avoid initialization warnings
-				o.ase_texcoord2.zw = 0;
+				o.ase_texcoord1.zw = 0;
 				float3 vertexValue = float3(0, 0, 0);
 				#if ASE_ABSOLUTE_VERTEX_POS
 				vertexValue = v.vertex.xyz;
@@ -242,7 +211,8 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 				#ifdef ASE_NEEDS_FRAG_WORLD_POSITION
 				float3 WorldPosition = i.worldPos;
 				#endif
-				float4 screenPos = i.ase_texcoord1;
+				float2 texCoord796_g1 = i.ase_texcoord1.xy * float2( 10,10 ) + float2( 0,0 );
+				float4 screenPos = i.ase_texcoord2;
 				float4 ase_screenPosNorm = screenPos / screenPos.w;
 				ase_screenPosNorm.z = ( UNITY_NEAR_CLIP_VALUE >= 0 ) ? ase_screenPosNorm.z : ase_screenPosNorm.z * 0.5 + 0.5;
 				float2 UV235_g1 = ase_screenPosNorm.xy;
@@ -272,7 +242,8 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 				float staticSwitch467_g1 = ( 1.0 - pow( ( 1.0 - abs( temp_output_155_0_g1 ) ) , AHF_FogDistanceFalloff ) );
 				#endif
 				half FogDistanceMask12_g1 = staticSwitch467_g1;
-				float3 lerpResult258_g1 = lerp( (AHF_FogColorStart).rgb , (AHF_FogColorEnd).rgb , ( ( FogDistanceMask12_g1 * FogDistanceMask12_g1 * FogDistanceMask12_g1 ) * AHF_FogColorDuo ));
+				float4 temp_cast_1 = (( ( FogDistanceMask12_g1 * FogDistanceMask12_g1 * FogDistanceMask12_g1 ) * AHF_FogColorDuo )).xxxx;
+				float3 lerpResult258_g1 = lerp( (AHF_FogColorStart).rgb , (AHF_FogColorEnd).rgb , step( tex2D( _TextureSample4, texCoord796_g1 ) , temp_cast_1 ).rgb);
 				float3 normalizeResult318_g1 = normalize( ( WorldPosition2_g1 - _WorldSpaceCameraPos ) );
 				float dotResult145_g1 = dot( normalizeResult318_g1 , AHF_DirectionalDir );
 				float4 ScreenPos3_g1030 = screenPos;
@@ -305,7 +276,8 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 				float3 break159_g1 = ( WorldPosition2_g1 * AHF_FogAxisOption181_g1 );
 				float temp_output_7_0_g1024 = AHF_FogDistanceEnd;
 				float temp_output_643_0_g1 = saturate( ( ( distance( WorldPosition2_g1 , _WorldSpaceCameraPos ) - temp_output_7_0_g1024 ) / ( ( AHF_FogDistanceEnd + AHF_FarDistanceOffset ) - temp_output_7_0_g1024 ) ) );
-				half FogDistanceMaskFar645_g1 = ( temp_output_643_0_g1 * temp_output_643_0_g1 );
+				float temp_output_677_0_g1 = ( temp_output_643_0_g1 * temp_output_643_0_g1 );
+				half FogDistanceMaskFar645_g1 = temp_output_677_0_g1;
 				float lerpResult690_g1 = lerp( AHF_FogHeightEnd , ( AHF_FogHeightEnd + AHF_FarDistanceHeight ) , FogDistanceMaskFar645_g1);
 				float temp_output_7_0_g1025 = lerpResult690_g1;
 				float temp_output_167_0_g1 = saturate( ( ( ( break159_g1.x + break159_g1.y + break159_g1.z ) - temp_output_7_0_g1025 ) / ( AHF_FogHeightStart - temp_output_7_0_g1025 ) ) );
@@ -324,21 +296,13 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 				float temp_output_7_0_g1027 = AHF_NoiseDistanceEnd;
 				half NoiseDistanceMask7_g1 = saturate( ( ( distance( WorldPosition2_g1 , _WorldSpaceCameraPos ) - temp_output_7_0_g1027 ) / ( 0.0 - temp_output_7_0_g1027 ) ) );
 				float lerpResult198_g1 = lerp( 1.0 , saturate( ( ( localSimpleNoise3D1_g1029 - temp_output_7_0_g1028 ) / ( AHF_NoiseMax - temp_output_7_0_g1028 ) ) ) , ( NoiseDistanceMask7_g1 * AHF_NoiseIntensity ));
-				half NoiseSimplex3D24_g1 = lerpResult198_g1;
+				half NoiseSimplex3D24_g1 = ( floor( ( lerpResult198_g1 * _Float2 ) ) / _Float2 );
 				#ifdef AHF_DISABLE_NOISE3D
 				float staticSwitch42_g1 = lerpResult328_g1;
 				#else
 				float staticSwitch42_g1 = ( lerpResult328_g1 * NoiseSimplex3D24_g1 );
 				#endif
 				float temp_output_454_0_g1 = ( staticSwitch42_g1 * AHF_FogIntensity );
-				float4 temp_cast_1 = (temp_output_454_0_g1).xxxx;
-				float2 texCoord739_g1 = i.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float2 panner733_g1 = ( 1.0 * _Time.y * float2( 0.007,0.005 ) + texCoord739_g1);
-				float4 tex2DNode728_g1 = tex2D( _TextureSample0, panner733_g1 );
-				float2 texCoord734_g1 = i.ase_texcoord2.xy * float2( 40,40 ) + float2( 0,0 );
-				float2 panner735_g1 = ( 1.0 * _Time.y * float2( 0.05,0 ) + texCoord734_g1);
-				float2 uv737_g1 = 0;
-				float3 unityVoronoy737_g1 = UnityVoronoi(panner735_g1,4.93,1.0,uv737_g1);
 				float3 normalizeResult169_g1 = normalize( ( WorldPosition2_g1 - _WorldSpaceCameraPos ) );
 				float3 break170_g1 = ( normalizeResult169_g1 * AHF_FogAxisOption181_g1 );
 				float temp_output_449_0_g1 = ( ( break170_g1.x + break170_g1.y + break170_g1.z ) + -AHF_SkyboxFogOffset );
@@ -352,8 +316,7 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 				#endif
 				float lerpResult179_g1 = lerp( saturate( ( staticSwitch469_g1 + ( AHF_SkyboxFogBottom * step( temp_output_449_0_g1 , 0.0 ) ) ) ) , 1.0 , AHF_SkyboxFogFill);
 				float temp_output_326_0_g1 = ( lerpResult179_g1 * AHF_SkyboxFogIntensity );
-				float4 temp_cast_2 = (temp_output_326_0_g1).xxxx;
-				half4 SkyboxFogHeightMask108_g1 = step( ( tex2DNode728_g1 * unityVoronoy737_g1.x ) , temp_cast_2 );
+				half SkyboxFogHeightMask108_g1 = temp_output_326_0_g1;
 				float clampDepth118_g1 = SAMPLE_DEPTH_TEXTURE( _CameraDepthTexture, ase_screenPosNorm.xy );
 				#ifdef UNITY_REVERSED_Z
 				float staticSwitch123_g1 = clampDepth118_g1;
@@ -361,15 +324,14 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 				float staticSwitch123_g1 = ( 1.0 - clampDepth118_g1 );
 				#endif
 				half SkyboxFogMask95_g1 = ( 1.0 - ceil( staticSwitch123_g1 ) );
-				float4 lerpResult112_g1 = lerp( temp_cast_1 , SkyboxFogHeightMask108_g1 , SkyboxFogMask95_g1);
-				float4 temp_cast_3 = (temp_output_454_0_g1).xxxx;
+				float lerpResult112_g1 = lerp( temp_output_454_0_g1 , SkyboxFogHeightMask108_g1 , SkyboxFogMask95_g1);
 				#ifdef AHF_DISABLE_SKYBOXFOG
-				float4 staticSwitch455_g1 = temp_cast_3;
+				float staticSwitch455_g1 = temp_output_454_0_g1;
 				#else
-				float4 staticSwitch455_g1 = lerpResult112_g1;
+				float staticSwitch455_g1 = lerpResult112_g1;
 				#endif
-				half4 Final_Alpha463_g1 = staticSwitch455_g1;
-				float4 appendResult114_g1 = (float4(Final_Color462_g1 , Final_Alpha463_g1.r));
+				half Final_Alpha463_g1 = staticSwitch455_g1;
+				float4 appendResult114_g1 = (float4(Final_Color462_g1 , Final_Alpha463_g1));
 				float4 appendResult457_g1 = (float4(WorldPosition2_g1 , 1.0));
 				#ifdef AHF_DEBUG_WORLDPOS
 				float4 staticSwitch456_g1 = appendResult457_g1;
@@ -390,12 +352,12 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 }
 /*ASEBEGIN
 Version=19108
-Node;AmplifyShaderEditor.RangedFloatNode;885;-2912,-4864;Half;False;Property;_IsHeightFogShader;_IsHeightFogShader;47;1;[HideInInspector];Create;False;0;0;0;True;0;False;1;1;1;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;879;-3136,-4864;Half;False;Property;_HeightFogGlobal;_HeightFogGlobal;46;1;[HideInInspector];Create;False;0;0;0;True;0;False;1;1;1;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;892;-3328,-4864;Half;False;Property;_Banner;[ Banner ];48;0;Create;True;0;0;0;True;1;StyledBanner(Height Fog Global);False;1;1;1;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;885;-2912,-4864;Half;False;Property;_IsHeightFogShader;_IsHeightFogShader;51;1;[HideInInspector];Create;False;0;0;0;True;0;False;1;1;1;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;879;-3136,-4864;Half;False;Property;_HeightFogGlobal;_HeightFogGlobal;50;1;[HideInInspector];Create;False;0;0;0;True;0;False;1;1;1;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;892;-3328,-4864;Half;False;Property;_Banner;[ Banner ];52;0;Create;True;0;0;0;True;1;StyledBanner(Height Fog Global);False;1;1;1;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;383;-3072,-4608;Float;False;True;-1;2;HeightFogShaderGUI;0;5;Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global;0770190933193b94aaa3065e307002fa;True;Unlit;0;0;Unlit;2;False;True;2;5;False;;10;False;;0;5;False;;10;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;1;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;True;True;True;222;False;;255;False;;255;False;;6;False;;2;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;2;False;;True;7;False;;True;False;0;False;;1000;False;;True;2;RenderType=Overlay=RenderType;Queue=Overlay=Queue=0;True;2;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;0;0;1;True;False;;False;0
 Node;AmplifyShaderEditor.CommentaryNode;880;-3328,-4992;Inherit;False;919.8825;100;Drawers;0;;1,0.475862,0,1;0;0
-Node;AmplifyShaderEditor.FunctionNode;1178;-3328,-4608;Inherit;False;Base;0;;1;13c50910e5b86de4097e1181ba121e0e;36,360,0,380,0,372,0,384,0,476,0,450,0,370,0,376,0,374,0,386,0,555,0,557,0,388,0,550,0,368,0,378,0,382,0,347,0,351,0,339,0,392,0,355,0,116,1,364,0,361,0,597,0,343,0,354,0,99,1,500,0,603,1,681,0,345,0,685,0,349,0,366,0;0;3;FLOAT4;113;FLOAT3;86;FLOAT;87
-WireConnection;383;0;1178;113
+Node;AmplifyShaderEditor.FunctionNode;1286;-3328,-4608;Inherit;False;Base;0;;1;13c50910e5b86de4097e1181ba121e0e;36,360,0,372,0,384,0,476,0,450,0,370,0,374,0,380,0,378,0,555,0,557,0,388,0,550,0,368,0,349,0,386,0,376,0,382,0,347,0,339,0,392,0,355,0,364,0,361,0,597,0,343,0,354,0,99,1,500,0,603,1,681,0,345,0,685,0,351,0,366,0,116,1;0;3;FLOAT4;113;FLOAT3;86;FLOAT;87
+WireConnection;383;0;1286;113
 ASEEND*/
-//CHKSM=F9470B86EFFDE05DA211A1A453571580EFC448F6
+//CHKSM=43DE05EDCE78438D8F5D808AB0F6DD2F95BD6007
