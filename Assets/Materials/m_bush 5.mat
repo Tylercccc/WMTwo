@@ -278,6 +278,7 @@ Material:
     - _DirectionalLightAttenuationBoost: 1
     - _DirtNormalDiv: 1.2
     - _DisplacementSize: 6
+    - _DissolveEdgeGlow: 0.05
     - _DissolveSteps: 3
     - _DivisionScale: 1
     - _DivisionScale1: 500
@@ -366,7 +367,7 @@ Material:
     - _WindJitter: 0.682
     - _WindNoiseScale: 0.2
     - _WindScroll: 1
-    - _WorldDissolve: 3
+    - _WorldDissolve: 0.8240323
     - __dirty: 0
     - _adsasdasdasd: 0.42
     - _asdasdsad: 1.57
