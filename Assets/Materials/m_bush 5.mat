@@ -367,7 +367,7 @@ Material:
     - _WindJitter: 0.682
     - _WindNoiseScale: 0.2
     - _WindScroll: 1
-    - _WorldDissolve: 0.8240323
+    - _WorldDissolve: 5.4
     - __dirty: 0
     - _adsasdasdasd: 0.42
     - _asdasdsad: 1.57
