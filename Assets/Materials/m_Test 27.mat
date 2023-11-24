@@ -93,6 +93,7 @@ Material:
     m_Floats:
     - _Band2Mult: 0.005
     - _DirectionalLightAttenuationBoost: 1
+    - _DitherMidRange: 0
     - _EdgeSize: 0
     - _FadeMidRange: 1
     - _Float0: 0
@@ -124,7 +125,7 @@ Material:
     - _StepShadows1: 0
     - _StepWidth: 0.37
     - _Steps: 1
-    - __dirty: 0
+    - __dirty: 1
     - _fractmult: 1.21
     - _frequency: 8.57
     - _max: 1.5

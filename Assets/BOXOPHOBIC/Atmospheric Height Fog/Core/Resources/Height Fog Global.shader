@@ -5,6 +5,8 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 	Properties
 	{
 		[StyledCategory(Fog Settings, false, _HeightFogStandalone, 10, 10)]_FogCat("[ Fog Cat]", Float) = 1
+		[IntRange]_Steps1("Steps", Range( 1 , 10)) = 5
+		_PointLightAttenuationBoost1("PointLight Attenuation Boost", Range( 1 , 10)) = 1
 		[StyledCategory(Skybox Settings, false, _HeightFogStandalone, 10, 10)]_SkyboxCat("[ Skybox Cat ]", Float) = 1
 		[StyledCategory(Directional Settings, false, _HeightFogStandalone, 10, 10)]_DirectionalCat("[ Directional Cat ]", Float) = 1
 		[StyledCategory(Noise Settings, false, _HeightFogStandalone, 10, 10)]_NoiseCat("[ Noise Cat ]", Float) = 1
@@ -115,6 +117,8 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 			uniform float AHF_FarDistanceOffset;
 			uniform half AHF_FogHeightStart;
 			uniform half AHF_FogHeightFalloff;
+			uniform float _PointLightAttenuationBoost1;
+			uniform float _Steps1;
 			uniform half AHF_FogLayersMode;
 			uniform half AHF_FogIntensity;
 			uniform half AHF_SkyboxFogOffset;
@@ -162,14 +166,14 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 				return UV;
 			}
 			
-					float2 voronoihash737_g1152( float2 p )
+					float2 voronoihash737_g1092( float2 p )
 					{
 						p = p - 1 * floor( p / 1 );
 						p = float2( dot( p, float2( 127.1, 311.7 ) ), dot( p, float2( 269.5, 183.3 ) ) );
 						return frac( sin( p ) *43758.5453);
 					}
 			
-					float voronoi737_g1152( float2 v, float time, inout float2 id, inout float2 mr, float smoothness, inout float2 smoothId )
+					float voronoi737_g1092( float2 v, float time, inout float2 id, inout float2 mr, float smoothness, inout float2 smoothId )
 					{
 						float2 n = floor( v );
 						float2 f = frac( v );
@@ -180,7 +184,7 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 							for ( int i = -1; i <= 1; i++ )
 						 	{
 						 		float2 g = float2( i, j );
-						 		float2 o = voronoihash737_g1152( n + g );
+						 		float2 o = voronoihash737_g1092( n + g );
 								o = ( sin( time + o * 6.2831 ) * 0.5 + 0.5 ); float2 r = f - g - o;
 								float d = 0.707 * sqrt(dot( r, r ));
 						 //		if( d<F1 ) {
@@ -241,162 +245,167 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 				float4 screenPos = i.ase_texcoord1;
 				float4 ase_screenPosNorm = screenPos / screenPos.w;
 				ase_screenPosNorm.z = ( UNITY_NEAR_CLIP_VALUE >= 0 ) ? ase_screenPosNorm.z : ase_screenPosNorm.z * 0.5 + 0.5;
-				float2 UV235_g1152 = ase_screenPosNorm.xy;
-				float2 localUnStereo235_g1152 = UnStereo( UV235_g1152 );
-				float2 break248_g1152 = localUnStereo235_g1152;
-				float clampDepth227_g1152 = SAMPLE_DEPTH_TEXTURE( _CameraDepthTexture, ase_screenPosNorm.xy );
+				float2 UV235_g1092 = ase_screenPosNorm.xy;
+				float2 localUnStereo235_g1092 = UnStereo( UV235_g1092 );
+				float2 break248_g1092 = localUnStereo235_g1092;
+				float clampDepth227_g1092 = SAMPLE_DEPTH_TEXTURE( _CameraDepthTexture, ase_screenPosNorm.xy );
 				#ifdef UNITY_REVERSED_Z
-				float staticSwitch250_g1152 = ( 1.0 - clampDepth227_g1152 );
+				float staticSwitch250_g1092 = ( 1.0 - clampDepth227_g1092 );
 				#else
-				float staticSwitch250_g1152 = clampDepth227_g1152;
+				float staticSwitch250_g1092 = clampDepth227_g1092;
 				#endif
-				float3 appendResult244_g1152 = (float3(break248_g1152.x , break248_g1152.y , staticSwitch250_g1152));
-				float4 appendResult220_g1152 = (float4((appendResult244_g1152*2.0 + -1.0) , 1.0));
-				float4 break229_g1152 = mul( unity_CameraInvProjection, appendResult220_g1152 );
-				float3 appendResult237_g1152 = (float3(break229_g1152.x , break229_g1152.y , break229_g1152.z));
-				float4 appendResult233_g1152 = (float4(( ( appendResult237_g1152 / break229_g1152.w ) * half3(1,1,-1) ) , 1.0));
-				float4 break245_g1152 = mul( unity_CameraToWorld, appendResult233_g1152 );
-				float3 appendResult239_g1152 = (float3(break245_g1152.x , break245_g1152.y , break245_g1152.z));
-				half3 WorldPosFromDepth_Birp566_g1152 = appendResult239_g1152;
-				half3 WorldPosFromDepth253_g1152 = WorldPosFromDepth_Birp566_g1152;
-				float3 WorldPosition2_g1152 = WorldPosFromDepth253_g1152;
-				float temp_output_7_0_g1154 = AHF_FogDistanceStart;
-				float temp_output_155_0_g1152 = saturate( ( ( distance( WorldPosition2_g1152 , _WorldSpaceCameraPos ) - temp_output_7_0_g1154 ) / ( AHF_FogDistanceEnd - temp_output_7_0_g1154 ) ) );
-				float temp_output_548_0_g1152 = ( 1.0 - pow( ( 1.0 - abs( temp_output_155_0_g1152 ) ) , AHF_FogDistanceFalloff ) );
+				float3 appendResult244_g1092 = (float3(break248_g1092.x , break248_g1092.y , staticSwitch250_g1092));
+				float4 appendResult220_g1092 = (float4((appendResult244_g1092*2.0 + -1.0) , 1.0));
+				float4 break229_g1092 = mul( unity_CameraInvProjection, appendResult220_g1092 );
+				float3 appendResult237_g1092 = (float3(break229_g1092.x , break229_g1092.y , break229_g1092.z));
+				float4 appendResult233_g1092 = (float4(( ( appendResult237_g1092 / break229_g1092.w ) * half3(1,1,-1) ) , 1.0));
+				float4 break245_g1092 = mul( unity_CameraToWorld, appendResult233_g1092 );
+				float3 appendResult239_g1092 = (float3(break245_g1092.x , break245_g1092.y , break245_g1092.z));
+				half3 WorldPosFromDepth_Birp566_g1092 = appendResult239_g1092;
+				half3 WorldPosFromDepth253_g1092 = WorldPosFromDepth_Birp566_g1092;
+				float3 WorldPosition2_g1092 = WorldPosFromDepth253_g1092;
+				float temp_output_7_0_g1094 = AHF_FogDistanceStart;
+				float temp_output_155_0_g1092 = saturate( ( ( distance( WorldPosition2_g1092 , _WorldSpaceCameraPos ) - temp_output_7_0_g1094 ) / ( AHF_FogDistanceEnd - temp_output_7_0_g1094 ) ) );
+				float temp_output_548_0_g1092 = ( 1.0 - pow( ( 1.0 - abs( temp_output_155_0_g1092 ) ) , AHF_FogDistanceFalloff ) );
 				#ifdef AHF_DISABLE_FALLOFF
-				float staticSwitch467_g1152 = temp_output_155_0_g1152;
+				float staticSwitch467_g1092 = temp_output_155_0_g1092;
 				#else
-				float staticSwitch467_g1152 = temp_output_548_0_g1152;
+				float staticSwitch467_g1092 = temp_output_548_0_g1092;
 				#endif
-				half FogDistanceMask12_g1152 = staticSwitch467_g1152;
-				float temp_output_305_0_g1152 = ( ( FogDistanceMask12_g1152 * FogDistanceMask12_g1152 * FogDistanceMask12_g1152 ) * AHF_FogColorDuo );
-				float mulTime204_g1152 = _Time.y * 2.0;
-				float3 temp_output_197_0_g1152 = ( ( WorldPosition2_g1152 * ( 1.0 / AHF_NoiseScale ) ) + ( -AHF_NoiseSpeed * mulTime204_g1152 ) );
-				float3 p1_g1159 = temp_output_197_0_g1152;
-				float localSimpleNoise3D1_g1159 = SimpleNoise3D( p1_g1159 );
-				float temp_output_7_0_g1158 = AHF_NoiseMin;
-				float temp_output_553_0_g1152 = saturate( ( ( localSimpleNoise3D1_g1159 - temp_output_7_0_g1158 ) / ( AHF_NoiseMax - temp_output_7_0_g1158 ) ) );
-				float temp_output_7_0_g1161 = AHF_NoiseDistanceEnd;
-				float temp_output_187_0_g1152 = ( ( distance( WorldPosition2_g1152 , _WorldSpaceCameraPos ) - temp_output_7_0_g1161 ) / ( 0.0 - temp_output_7_0_g1161 ) );
-				half NoiseDistanceMask7_g1152 = saturate( temp_output_187_0_g1152 );
-				float temp_output_203_0_g1152 = ( NoiseDistanceMask7_g1152 * AHF_NoiseIntensity );
-				float lerpResult856_g1152 = lerp( 1.0 , temp_output_553_0_g1152 , temp_output_203_0_g1152);
-				float soft3DNoise857_g1152 = lerpResult856_g1152;
-				float3 lerpResult258_g1152 = lerp( (AHF_FogColorStart).rgb , (AHF_FogColorEnd).rgb , ( floor( ( ( temp_output_305_0_g1152 * soft3DNoise857_g1152 ) * 12.0 ) ) / 12.0 ));
-				float3 normalizeResult318_g1152 = normalize( ( WorldPosition2_g1152 - _WorldSpaceCameraPos ) );
-				float dotResult145_g1152 = dot( normalizeResult318_g1152 , AHF_DirectionalDir );
-				float4 ScreenPos3_g1160 = screenPos;
-				float2 UV13_g1160 = ( ( (ScreenPos3_g1160).xy / (ScreenPos3_g1160).z ) * (_ScreenParams).xy );
-				float3 Magic14_g1160 = float3(0.06711056,0.00583715,52.98292);
-				float dotResult16_g1160 = dot( UV13_g1160 , (Magic14_g1160).xy );
-				float lerpResult494_g1152 = lerp( 0.0 , frac( ( frac( dotResult16_g1160 ) * (Magic14_g1160).z ) ) , ( AHF_JitterIntensity * 0.1 ));
-				half Jitter502_g1152 = lerpResult494_g1152;
-				float temp_output_140_0_g1152 = ( saturate( (( dotResult145_g1152 + Jitter502_g1152 )*0.5 + 0.5) ) * AHF_DirectionalIntensity );
+				half FogDistanceMask12_g1092 = staticSwitch467_g1092;
+				float temp_output_305_0_g1092 = ( ( FogDistanceMask12_g1092 * FogDistanceMask12_g1092 * FogDistanceMask12_g1092 ) * AHF_FogColorDuo );
+				float mulTime204_g1092 = _Time.y * 2.0;
+				float3 temp_output_197_0_g1092 = ( ( WorldPosition2_g1092 * ( 1.0 / AHF_NoiseScale ) ) + ( -AHF_NoiseSpeed * mulTime204_g1092 ) );
+				float3 p1_g1099 = temp_output_197_0_g1092;
+				float localSimpleNoise3D1_g1099 = SimpleNoise3D( p1_g1099 );
+				float temp_output_7_0_g1098 = AHF_NoiseMin;
+				float temp_output_553_0_g1092 = saturate( ( ( localSimpleNoise3D1_g1099 - temp_output_7_0_g1098 ) / ( AHF_NoiseMax - temp_output_7_0_g1098 ) ) );
+				float temp_output_7_0_g1101 = AHF_NoiseDistanceEnd;
+				float temp_output_187_0_g1092 = ( ( distance( WorldPosition2_g1092 , _WorldSpaceCameraPos ) - temp_output_7_0_g1101 ) / ( 0.0 - temp_output_7_0_g1101 ) );
+				half NoiseDistanceMask7_g1092 = saturate( temp_output_187_0_g1092 );
+				float temp_output_203_0_g1092 = ( NoiseDistanceMask7_g1092 * AHF_NoiseIntensity );
+				float lerpResult856_g1092 = lerp( 1.0 , temp_output_553_0_g1092 , temp_output_203_0_g1092);
+				float soft3DNoise857_g1092 = lerpResult856_g1092;
+				float3 lerpResult258_g1092 = lerp( (AHF_FogColorStart).rgb , (AHF_FogColorEnd).rgb , ( floor( ( ( temp_output_305_0_g1092 * soft3DNoise857_g1092 ) * 12.0 ) ) / 12.0 ));
+				float3 normalizeResult318_g1092 = normalize( ( WorldPosition2_g1092 - _WorldSpaceCameraPos ) );
+				float dotResult145_g1092 = dot( normalizeResult318_g1092 , AHF_DirectionalDir );
+				float4 ScreenPos3_g1100 = screenPos;
+				float2 UV13_g1100 = ( ( (ScreenPos3_g1100).xy / (ScreenPos3_g1100).z ) * (_ScreenParams).xy );
+				float3 Magic14_g1100 = float3(0.06711056,0.00583715,52.98292);
+				float dotResult16_g1100 = dot( UV13_g1100 , (Magic14_g1100).xy );
+				float lerpResult494_g1092 = lerp( 0.0 , frac( ( frac( dotResult16_g1100 ) * (Magic14_g1100).z ) ) , ( AHF_JitterIntensity * 0.1 ));
+				half Jitter502_g1092 = lerpResult494_g1092;
+				float temp_output_140_0_g1092 = ( saturate( (( dotResult145_g1092 + Jitter502_g1092 )*0.5 + 0.5) ) * AHF_DirectionalIntensity );
 				#ifdef AHF_DISABLE_FALLOFF
-				float staticSwitch470_g1152 = temp_output_140_0_g1152;
+				float staticSwitch470_g1092 = temp_output_140_0_g1092;
 				#else
-				float staticSwitch470_g1152 = pow( abs( temp_output_140_0_g1152 ) , AHF_DirectionalFalloff );
+				float staticSwitch470_g1092 = pow( abs( temp_output_140_0_g1092 ) , AHF_DirectionalFalloff );
 				#endif
-				float DirectionalMask30_g1152 = staticSwitch470_g1152;
-				float3 lerpResult40_g1152 = lerp( lerpResult258_g1152 , (AHF_DirectionalColor).rgb , DirectionalMask30_g1152);
+				float DirectionalMask30_g1092 = staticSwitch470_g1092;
+				float3 lerpResult40_g1092 = lerp( lerpResult258_g1092 , (AHF_DirectionalColor).rgb , DirectionalMask30_g1092);
 				#ifdef AHF_DISABLE_DIRECTIONAL
-				float3 staticSwitch442_g1152 = lerpResult258_g1152;
+				float3 staticSwitch442_g1092 = lerpResult258_g1092;
 				#else
-				float3 staticSwitch442_g1152 = lerpResult40_g1152;
+				float3 staticSwitch442_g1092 = lerpResult40_g1092;
 				#endif
-				half3 Input_Color6_g1153 = staticSwitch442_g1152;
+				half3 Input_Color6_g1093 = staticSwitch442_g1092;
 				#ifdef UNITY_COLORSPACE_GAMMA
-				float3 staticSwitch1_g1153 = Input_Color6_g1153;
+				float3 staticSwitch1_g1093 = Input_Color6_g1093;
 				#else
-				float3 staticSwitch1_g1153 = ( Input_Color6_g1153 * ( ( Input_Color6_g1153 * ( ( Input_Color6_g1153 * 0.305306 ) + 0.6821711 ) ) + 0.01252288 ) );
+				float3 staticSwitch1_g1093 = ( Input_Color6_g1093 * ( ( Input_Color6_g1093 * ( ( Input_Color6_g1093 * 0.305306 ) + 0.6821711 ) ) + 0.01252288 ) );
 				#endif
-				half3 Final_Color462_g1152 = staticSwitch1_g1153;
-				half3 AHF_FogAxisOption181_g1152 = AHF_FogAxisOption;
-				float3 break159_g1152 = ( WorldPosition2_g1152 * AHF_FogAxisOption181_g1152 );
-				float temp_output_7_0_g1155 = AHF_FogDistanceEnd;
-				float temp_output_643_0_g1152 = saturate( ( ( distance( WorldPosition2_g1152 , _WorldSpaceCameraPos ) - temp_output_7_0_g1155 ) / ( ( AHF_FogDistanceEnd + AHF_FarDistanceOffset ) - temp_output_7_0_g1155 ) ) );
-				float temp_output_677_0_g1152 = ( temp_output_643_0_g1152 * temp_output_643_0_g1152 );
-				half FogDistanceMaskFar645_g1152 = temp_output_677_0_g1152;
-				float lerpResult690_g1152 = lerp( AHF_FogHeightEnd , ( AHF_FogHeightEnd + AHF_FarDistanceHeight ) , FogDistanceMaskFar645_g1152);
-				float temp_output_7_0_g1156 = lerpResult690_g1152;
-				float temp_output_167_0_g1152 = saturate( ( ( ( break159_g1152.x + break159_g1152.y + break159_g1152.z ) - temp_output_7_0_g1156 ) / ( AHF_FogHeightStart - temp_output_7_0_g1156 ) ) );
+				float3 temp_output_256_0_g1092 = staticSwitch1_g1093;
+				half3 Final_Color462_g1092 = temp_output_256_0_g1092;
+				half3 AHF_FogAxisOption181_g1092 = AHF_FogAxisOption;
+				float3 break159_g1092 = ( WorldPosition2_g1092 * AHF_FogAxisOption181_g1092 );
+				float temp_output_7_0_g1095 = AHF_FogDistanceEnd;
+				float temp_output_643_0_g1092 = saturate( ( ( distance( WorldPosition2_g1092 , _WorldSpaceCameraPos ) - temp_output_7_0_g1095 ) / ( ( AHF_FogDistanceEnd + AHF_FarDistanceOffset ) - temp_output_7_0_g1095 ) ) );
+				float temp_output_677_0_g1092 = ( temp_output_643_0_g1092 * temp_output_643_0_g1092 );
+				half FogDistanceMaskFar645_g1092 = temp_output_677_0_g1092;
+				float lerpResult690_g1092 = lerp( AHF_FogHeightEnd , ( AHF_FogHeightEnd + AHF_FarDistanceHeight ) , FogDistanceMaskFar645_g1092);
+				float temp_output_7_0_g1096 = lerpResult690_g1092;
+				float temp_output_167_0_g1092 = saturate( ( ( ( break159_g1092.x + break159_g1092.y + break159_g1092.z ) - temp_output_7_0_g1096 ) / ( AHF_FogHeightStart - temp_output_7_0_g1096 ) ) );
 				#ifdef AHF_DISABLE_FALLOFF
-				float staticSwitch468_g1152 = temp_output_167_0_g1152;
+				float staticSwitch468_g1092 = temp_output_167_0_g1092;
 				#else
-				float staticSwitch468_g1152 = pow( abs( temp_output_167_0_g1152 ) , AHF_FogHeightFalloff );
+				float staticSwitch468_g1092 = pow( abs( temp_output_167_0_g1092 ) , AHF_FogHeightFalloff );
 				#endif
-				half FogHeightMask16_g1152 = staticSwitch468_g1152;
-				float lerpResult328_g1152 = lerp( ( FogDistanceMask12_g1152 * FogHeightMask16_g1152 ) , saturate( ( FogDistanceMask12_g1152 + FogHeightMask16_g1152 ) ) , AHF_FogLayersMode);
-				float lerpResult198_g1152 = lerp( 1.0 , temp_output_553_0_g1152 , temp_output_203_0_g1152);
-				half NoiseSimplex3D24_g1152 = lerpResult198_g1152;
+				float IsPointLight872_g1092 = _WorldSpaceLightPos0.w;
+				float temp_output_909_0_g1092 = ( floor( ( saturate( ( ( _PointLightAttenuationBoost1 * IsPointLight872_g1092 ) * 0.3 ) ) * _Steps1 ) ) / _Steps1 );
+				half FogHeightMask16_g1092 = ( staticSwitch468_g1092 - temp_output_909_0_g1092 );
+				float lerpResult328_g1092 = lerp( ( FogDistanceMask12_g1092 * FogHeightMask16_g1092 ) , saturate( ( FogDistanceMask12_g1092 + FogHeightMask16_g1092 ) ) , AHF_FogLayersMode);
+				float lerpResult198_g1092 = lerp( 1.0 , temp_output_553_0_g1092 , temp_output_203_0_g1092);
+				half NoiseSimplex3D24_g1092 = lerpResult198_g1092;
 				#ifdef AHF_DISABLE_NOISE3D
-				float staticSwitch42_g1152 = lerpResult328_g1152;
+				float staticSwitch42_g1092 = lerpResult328_g1092;
 				#else
-				float staticSwitch42_g1152 = ( lerpResult328_g1152 * NoiseSimplex3D24_g1152 );
+				float staticSwitch42_g1092 = ( lerpResult328_g1092 * NoiseSimplex3D24_g1092 );
 				#endif
-				float temp_output_454_0_g1152 = ( staticSwitch42_g1152 * AHF_FogIntensity );
-				float4 temp_cast_1 = (temp_output_454_0_g1152).xxxx;
-				float3 normalizeResult169_g1152 = normalize( ( WorldPosition2_g1152 - _WorldSpaceCameraPos ) );
-				float3 break170_g1152 = ( normalizeResult169_g1152 * AHF_FogAxisOption181_g1152 );
-				float temp_output_449_0_g1152 = ( ( break170_g1152.x + break170_g1152.y + break170_g1152.z ) + -AHF_SkyboxFogOffset );
-				float temp_output_7_0_g1157 = AHF_SkyboxFogHeight;
-				float temp_output_176_0_g1152 = saturate( ( ( abs( temp_output_449_0_g1152 ) - temp_output_7_0_g1157 ) / ( 0.0 - temp_output_7_0_g1157 ) ) );
-				float saferPower309_g1152 = abs( temp_output_176_0_g1152 );
+				float temp_output_454_0_g1092 = ( staticSwitch42_g1092 * AHF_FogIntensity );
+				float4 temp_cast_1 = (temp_output_454_0_g1092).xxxx;
+				float3 normalizeResult169_g1092 = normalize( ( WorldPosition2_g1092 - _WorldSpaceCameraPos ) );
+				float3 break170_g1092 = ( normalizeResult169_g1092 * AHF_FogAxisOption181_g1092 );
+				float temp_output_449_0_g1092 = ( ( break170_g1092.x + break170_g1092.y + break170_g1092.z ) + -AHF_SkyboxFogOffset );
+				float temp_output_7_0_g1097 = AHF_SkyboxFogHeight;
+				float temp_output_176_0_g1092 = saturate( ( ( abs( temp_output_449_0_g1092 ) - temp_output_7_0_g1097 ) / ( 0.0 - temp_output_7_0_g1097 ) ) );
+				float saferPower309_g1092 = abs( temp_output_176_0_g1092 );
 				#ifdef AHF_DISABLE_FALLOFF
-				float staticSwitch469_g1152 = temp_output_176_0_g1152;
+				float staticSwitch469_g1092 = temp_output_176_0_g1092;
 				#else
-				float staticSwitch469_g1152 = pow( saferPower309_g1152 , AHF_SkyboxFogFalloff );
+				float staticSwitch469_g1092 = pow( saferPower309_g1092 , AHF_SkyboxFogFalloff );
 				#endif
-				float lerpResult179_g1152 = lerp( saturate( ( staticSwitch469_g1152 + ( AHF_SkyboxFogBottom * step( temp_output_449_0_g1152 , 0.0 ) ) ) ) , 1.0 , AHF_SkyboxFogFill);
-				float temp_output_326_0_g1152 = ( lerpResult179_g1152 * AHF_SkyboxFogIntensity );
-				float2 texCoord739_g1152 = i.ase_texcoord2.xy * float2( 30,30 ) + float2( 0,0 );
-				float time737_g1152 = 1.0;
-				float2 voronoiSmoothId737_g1152 = 0;
-				float voronoiSmooth737_g1152 = 0.0;
-				float2 texCoord734_g1152 = i.ase_texcoord2.xy * float2( 40,40 ) + float2( 0,0 );
-				float2 panner735_g1152 = ( 0.2 * _Time.y * float2( 0.005,0 ) + texCoord734_g1152);
-				float2 coords737_g1152 = panner735_g1152 * 0.1;
-				float2 id737_g1152 = 0;
-				float2 uv737_g1152 = 0;
-				float fade737_g1152 = 0.5;
-				float voroi737_g1152 = 0;
-				float rest737_g1152 = 0;
-				for( int it737_g1152 = 0; it737_g1152 <4; it737_g1152++ ){
-				voroi737_g1152 += fade737_g1152 * voronoi737_g1152( coords737_g1152, time737_g1152, id737_g1152, uv737_g1152, voronoiSmooth737_g1152,voronoiSmoothId737_g1152 );
-				rest737_g1152 += fade737_g1152;
-				coords737_g1152 *= 2;
-				fade737_g1152 *= 0.5;
-				}//Voronoi737_g1152
-				voroi737_g1152 /= rest737_g1152;
-				float2 texCoord826_g1152 = i.ase_texcoord2.xy * float2( 3,3 ) + float2( 0,0 );
-				float2 panner825_g1152 = ( 0.6 * _Time.y * float2( 0.01,0.01 ) + texCoord826_g1152);
-				float4 temp_output_738_0_g1152 = ( tex2D( _TextureSample0, texCoord739_g1152 ) * voroi737_g1152 * tex2D( _TextureSample1, panner825_g1152 ) );
-				half4 SkyboxFogHeightMask108_g1152 = saturate( ( floor( ( ( temp_output_326_0_g1152 / temp_output_738_0_g1152 ) * 3.0 ) ) / 3.0 ) );
-				float clampDepth118_g1152 = SAMPLE_DEPTH_TEXTURE( _CameraDepthTexture, ase_screenPosNorm.xy );
+				float lerpResult179_g1092 = lerp( saturate( ( staticSwitch469_g1092 + ( AHF_SkyboxFogBottom * step( temp_output_449_0_g1092 , 0.0 ) ) ) ) , 1.0 , AHF_SkyboxFogFill);
+				float temp_output_326_0_g1092 = ( lerpResult179_g1092 * AHF_SkyboxFogIntensity );
+				float2 texCoord739_g1092 = i.ase_texcoord2.xy * float2( 30,30 ) + float2( 0,0 );
+				float time737_g1092 = 1.0;
+				float2 voronoiSmoothId737_g1092 = 0;
+				float voronoiSmooth737_g1092 = 0.0;
+				float2 texCoord734_g1092 = i.ase_texcoord2.xy * float2( 40,40 ) + float2( 0,0 );
+				float2 panner735_g1092 = ( 0.2 * _Time.y * float2( 0.005,0 ) + texCoord734_g1092);
+				float2 coords737_g1092 = panner735_g1092 * 0.1;
+				float2 id737_g1092 = 0;
+				float2 uv737_g1092 = 0;
+				float fade737_g1092 = 0.5;
+				float voroi737_g1092 = 0;
+				float rest737_g1092 = 0;
+				for( int it737_g1092 = 0; it737_g1092 <4; it737_g1092++ ){
+				voroi737_g1092 += fade737_g1092 * voronoi737_g1092( coords737_g1092, time737_g1092, id737_g1092, uv737_g1092, voronoiSmooth737_g1092,voronoiSmoothId737_g1092 );
+				rest737_g1092 += fade737_g1092;
+				coords737_g1092 *= 2;
+				fade737_g1092 *= 0.5;
+				}//Voronoi737_g1092
+				voroi737_g1092 /= rest737_g1092;
+				float2 texCoord826_g1092 = i.ase_texcoord2.xy * float2( 3,3 ) + float2( 0,0 );
+				float2 panner825_g1092 = ( 0.6 * _Time.y * float2( 0.01,0.01 ) + texCoord826_g1092);
+				float4 temp_output_738_0_g1092 = ( tex2D( _TextureSample0, texCoord739_g1092 ) * voroi737_g1092 * tex2D( _TextureSample1, panner825_g1092 ) );
+				half4 SkyboxFogHeightMask108_g1092 = saturate( ( floor( ( ( temp_output_326_0_g1092 / temp_output_738_0_g1092 ) * 3.0 ) ) / 3.0 ) );
+				float clampDepth118_g1092 = SAMPLE_DEPTH_TEXTURE( _CameraDepthTexture, ase_screenPosNorm.xy );
 				#ifdef UNITY_REVERSED_Z
-				float staticSwitch123_g1152 = clampDepth118_g1152;
+				float staticSwitch123_g1092 = clampDepth118_g1092;
 				#else
-				float staticSwitch123_g1152 = ( 1.0 - clampDepth118_g1152 );
+				float staticSwitch123_g1092 = ( 1.0 - clampDepth118_g1092 );
 				#endif
-				half SkyboxFogMask95_g1152 = ( 1.0 - ceil( staticSwitch123_g1152 ) );
-				float4 lerpResult112_g1152 = lerp( temp_cast_1 , SkyboxFogHeightMask108_g1152 , SkyboxFogMask95_g1152);
-				float4 temp_cast_2 = (temp_output_454_0_g1152).xxxx;
+				half SkyboxFogMask95_g1092 = ( 1.0 - ceil( staticSwitch123_g1092 ) );
+				float4 lerpResult112_g1092 = lerp( temp_cast_1 , SkyboxFogHeightMask108_g1092 , SkyboxFogMask95_g1092);
+				float4 temp_cast_2 = (temp_output_454_0_g1092).xxxx;
 				#ifdef AHF_DISABLE_SKYBOXFOG
-				float4 staticSwitch455_g1152 = temp_cast_2;
+				float4 staticSwitch455_g1092 = temp_cast_2;
 				#else
-				float4 staticSwitch455_g1152 = lerpResult112_g1152;
+				float4 staticSwitch455_g1092 = lerpResult112_g1092;
 				#endif
-				half4 Final_Alpha463_g1152 = ( floor( ( staticSwitch455_g1152 * 12.0 ) ) / 12.0 );
-				float4 appendResult114_g1152 = (float4(Final_Color462_g1152 , Final_Alpha463_g1152.r));
-				float4 appendResult457_g1152 = (float4(WorldPosition2_g1152 , 1.0));
+				float4 temp_output_755_0_g1092 = ( floor( ( staticSwitch455_g1092 * 12.0 ) ) / 12.0 );
+				float4 lerpResult891_g1092 = lerp( temp_output_755_0_g1092 , float4( 1,0,0,0 ) , staticSwitch455_g1092);
+				half4 Final_Alpha463_g1092 = lerpResult891_g1092;
+				float4 appendResult114_g1092 = (float4(Final_Color462_g1092 , Final_Alpha463_g1092.r));
+				float4 appendResult457_g1092 = (float4(WorldPosition2_g1092 , 1.0));
 				#ifdef AHF_DEBUG_WORLDPOS
-				float4 staticSwitch456_g1152 = appendResult457_g1152;
+				float4 staticSwitch456_g1092 = appendResult457_g1092;
 				#else
-				float4 staticSwitch456_g1152 = appendResult114_g1152;
+				float4 staticSwitch456_g1092 = appendResult114_g1092;
 				#endif
 				
 				
-				finalColor = staticSwitch456_g1152;
+				finalColor = staticSwitch456_g1092;
 				return finalColor;
 			}
 			ENDCG
@@ -408,12 +417,12 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 }
 /*ASEBEGIN
 Version=19108
-Node;AmplifyShaderEditor.RangedFloatNode;885;-2912,-4864;Half;False;Property;_IsHeightFogShader;_IsHeightFogShader;53;1;[HideInInspector];Create;False;0;0;0;True;0;False;1;1;1;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;879;-3136,-4864;Half;False;Property;_HeightFogGlobal;_HeightFogGlobal;52;1;[HideInInspector];Create;False;0;0;0;True;0;False;1;1;1;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;892;-3328,-4864;Half;False;Property;_Banner;[ Banner ];54;0;Create;True;0;0;0;True;1;StyledBanner(Height Fog Global);False;1;1;1;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;885;-2912,-4864;Half;False;Property;_IsHeightFogShader;_IsHeightFogShader;58;1;[HideInInspector];Create;False;0;0;0;True;0;False;1;1;1;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;879;-3136,-4864;Half;False;Property;_HeightFogGlobal;_HeightFogGlobal;57;1;[HideInInspector];Create;False;0;0;0;True;0;False;1;1;1;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;892;-3328,-4864;Half;False;Property;_Banner;[ Banner ];59;0;Create;True;0;0;0;True;1;StyledBanner(Height Fog Global);False;1;1;1;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;383;-3072,-4608;Float;False;True;-1;2;HeightFogShaderGUI;0;5;Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global;0770190933193b94aaa3065e307002fa;True;Unlit;0;0;Unlit;2;False;True;2;5;False;;10;False;;0;5;False;;10;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;1;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;True;True;True;222;False;;255;False;;255;False;;6;False;;2;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;2;False;;True;7;False;;True;False;0;False;;1000;False;;True;2;RenderType=Overlay=RenderType;Queue=Overlay=Queue=0;True;2;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;0;0;1;True;False;;False;0
 Node;AmplifyShaderEditor.CommentaryNode;880;-3328,-4992;Inherit;False;919.8825;100;Drawers;0;;1,0.475862,0,1;0;0
-Node;AmplifyShaderEditor.FunctionNode;1432;-3328,-4608;Inherit;False;Base;0;;1152;13c50910e5b86de4097e1181ba121e0e;36,360,0,384,0,476,0,450,0,370,0,374,0,378,0,372,0,386,0,557,0,388,0,550,0,368,0,349,0,366,0,555,0,380,0,376,0,347,0,339,0,392,0,355,0,364,0,361,0,597,0,343,0,354,0,99,1,500,0,603,1,681,0,345,0,685,0,351,0,116,1,382,0;0;3;FLOAT4;113;FLOAT3;86;FLOAT;87
-WireConnection;383;0;1432;113
+Node;AmplifyShaderEditor.FunctionNode;1475;-3328,-4608;Inherit;False;Base;0;;1092;13c50910e5b86de4097e1181ba121e0e;36,360,0,384,0,476,0,450,0,370,0,378,0,386,0,372,0,555,0,388,0,550,0,368,0,349,0,366,0,116,1,557,0,380,0,376,0,347,0,339,0,392,0,355,0,364,0,361,0,597,0,343,0,354,0,99,1,500,0,603,1,681,0,345,0,685,0,351,0,382,0,374,0;0;3;FLOAT4;113;FLOAT3;86;FLOAT;87
+WireConnection;383;0;1475;113
 ASEEND*/
-//CHKSM=97CA214015B114A44BD4E3261FBF2488FF959197
+//CHKSM=1A799C67F337505B3965EEF5E1AB87E758862D91
