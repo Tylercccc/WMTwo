@@ -16,10 +16,10 @@ Material:
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _OuterColorBase
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -77,8 +77,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Brightness: 0.45
     - _BumpScale: 1
     - _Cutoff: 0.5
+    - _DepthDistance: -0.14
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
@@ -92,9 +94,11 @@ Material:
     - _Noise1Speed1: -0.5
     - _Noise2Scale: 1
     - _OcclusionStrength: 1
-    - _OpacityStep: 0.403
-    - _OuterColorBlend: 0.475
+    - _OpacityStep: 0.08
+    - _OuterColorBlend: 0.667
     - _Parallax: 0.02
+    - _PremultiplyBlend: 0.18
+    - _ShadingAmount: 3.91
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
