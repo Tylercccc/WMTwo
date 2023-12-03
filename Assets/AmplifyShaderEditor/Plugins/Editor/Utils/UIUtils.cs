@@ -1221,14 +1221,18 @@ namespace AmplifyShaderEditor
 			MinusStyle.imagePosition = ImagePosition.ImageOnly;
 			MinusStyle.overflow = new RectOffset( -2 , 0 , -4 , 0 );
 
-		#if UNITY_2022_3_OR_NEWER
-			ToolbarSearchTextfield = new GUIStyle((GUIStyle)"ToolbarSearchTextField");
-			ToolbarSearchCancelButton = new GUIStyle((GUIStyle)"ToolbarSearchCancelButton");
-		#else
-			ToolbarSearchTextfield = new GUIStyle( ( GUIStyle )"ToolbarSeachTextField" );
-			ToolbarSearchCancelButton = new GUIStyle( ( GUIStyle )"ToolbarSeachCancelButton" );
-		#endif
-
+			if ( GUI.skin.FindStyle( "ToolbarSearchTextField" ) != null )
+			{
+				// @diogo: new, fixed
+				ToolbarSearchTextfield = new GUIStyle( ( GUIStyle )"ToolbarSearchTextField" );
+				ToolbarSearchCancelButton = new GUIStyle( ( GUIStyle )"ToolbarSearchCancelButton" );
+			}
+			else
+			{
+				// @diogo: old, typo
+				ToolbarSearchTextfield = new GUIStyle( ( GUIStyle )"ToolbarSeachTextField" );
+				ToolbarSearchCancelButton = new GUIStyle( ( GUIStyle )"ToolbarSeachCancelButton" );
+			}
 		}
 
 		public static void UpdateMainSkin( DrawInfo drawInfo )
@@ -2073,7 +2077,16 @@ namespace AmplifyShaderEditor
 			return originalString;
 		}
 
-		public static string RemoveShaderInvalidCharacters( string originalString )
+        public static string RemoveRegisterInvalidCharacters(string originalString)
+        {
+            for (int i = 0; i < Constants.RegisterInvalidChars.Length; i++)
+            {
+                originalString = originalString.Replace(Constants.RegisterInvalidChars[i], string.Empty);
+            }
+            return originalString;
+        }
+
+        public static string RemoveShaderInvalidCharacters( string originalString )
 		{
 			originalString = originalString.Replace( '\\' , '/' );
 			for( int i = 0 ; i < Constants.ShaderInvalidChars.Length ; i++ )
