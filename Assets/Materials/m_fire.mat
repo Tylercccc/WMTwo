@@ -12,7 +12,8 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _BILLBOARD_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -84,9 +85,13 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Float0: 0.1
+    - _Float1: 11.1
+    - _Float2: 0.53
+    - _Float3: -0.3
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _GradientHardness: 0.1
     - _InnerFlameStep: 0.431
     - _Metallic: 0
     - _Mode: 0
@@ -95,11 +100,12 @@ Material:
     - _Noise1Speed1: -0.5
     - _Noise2Scale: 1
     - _OcclusionStrength: 1
-    - _OpacityStep: 0.245
+    - _OpacityStep: 0.048
     - _OuterColorBlend: 0.667
     - _Parallax: 0.02
     - _PremultiplyBlend: 0.18
-    - _PushForward: 0
+    - _PushForward: -0.5
+    - _Scale: 1
     - _ShadingAmount: 3.91
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -108,6 +114,8 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
+    - _billboard: 1
+    - _gradientheight: -32.7
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
@@ -115,4 +123,5 @@ Material:
     - _OuterColor: {r: 1, g: 0.544676, b: 0, a: 0}
     - _OuterColorBase: {r: 1, g: 0.544676, b: 0, a: 0}
     - _OuterColorTop: {r: 1, g: 0, b: 0.6128168, a: 0}
+    - _textureScale: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
