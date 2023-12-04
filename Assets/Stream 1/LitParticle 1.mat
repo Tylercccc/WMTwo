@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LitParticle 1
+  m_Shader: {fileID: 4800000, guid: ecd48cf59b9a94acd9d533b7978d48dc, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DissolveNoise:
+        m_Texture: {fileID: 2800000, guid: 737606a54d1820743b1a2b4b990b7465, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Dither:
+        m_Texture: {fileID: 2800000, guid: 073ff050942f0429caa7fe8744145704, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: c78e565eaf65cb1428fac66341a4a8bc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SmokeGradient:
+        m_Texture: {fileID: 2800000, guid: 83f298561e2a6447cb021b6c1d0b8b42, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: 10ff51d2d87fb7b46b70b55f8551c146, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BendAmt: 1
+    - _BottomGradient: 1
+    - _BottomGradientSize: 2.17
+    - _Cutoff: 0.5
+    - _DitherMidRange: 0
+    - _Float0: 2.76
+    - _Float1: 5.08
+    - _Float2: 0.5
+    - _Float3: 2
+    - _GradientHeight: 4.01
+    - _InvFade: 1
+    - _LightGradientMidLevel: 0
+    - _LightGradientSize: 0
+    - _NormalStr: 0
+    - _NormalStrength: 0.5011627
+    - _PointLightAttenuationBoost: 1
+    - _RimPower: 1.53
+    - _RimScale: 4.45
+    - _ShadowLevel: 0.5
+    - _Steps: 3
+    - _WindDirection: 5.39
+    - _WorldFrequency: 0.458
+    - __dirty: 0
+    - _bushtimesteps: 9.2
+    - _timespeed: 8
+    m_Colors:
+    - _Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0}
+    - _ShadowColor1: {r: 0, g: 0, b: 0, a: 0}
+    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+    - _textureScale: {r: 2, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []

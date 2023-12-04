@@ -95,11 +95,11 @@ Material:
     - _Noise1Speed1: -0.5
     - _Noise2Scale: 1
     - _OcclusionStrength: 1
-    - _OpacityStep: 0.08
+    - _OpacityStep: 0.245
     - _OuterColorBlend: 0.667
     - _Parallax: 0.02
     - _PremultiplyBlend: 0.18
-    - _PushForward: -0.5
+    - _PushForward: 0
     - _ShadingAmount: 3.91
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
