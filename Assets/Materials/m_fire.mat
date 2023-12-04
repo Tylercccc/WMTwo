@@ -86,8 +86,9 @@ Material:
     - _DstBlend: 0
     - _Float0: 0.1
     - _Float1: 11.1
-    - _Float2: 0.53
-    - _Float3: -0.3
+    - _Float2: 1
+    - _Float3: 11.9
+    - _Float4: 14.02
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -116,6 +117,7 @@ Material:
     - __dirty: 0
     - _billboard: 1
     - _gradientheight: -32.7
+    - _radialSize: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
