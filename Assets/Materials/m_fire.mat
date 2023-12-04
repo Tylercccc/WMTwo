@@ -80,9 +80,10 @@ Material:
     - _Brightness: 0.45
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _DepthDistance: -0.14
+    - _DepthDistance: 0.22
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Float0: 0.1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -98,11 +99,12 @@ Material:
     - _OuterColorBlend: 0.667
     - _Parallax: 0.02
     - _PremultiplyBlend: 0.18
+    - _PushForward: -0.5
     - _ShadingAmount: 3.91
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Stepping: 7
+    - _Stepping: 3
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
@@ -112,5 +114,5 @@ Material:
     - _InnerColor: {r: 1, g: 0.96448624, b: 0, a: 0}
     - _OuterColor: {r: 1, g: 0.544676, b: 0, a: 0}
     - _OuterColorBase: {r: 1, g: 0.544676, b: 0, a: 0}
-    - _OuterColorTop: {r: 1, g: 0, b: 0.69411755, a: 0}
+    - _OuterColorTop: {r: 1, g: 0, b: 0.6128168, a: 0}
   m_BuildTextureStacks: []
